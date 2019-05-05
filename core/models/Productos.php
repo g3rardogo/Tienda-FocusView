@@ -125,14 +125,14 @@ class Productos extends Validator
 	//Metodos para el manejo del CRUD
 	public function readProductosCategoria()
 	{
-		$sql = 'SELECT nombre_categoria, id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto FROM producto INNER JOIN categoria USING(id_categoria) WHERE id_categoria = ? AND estado_producto = 1 ORDER BY nombre_producto';
+		$sql = 'SELECT nombre_categoria, id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto FROM productos INNER JOIN categorias USING(id_categoria) WHERE id_categoria = ? AND estado_producto = 1 ORDER BY nombre_producto';
 		$params = array($this->categoria);
 		return Conexion::getRows($sql, $params);
 	}
 
 	public function readProductos()
 	{
-		$sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_categoria, estado_producto FROM producto INNER JOIN categoria USING(id_categoria) ORDER BY nombre_producto';
+		$sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_categoria, estado_producto FROM productos INNER JOIN categorias USING(id_categoria) ORDER BY nombre_producto';
 		$params = array(null);
 		return Conexion::getRows($sql, $params);
 	}
@@ -146,14 +146,14 @@ class Productos extends Validator
 
 	public function readCategorias()
 	{
-		$sql = 'SELECT id_categoria, nombre_categoria, imagen_categoria, descripcion_categoria FROM categoria';
+		$sql = 'SELECT id_categoria, nombre_categoria, imagen_categoria, descripcion_categoria FROM categorias';
 		$params = array(null);
 		return Conexion::getRows($sql, $params);
 	}
 
 	public function createProducto()
 	{
-		$sql = 'INSERT INTO producto(nombre_producto, descripcion_producto, precio_producto, imagen_producto, estado_producto, id_categoria) VALUES(?, ?, ?, ?, ?, ?)';
+		$sql = 'INSERT INTO productos(nombre_producto, descripcion_producto, precio_producto, imagen_producto, estado_producto, id_categoria) VALUES(?, ?, ?, ?, ?, ?)';
 		$params = array($this->nombre, $this->descripcion, $this->precio, $this->imagen, $this->estado, $this->categoria);
 		return Conexion::executeRow($sql, $params);
 	}

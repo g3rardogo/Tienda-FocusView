@@ -13,7 +13,7 @@ function fillTable(rows)
     let content = '';
     //Se recorren las filas para armar el cuerpo de la tabla y se utiliza comilla invertida para escapar los caracteres especiales
     rows.forEach(function(row){
-        (row.estado_producto == 1) ? icon = 'visibility' : icon = 'visibility_off';
+        (row.estado_producto == 1) ? icon = '<i class="fa fa-eye"></i>' : icon = '<i class="fa fa-eye-slash"></i>';
         content += `
             <tr>
                 <td><img src="../../resources/img/productos/${row.imagen_producto}" class="materialboxed" height="100"></td>
@@ -22,13 +22,14 @@ function fillTable(rows)
                 <td>${row.nombre_categoria}</td>
                 <td><i class="material-icons">${icon}</i></td>
                 <td>
-                    <a href="#" onclick="modalUpdate(${row.id_producto})" class="blue-text tooltipped" data-tooltip="Modificar"><i class="material-icons">mode_edit</i></a>
+                    <a href="#" onclick="modalUpdate(${row.id_producto})" class="btn btn-info tooltipped" data-tooltip="Modificar"><i class="fa fa-pen"></i></a>
                     <a href="#" onclick="confirmDelete(${row.id_producto}, '${row.imagen_producto}')" class="red-text tooltipped" data-tooltip="Eliminar"><i class="material-icons">delete</i></a>
                 </td>
             </tr>
         `;
     });
     $('#tbody-read').html(content);
+    table('#tabla-productos');
     $('.materialboxed').materialbox();
     $('.tooltipped').tooltip();
 }
@@ -122,7 +123,7 @@ function showSelectCategorias(idSelect, value)
             } else {
                 $('#' + idSelect).html('<option value="">No hay opciones</option>');
             }
-            $('select').formSelect();
+            $('select').value();
         } else {
             console.log(response);
         }
@@ -198,8 +199,7 @@ function modalUpdate(id)
                 $('#update_descripcion').val(result.dataset.descripcion_producto);
                 (result.dataset.estado_producto == 1) ? $('#update_estado').prop('checked', true) : $('#update_estado').prop('checked', false);
                 showSelectCategorias('update_categoria', result.dataset.id_categoria);
-                M.updateTextFields();
-                $('#modal-update').modal('open');
+                $('#modal-update').modal('show');
             } else {
                 sweetAlert(2, result.exception, null);
             }
@@ -232,7 +232,7 @@ $('#form-update').submit(function()
             const result = JSON.parse(response);
             //Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
-                $('#modal-update').modal('close');
+                $('#modal-update').modal('hide');
                 if (result.status == 1) {
                     sweetAlert(1, 'Producto modificado correctamente', null);
                 } else if(result.status == 2) {

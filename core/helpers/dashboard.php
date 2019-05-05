@@ -79,6 +79,8 @@ class Dashboard
                     <a class="dropdown-item tooltipped modal-trigger" href="#" onclick="modalProfile()">Editar perfil</a>
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item tooltipped modal-trigger" href="#modal-password" data-toggle="modal">Cambiar contraseña</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#" onclick="signOff()">Cerrar sesión</a>
 				</div>
             </li>
             <li class="nav-item dropdown">

@@ -1,7 +1,7 @@
 <?php
 require_once('../../core/helpers/Conexion.php');
 require_once('../../core/helpers/Validator.php');
-require_once('../../core/models/Usuarios.php');
+require_once('../../core/models/productos.php');
 
 //Se comprueba si existe una petición del sitio web y la acción a realizar, de lo contrario se muestra una página de error
 if (isset($_GET['site']) && isset($_GET['action'])) {

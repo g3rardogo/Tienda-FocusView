@@ -20,7 +20,7 @@ function fillTable(rows)
                 <td>${row.descripcion_categoria}</td>
                 <td>
 
-                    <a href="#" onclick="modalUpdate(${row.id_categoria})" class="blue-text tooltipped btn btn-info" data-tooltip="Modificar"><i class="fa fa-pen"></i></a>
+                    <a href="#" onclick="modalUpdate(${row.id_categoria})" class="btn btn-info tooltipped" data-tooltip="Modificar"><i class="fa fa-pen"></i></a>
                     <a href="#" onclick="confirmDelete(${row.id_categoria}, '${row.imagen_categoria}')" class="red-text tooltipped btn btn-danger" data-tooltip="Eliminar"><i class="fa fa-times"></i></a>
                 </td>
             </tr>

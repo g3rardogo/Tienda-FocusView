@@ -82,42 +82,42 @@ class Categorias extends Validator
 	//Metodos para el manejo del CRUD
 	public function readCategorias()
 	{
-		$sql = 'SELECT id_categoria, nombre_categoria, imagen_categoria, descripcion_categoria FROM categoria ORDER BY nombre_categoria';
+		$sql = 'SELECT id_categoria, nombre_categoria, imagen_categoria, descripcion_categoria FROM categorias ORDER BY nombre_categoria';
 		$params = array(null);
 		return Conexion::getRows($sql, $params);
 	}
 
 	public function searchCategorias($value)
 	{
-		$sql = 'SELECT * FROM categoria WHERE nombre_categoria LIKE ? OR descripcion_categoria LIKE ? ORDER BY nombre_categoria';
+		$sql = 'SELECT * FROM categorias WHERE nombre_categoria LIKE ? OR descripcion_categoria LIKE ? ORDER BY nombre_categoria';
 		$params = array("%$value%", "%$value%");
 		return Conexion::getRows($sql, $params);
 	}
 
 	public function createCategoria()
 	{
-		$sql = 'INSERT INTO categoria(nombre_categoria, imagen_categoria, descripcion_categoria) VALUES(?, ?, ?)';
+		$sql = 'INSERT INTO categorias(nombre_categoria, imagen_categoria, descripcion_categoria) VALUES(?, ?, ?)';
 		$params = array($this->nombre, $this->imagen, $this->descripcion);
 		return Conexion::executeRow($sql, $params);
 	}
 
 	public function getCategoria()
 	{
-		$sql = 'SELECT id_categoria, nombre_categoria, imagen_categoria, descripcion_categoria FROM categoria WHERE id_categoria = ?';
+		$sql = 'SELECT id_categoria, nombre_categoria, imagen_categoria, descripcion_categoria FROM categorias WHERE id_categoria = ?';
 		$params = array($this->id);
 		return Conexion::getRow($sql, $params);
 	}
 
 	public function updateCategoria()
 	{
-		$sql = 'UPDATE categoria SET nombre_categoria = ?, imagen_categoria = ?, descripcion_categoria = ? WHERE id_categoria = ?';
+		$sql = 'UPDATE categorias SET nombre_categoria = ?, imagen_categoria = ?, descripcion_categoria = ? WHERE id_categoria = ?';
 		$params = array($this->nombre, $this->imagen, $this->descripcion, $this->id);
 		return Conexion::executeRow($sql, $params);
 	}
 
 	public function deleteCategoria()
 	{
-		$sql = 'DELETE FROM categoria WHERE id_categoria = ?';
+		$sql = 'DELETE FROM categorias WHERE id_categoria = ?';
 		$params = array($this->id);
 		return Conexion::executeRow($sql, $params);
 	}
