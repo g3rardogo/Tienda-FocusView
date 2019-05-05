@@ -106,7 +106,7 @@ $('#form-create').submit(function()
             //Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
                 $('#form-create')[0].reset();
-                $('#modal-create').modal('close');
+                $('#modal-create').modal('hide');
                 sweetAlert(1, 'Usuario creado correctamente', null);
                 showTable();
             } else {
@@ -175,7 +175,7 @@ $('#form-update').submit(function()
             const result = JSON.parse(response);
             //Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
-                $('#modal-update').modal('close');
+                $('#modal-update').modal('hide');
                 sweetAlert(1, 'Usuario modificado correctamente', null);
                 showTable();
             } else {

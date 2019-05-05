@@ -153,7 +153,7 @@ $('#form-create').submit(function()
             //Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
                 $('#form-create')[0].reset();
-                $('#modal-create').modal('close');
+                $('#modal-create').modal('hide');
                 if (result.status == 1) {
                     sweetAlert(1, 'Producto creado correctamente', null);
                 } else if (result.status == 2) {

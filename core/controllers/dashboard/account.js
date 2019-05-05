@@ -43,11 +43,10 @@ function modalProfile()
             const result = JSON.parse(response);
             //Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
-                $('#profile_nombres').val(result.dataset.nombres_usuario);
-                $('#profile_apellidos').val(result.dataset.apellidos_usuario);
-                $('#profile_correo').val(result.dataset.correo_usuario);
-                $('#profile_alias').val(result.dataset.alias_usuario);
-                M.updateTextFields();
+                $('#profile_nombres').val(result.dataset.Nombre);
+                $('#profile_apellidos').val(result.dataset.Apellido);
+                $('#profile_correo').val(result.dataset.Correo);
+                $('#profile_alias').val(result.dataset.Nombre_Usuario);
                 $('#modal-profile').modal('show');
             } else {
                 sweetAlert(2, result.exception, null);
@@ -109,8 +108,8 @@ $('#form-password').submit(function()
             const result = JSON.parse(response);
             //Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
-                $('#modal-password').modal('close');
-                sweetAlert(1, 'Contraseña cambiada correctamente', 'main.php');
+                $('#modal-password').modal('hide');
+                sweetAlert(1, 'Contraseña cambiada correctamente', 'inicio.php');
             } else {
                 sweetAlert(2, result.exception, null);
             }
