@@ -23,7 +23,7 @@ function fillTable(rows)
                 <td><i class="material-icons">${icon}</i></td>
                 <td>
                     <a href="#" onclick="modalUpdate(${row.id_producto})" class="btn btn-info tooltipped" data-tooltip="Modificar"><i class="fa fa-pen"></i></a>
-                    <a href="#" onclick="confirmDelete(${row.id_producto}, '${row.imagen_producto}')" class="red-text tooltipped" data-tooltip="Eliminar"><i class="material-icons">delete</i></a>
+                    <a href="#" onclick="confirmDelete(${row.id_producto}, '${row.imagen_producto}')" class="btn btn-danger tooltipped" data-tooltip="Eliminar"><i class="fa fa-times"></i></a>
                 </td>
             </tr>
         `;
