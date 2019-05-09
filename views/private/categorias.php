@@ -4,7 +4,6 @@ Dashboard::headerTemplate('Categorías');
 ?>
 <div class="container-fluid" id="container">
     <h1 class="text-center">CATEGORÍAS</h1>
-    <!-- Barra de busqueda -->
     <div class="row">
         <div class="col-sm-1 col-3">
             <a href="#modal-create" class="btn btn-success tooltipped modal-trigger" data-toggle="modal"
@@ -18,7 +17,7 @@ Dashboard::headerTemplate('Categorías');
     <br>
     <div class="row">
         <div class="container">
-            <table class="class=" display" id="tabla-categorias">
+            <table class="display" id="tabla-categorias">
                 <thead>
                     <tr>
                         <th>IMAGEN</th>

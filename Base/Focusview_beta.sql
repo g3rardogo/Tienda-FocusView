@@ -15,21 +15,17 @@ CREATE TABLE Nacionalidad (
 )   ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
    
-CREATE TABLE Cliente(
+CREATE TABLE Clientes(
     id_cliente INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    Nombre VARCHAR(20) NOT NULL,
-    Apellido VARCHAR(20) NOT NULL,
-    Nombre_usuario VARCHAR(20) NOT NULL,
+    Nombre_cliente VARCHAR(50) NOT NULL,
+    Apellido_cliente VARCHAR(50) NOT NULL,
+    Usuario_cliente VARCHAR(20) NOT NULL,
     Fecha_nacimiento DATE,
-    Genero ENUM('M','F','ND') DEFAULT 'ND',
-    Correo VARCHAR(100) UNIQUE NOT NULL,
-    Clave VARCHAR(30) NOT NULL,
+    Genero_cliente ENUM('M','F','ND') DEFAULT 'ND',
+    Correo_cliente VARCHAR(100) UNIQUE NOT NULL,
+    Clave_cliente VARCHAR(100) NOT NULL,
     Codigo_Postal VARCHAR(15) NOT NULL,
-    Direccion VARCHAR(200),
-    id_Tipousuario INT UNSIGNED,
-    FOREIGN KEY (id_Tipousuario) REFERENCES TipoUsuario(id_Tipousuario),
-    id_nacionalidad INT UNSIGNED,
-    FOREIGN KEY (id_nacionalidad) REFERENCES Nacionalidad(id_nacionalidad));
+    Direccion_cliente VARCHAR(200) NOT NULL;
 
 CREATE TABLE Categoria(
     id_categoria INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,

@@ -126,8 +126,6 @@ class Conexion
             case 2002:
                 $message = 'Servidor desconocido';
                 break;
-            default:
-                $message = 'Ocurrió un problema, contacte al administrador :(';
         }
         return $message;
     }

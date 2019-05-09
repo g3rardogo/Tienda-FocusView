@@ -32,7 +32,7 @@
           <a class="nav-link" href="ayuda.php">Ayuda</a>
         </li>
         <li class="nav-item">
-        <a href="#ventana1" class="nav-link" data-toggle="modal">Iniciar Sesión</a>
+        <a href="index.php" class="nav-link" data-toggle="modal">Iniciar Sesión</a>
 
         
         </li>

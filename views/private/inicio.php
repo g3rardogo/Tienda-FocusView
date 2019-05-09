@@ -1,6 +1,6 @@
 <?php
-require_once('../../core/helpers/dashboard.php');
-Dashboard::headerTemplate('Inicio');
+    require_once('../../core/helpers/dashboard.php');
+    Dashboard::headerTemplate('Inicio');
 ?>
             <div class="container-fluid" id="container">
                 <div class="row">
@@ -80,5 +80,5 @@ Dashboard::headerTemplate('Inicio');
         </div>
 
         <?php
-Dashboard::footerTemplate('inicio.js', '');
+Dashboard::footerTemplate('inicio.js');
 ?>

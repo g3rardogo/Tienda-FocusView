@@ -22,9 +22,6 @@
             <br>
             <button class="btn btn-lg btn-primary btn-block btn-signin tooltipped" data-tooltip="Ingresar"
                 type="submit">Iniciar Sesión</button>
-            <a href="recuperar-contrasena.php" class="forgot-password">
-                Olvidé mi contraseña
-            </a>
         </form>
     </div>
 </body>

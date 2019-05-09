@@ -83,17 +83,6 @@ class Dashboard
 					<a class="dropdown-item" href="#" onclick="signOff()">Cerrar sesión</a>
 				</div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-cog"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Ayuda</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="index.php">Cerrar sesión</a>
-                </div>
-            </li>
         </ul>
     </div>
 </nav>

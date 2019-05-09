@@ -1,12 +1,12 @@
 <?php
-class Usuarios extends Validator
+class Clientes extends Validator
 {
 	//Declaración de propiedades
 	private $id = null;
 	private $nombres = null;
 	private $apellidos = null;
 	private $correo = null;
-	private $nombre_usuario = null;
+	private $usuario = null;
 	private $clave = null;
 
 	//Métodos para sobrecarga de propiedades
@@ -27,7 +27,7 @@ class Usuarios extends Validator
 
 	public function setNombres($value)
 	{
-		if ($this->validateAlphabetic($value, 1, 50)) {
+		if ($this->validateAlphanumeric($value, 1, 50)) {
 			$this->nombres = $value;
 			return true;
 		} else {
@@ -55,34 +55,36 @@ class Usuarios extends Validator
 		return $this->apellidos;
 	}
 
+
 	public function setCorreo($value)
-	{
-		if ($this->validateEmail($value)) {
-			$this->correo = $value;
-			return true;
-		} else {
-			return false;
+		{
+			if ($this->validateEmail($value)) {
+				$this->correo = $value;
+				return true;
+			} else {
+				return false;
+			}
 		}
-	}
 
-	public function getCorreo()
-	{
-		return $this->correo;
-	}
+		public function getCorreo()
+		{
+			return $this->correo;
+		}
 
-	public function setNombre_usuario($value)
+
+	public function setUsuario($value)
 	{
 		if ($this->validateAlphanumeric($value, 1, 50)) {
-			$this->nombre_usuario = $value;
+			$this->usuario = $value;
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	public function getNombre_usuario()
+	public function getUsuario()
 	{
-		return $this->nombre_usuario;
+		return $this->usuario;
 	}
 
 	public function setClave($value)
@@ -99,15 +101,14 @@ class Usuarios extends Validator
 	{
 		return $this->clave;
 	}
-
 	//Métodos para manejar la sesión del usuario
-	public function checkNombre_Usuario()
+	public function checkUsuario_Cliente()
 	{
-		$sql = 'SELECT id_usuario FROM usuarios WHERE Nombre_Usuario = ?';
-		$params = array($this->nombre_usuario);
+		$sql = 'SELECT id_cliente FROM clientes WHERE Usuario_cliente = ?';
+		$params = array($this->usuario);
 		$data = Conexion::getRow($sql, $params);
 		if ($data) {
-			$this->id = $data['id_usuario'];
+			$this->id = $data['id_cliente'];
 			return true;
 		} else {
 			return false;
@@ -116,10 +117,10 @@ class Usuarios extends Validator
 
 	public function checkPassword()
 	{
-		$sql = 'SELECT Clave FROM usuarios WHERE id_usuario = ?';
+		$sql = 'SELECT Clave_cliente FROM clientes WHERE id_cliente = ?';
 		$params = array($this->id);
 		$data = Conexion::getRow($sql, $params);
-		if (password_verify($this->clave, $data['Clave'])) {
+		if (password_verify($this->clave, $data['Clave_cliente'])) {
 			return true;
 		} else {
 			return false;
@@ -129,51 +130,50 @@ class Usuarios extends Validator
 	public function changePassword()
 	{
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
-		$sql = 'UPDATE usuarios SET clave = ? WHERE id_usuario = ?';
+		$sql = 'UPDATE clientes SET clave = ? WHERE id_cliente = ?';
 		$params = array($hash, $this->id);
 		return Conexion::executeRow($sql, $params);
 	}
-
 	//Metodos para manejar el CRUD
-	public function readUsuarios()
+	public function readClientes()
 	{
-		$sql = 'SELECT id_usuario, Nombre, Apellido, Correo, Nombre_Usuario  FROM usuarios ORDER BY Apellido';
+		$sql = 'SELECT id_cliente, Nombre_cliente, Apellido_cliente, Usuario_cliente, Correo_cliente, CLave_cliente FROM clientes ORDER BY Apellido_cliente';
 		$params = array(null);
 		return Conexion::getRows($sql, $params);
 	}
 
-	public function searchUsuarios($value)
+	public function searchClientes($value)
 	{
-		$sql = 'SELECT id_usuario, Nombre, Apellido, Nombre_Usuario, Correo FROM usuarios WHERE apellidos_usuario LIKE ? OR nombres_usuario LIKE ? ORDER BY apellidos_usuario';
+		$sql = 'SELECT id_cliente, Nombre_cliente, Apellido_cliente, Usuario_cliente, Correo_cliente FROM clientes WHERE Apellido_cliente LIKE ? OR usuario_cliente LIKE ? ORDER BY Apellido_cliente';
 		$params = array("%$value%", "%$value%");
 		return Conexion::getRows($sql, $params);
 	}
 
-	public function createUsuario()
+	public function createClientes()
 	{
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
-		$sql = 'INSERT INTO usuarios(Nombre, Apellido, Nombre_Usuario, Correo, Clave) VALUES(?, ?, ?, ?, ?)';
-		$params = array($this->nombres, $this->apellidos, $this->nombre_usuario, $this->correo, $hash);
+		$sql = 'INSERT INTO clientes(Nombre_cliente, Apellido_cliente, Usuario_cliente, Correo_cliente, Clave_cliente) VALUES(?, ?, ?, ?, ?)';
+		$params = array($this->nombres, $this->apellidos, $this->usuario, $this->correo, $hash);
 		return Conexion::executeRow($sql, $params);
 	}
 
-	public function getUsuario()
+	public function getClientes()
 	{
-		$sql = 'SELECT id_usuario, Nombre, Apellido, Nombre_Usuario, Correo FROM usuarios WHERE id_usuario = ?';
+		$sql = 'SELECT id_cliente, Nombre_cliente, Apellido_cliente, Usuario_cliente, Correo_cliente FROM clientes WHERE id_cliente = ?';
 		$params = array($this->id);
 		return Conexion::getRow($sql, $params);
 	}
 
-	public function updateUsuario()
+	public function updateCliente()
 	{
-		$sql = 'UPDATE usuarios SET Nombre = ?, Apellido = ?, Nombre_Usuario = ?, Correo = ? WHERE id_usuario = ?';
-		$params = array($this->nombres, $this->apellidos, $this->nombre_usuario, $this->correo, $this->id);
+		$sql = 'UPDATE clientes SET Nombre_cliente = ?, Apellido_cliente = ?, Usuario_cliente = ?, Correo_cliente = ? WHERE id_cliente = ?';
+		$params = array($this->nombres, $this->apellidos, $this->usuario, $this->correo, $this->id);
 		return Conexion::executeRow($sql, $params);
 	}
 
-	public function deleteUsuario()
+	public function deleteCliente()
 	{
-		$sql = 'DELETE FROM usuarios WHERE id_usuario = ?';
+		$sql = 'DELETE FROM clientes WHERE id_cliente = ?';
 		$params = array($this->id);
 		return Conexion::executeRow($sql, $params);
 	}

@@ -19,7 +19,6 @@ function fillTable(rows)
                 <td>${row.nombre_categoria}</td>
                 <td>${row.descripcion_categoria}</td>
                 <td>
-
                     <a href="#" onclick="modalUpdate(${row.id_categoria})" class="btn btn-info tooltipped" data-tooltip="Modificar"><i class="fa fa-pen"></i></a>
                     <a href="#" onclick="confirmDelete(${row.id_categoria}, '${row.imagen_categoria}')" class="red-text tooltipped btn btn-danger" data-tooltip="Eliminar"><i class="fa fa-times"></i></a>
                 </td>
@@ -118,12 +117,14 @@ $('#form-create').submit(function()
                 } else if (result.status == 2) {
                     sweetAlert(3, 'Categoría creada. ' + result.exception, null);
                 }
+                destroy('#tabla-categorias');
                 showTable();
             } else {
                 sweetAlert(2, result.exception, null);
             }
         } else {
             console.log(response);
+            sweetAlert(2, error(response), null);
         }
     })
     .fail(function(jqXHR){
@@ -160,6 +161,7 @@ function modalUpdate(id)
             }
         } else {
             console.log(response);
+            
         }
     })
     .fail(function(jqXHR){
@@ -195,6 +197,7 @@ $('#form-update').submit(function()
                 } else if(result.status == 3) {
                     sweetAlert(1, 'Categoría modificada. ' + result.exception, null);
                 }
+                destroy('#tabla-categorias');
                 showTable();
             } else {
                 sweetAlert(2, result.exception, null);
@@ -242,6 +245,7 @@ function confirmDelete(id, file)
                         } else if(result.status == 2) {
                             sweetAlert(3, 'Categoría eliminada. ' + result.exception, null);
                         }
+                        destroy('#tabla-categorias');
                         showTable();
                     } else {
                         sweetAlert(2, result.exception, null);
@@ -256,4 +260,16 @@ function confirmDelete(id, file)
             });
         }
     });
+}
+
+function error(response){
+    switch (response){
+        case 'Dato duplicado, no se puede guardar':
+            mensaje = 'Nombre de categoria ya existe';
+            break;
+        default:
+            mensaje = 'Ocurrió un problema, consulte al administrador'
+            break;
+    }
+    return mensaje;
 }

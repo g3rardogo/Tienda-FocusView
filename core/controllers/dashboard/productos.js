@@ -123,7 +123,7 @@ function showSelectCategorias(idSelect, value)
             } else {
                 $('#' + idSelect).html('<option value="">No hay opciones</option>');
             }
-            $('select').value();
+            $('select').formSelect();
         } else {
             console.log(response);
         }
@@ -160,12 +160,14 @@ $('#form-create').submit(function()
                 } else if (result.status == 2) {
                     sweetAlert(3, 'Producto creado. ' + result.exception, null);
                 }
+                destroy('#tabla-productos');
                 showTable();
             } else {
                 sweetAlert(2, result.exception, null);
             }
         } else {
             console.log(response);
+            sweetAlert(2, error2(response), null);
         }
     })
     .fail(function(jqXHR){
@@ -240,6 +242,7 @@ $('#form-update').submit(function()
                 } else if(result.status == 3) {
                     sweetAlert(1, 'Producto modificado. ' + result.exception, null);
                 }
+                destroy('#tabla-productos');
                 showTable();
             } else {
                 sweetAlert(2, result.exception, null);
@@ -287,6 +290,7 @@ function confirmDelete(id, file)
                         } else if (result.status == 2) {
                             sweetAlert(3, 'Producto eliminado. ' + result.exception, null);
                         }
+                        destroy('#tabla-productos');
                         showTable();
                     } else {
                         sweetAlert(2, result.exception, null);
@@ -301,4 +305,16 @@ function confirmDelete(id, file)
             });
         }
     });
+}
+
+function error2(response){
+    switch (response){
+        case 'Dato duplicado, no se puede guardar':
+            mensaje = 'Nombre de producto ya existe';
+            break;
+        default:
+            mensaje = 'Ocurrió un problema, consulte al administrador'
+            break;
+    }
+    return mensaje;
 }

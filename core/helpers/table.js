@@ -29,3 +29,7 @@ function table(id){
     });
     $('select').formSelect();
 }
+
+function destroy(id){
+    var table =  $(id).DataTable().destroy();
+}

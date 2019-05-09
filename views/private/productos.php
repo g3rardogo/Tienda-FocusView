@@ -15,7 +15,7 @@ Dashboard::headerTemplate('Productos');
                 </a>
             </div>
             <div class="container">
-                <table class="class=" display" id="tabla-productos">
+                <table class="display" id="tabla-productos">
                     <thead>
                         <tr>
                             <th>IMAGEN</th>
@@ -109,7 +109,8 @@ Dashboard::headerTemplate('Productos');
                         </div>
                         <div class="col-sm-11">
                             <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="create_estado" name="create_estado">
+                                <input type="checkbox" class="custom-control-input" id="create_estado"
+                                    name="create_estado">
 
                                 <label class="custom-control-label" for="create_estado"><i
                                         class="fa fa-eye"></i></label>
@@ -142,8 +143,11 @@ Dashboard::headerTemplate('Productos');
                             <i class="fa fa-list"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="update_nombre" type="text" name="update_nombre" class="form-control validate"
+                            <input type="hidden" id="imagen_producto" name="imagen_producto" />
+                            <input id="id_producto" type="hidden" name="id_producto" class="form-control validate"
                                 placeholder="Nombre" required>
+                            <input id="update_nombre" type="text" name="update_nombre" class="form-control validate"
+                                required>
                         </div>
                     </div>
                 </div>
@@ -154,7 +158,7 @@ Dashboard::headerTemplate('Productos');
                         </div>
                         <div class="col-sm-11">
                             <input id="update_precio" type="number" name="update_precio" class="form-control validate"
-                                max="999.99" min="0.01" step="any" placeholder="Precio" required>
+                                max="999.99" min="0.01" step="any" required>
                         </div>
                     </div>
                 </div>
@@ -165,7 +169,7 @@ Dashboard::headerTemplate('Productos');
                         </div>
                         <div class="col-sm-11">
                             <input id="update_descripcion" type="text" name="update_descripcion"
-                                class="form-control validate" placeholder="Descripción" required />
+                                class="form-control validate" required />
                         </div>
                     </div>
                 </div>
@@ -188,7 +192,7 @@ Dashboard::headerTemplate('Productos');
                         <div class="col-sm-11">
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="update_archivo" name="update_archivo">
-                                <label class="custom-file-label" for="create_archivo">Choose file</label>
+                                <label class="custom-file-label" for="update_archivo">Choose file</label>
                             </div>
                         </div>
                     </div>
@@ -200,7 +204,8 @@ Dashboard::headerTemplate('Productos');
                         </div>
                         <div class="col-sm-11">
                             <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="update_estado" name="update_estado">
+                                <input type="checkbox" class="custom-control-input" id="update_estado"
+                                    name="update_estado">
                                 <label class="custom-control-label" for="update_estado"><i
                                         class="fa fa-eye"></i></label>
                             </div>

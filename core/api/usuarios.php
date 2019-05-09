@@ -1,7 +1,7 @@
 <?php
 require_once('../../core/helpers/Conexion.php');
 require_once('../../core/helpers/Validator.php');
-require_once('../../core/models/Usuarios.php');
+require_once('../../core/models/usuarios.php');
 
 //Se comprueba si existe una petición del sitio web y la acción a realizar, de lo contrario se muestra una página de error
 if (isset($_GET['site']) && isset($_GET['action'])) {
@@ -163,7 +163,7 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                         if ($usuario->setNombres($_POST['update_nombres'])) {
                             if ($usuario->setApellidos($_POST['update_apellidos'])) {
                                 if ($usuario->setCorreo($_POST['update_correo'])) {
-                                    if ($usuario->setAlias($_POST['update_alias'])) {
+                                    if ($usuario->setNombre_usuario($_POST['update_alias'])) {
                                         if ($usuario->updateUsuario()) {
                                             $result['status'] = 1;
                                         } else {

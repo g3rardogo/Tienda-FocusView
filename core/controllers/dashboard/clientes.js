@@ -4,7 +4,7 @@ $(document).ready(function()
 })
 
 //Constante para establecer la ruta y parámetros de comunicación con la API
-const apiUsuarios = '../../core/api/usuarios.php?site=private&action=';
+const apiClientes = '../../core/api/clientes.php?site=private&action=';
 
 //Función para llenar tabla con los datos de los registros
 function fillTable(rows)
@@ -14,19 +14,19 @@ function fillTable(rows)
     rows.forEach(function(row){
         content += `
             <tr>
-                <td>${row.Nombre}</td>
-                <td>${row.Apellido}</td>
-                <td>${row.Correo}</td>
-                <td>${row.Nombre_Usuario}</td>
+                <td>${row.Nombre_cliente}</td>
+                <td>${row.Apellido_cliente}</td>
+                <td>${row.Usuario_cliente}</td>
+                <td>${row.Correo_cliente}</td>
                 <td>
-                    <a href="#" onclick="modalUpdate(${row.id_usuario})" class="btn btn-primary tooltipped" data-tooltip="Modificar"><i class="fa fa-pen"></i></a>
-                    <a href="#" onclick="confirmDelete(${row.id_usuario})" class="btn btn-danger tooltipped" data-tooltip="Eliminar"><i class="fa fa-pen"></i></a>
+                    <a href="#" onclick="modalUpdate(${row.id_cliente})" class="btn btn-primary tooltipped" data-tooltip="Modificar"><i class="fa fa-pen"></i></a>
+                    <a href="#" onclick="confirmDelete(${row.id_cliente})" class="btn btn-danger tooltipped" data-tooltip="Eliminar"><i class="fa fa-pen"></i></a>
                 </td>
             </tr>
         `;
     });
     $('#tbody-read').html(content);
-    table('#tabla-usuarios');
+    table('#tabla-clientes');
     $('.materialboxed').materialbox();
     $('.tooltipped').tooltip();
 }
@@ -35,7 +35,7 @@ function fillTable(rows)
 function showTable()
 {
     $.ajax({
-        url: apiUsuarios + 'read',
+        url: apiClientes + 'read',
         type: 'post',
         data: null,
         datatype: 'json'
@@ -64,7 +64,7 @@ $('#form-search').submit(function()
 {
     event.preventDefault();
     $.ajax({
-        url: apiUsuarios + 'search',
+        url: apiClientes + 'search',
         type: 'post',
         data: $('#form-search').serialize(),
         datatype: 'json'
@@ -95,7 +95,7 @@ $('#form-create').submit(function()
 {
     event.preventDefault();
     $.ajax({
-        url: apiUsuarios + 'create',
+        url: apiClientes + 'create',
         type: 'post',
         data: $('#form-create').serialize(),
         datatype: 'json'
@@ -109,13 +109,15 @@ $('#form-create').submit(function()
                 $('#form-create')[0].reset();
                 $('#modal-create').modal('hide');
                 sweetAlert(1, 'Usuario creado correctamente', null);
-                destroy('#tabla-usuarios');
+                //destruir tabla
+                destroy('#tabla-clientes');
                 showTable();
             } else {
                 sweetAlert(2, result.exception, null);
             }
         } else {
             console.log(response);
+            sweetAlert(2, error3(response), null);
         }
     })
     .fail(function(jqXHR){
@@ -128,10 +130,10 @@ $('#form-create').submit(function()
 function modalUpdate(id)
 {
     $.ajax({
-        url: apiUsuarios + 'get',
+        url: apiClientes + 'get',
         type: 'post',
         data:{
-            id_usuario: id
+            id_cliente: id
         },
         datatype: 'json'
     })
@@ -142,11 +144,11 @@ function modalUpdate(id)
             //Se comprueba si el resultado es satisfactorio para mostrar los valores en el formulario, sino se muestra la excepción
             if (result.status) {
                 
-                $('#id_usuario').val(result.dataset.id_usuario);
-                $('#update_nombres').val(result.dataset.Nombre);
-                $('#update_apellidos').val(result.dataset.Apellido);
-                $('#update_correo').val(result.dataset.Correo);
-                $('#update_alias').val(result.dataset.Nombre_Usuario);
+                $('#id_cliente').val(result.dataset.id_cliente);
+                $('#update_nombres').val(result.dataset.Nombre_cliente);
+                $('#update_apellidos').val(result.dataset.Apellido_cliente);
+                $('#update_correo').val(result.dataset.Correo_cliente);
+                $('#update_alias').val(result.dataset.Usuario_cliente);
                 $('#modal-update').modal('show');
             } else {
                 sweetAlert(2, result.exception, null);
@@ -166,7 +168,7 @@ $('#form-update').submit(function()
 {
     event.preventDefault();
     $.ajax({
-        url: apiUsuarios + 'update',
+        url: apiClientes + 'update',
         type: 'post',
         data: $('#form-update').serialize(),
         datatype: 'json'
@@ -179,7 +181,7 @@ $('#form-update').submit(function()
             if (result.status) {
                 $('#modal-update').modal('hide');
                 sweetAlert(1, 'Usuario modificado correctamente', null);
-                destroy('#tabla-usuarios');
+                destroy('#tabla-clientes');
                 showTable();
             } else {
                 sweetAlert(2, result.exception, null);
@@ -208,10 +210,10 @@ function confirmDelete(id)
     .then(function(value){
         if (value) {
             $.ajax({
-                url: apiUsuarios + 'delete',
+                url: apiClientes + 'delete',
                 type: 'post',
                 data:{
-                    id_usuario: id
+                    id_cliente: id
                 },
                 datatype: 'json'
             })
@@ -222,7 +224,7 @@ function confirmDelete(id)
                     //Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
                     if (result.status) {
                         sweetAlert(1, 'Usuario eliminado correctamente', null);
-                        destroy('#tabla-usuarios');
+                        destroy('#tabla-clientes');
                         showTable();
                     } else {
                         sweetAlert(2, result.exception, null);
@@ -237,4 +239,16 @@ function confirmDelete(id)
             });
         }
     });
+}
+
+function error3(response){
+    switch (response){
+        case 'Dato duplicado, no se puede guardar':
+            mensaje = 'Nombre de usuario ya existe';
+            break;
+        default:
+            mensaje = 'Ocurrió un problema, consulte al administrador'
+            break;
+    }
+    return mensaje;
 }
