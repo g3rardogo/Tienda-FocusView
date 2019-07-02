@@ -2,6 +2,7 @@ $(document).ready(function()
 {
     showTable();
     showSelectCategorias('create_categoria', null);
+   
 })
 
 //Constante para establecer la ruta y parámetros de comunicación con la API
@@ -60,6 +61,7 @@ function showTable()
         console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
     });
 }
+//Funcion para el grafico
 
 //Función para mostrar los resultados de una búsqueda
 $('#form-search').submit(function()

@@ -225,5 +225,11 @@ class Productos extends Validator
 		$params = array($this->id);
 		return Conexion::executeRow($sql, $params);
 	}
+	public function Graphics()
+	{
+		$sql = 'SELECT count(*) as c, id_categoria, nombre_categoria, nombre_producto FROM categorias INNER JOIN productos USING(id_categoria) ORDER BY nombre_categoria';
+		$params = array(null);
+		return Conexion::getRows($sql, $params);
+	}
 }
 ?>

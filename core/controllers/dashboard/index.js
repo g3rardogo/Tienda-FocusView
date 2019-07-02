@@ -1,10 +1,12 @@
 $(document).ready(function()
 {
     checkUsuarios();
+    grafico();
 })
 
 //Constante para establecer la ruta y parámetros de comunicación con la API
 const apiSesion = '../../core/api/usuarios.php?site=private&action=';
+const apiProductos = '../../core/api/productos.php?site=private&action=';
 
 //Función para verificar si existen usuarios en el sitio privado
 function checkUsuarios()
@@ -32,7 +34,34 @@ function checkUsuarios()
         console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
     });
 }
+function grafico()
+{
+    $.ajax({
+        url: apiProductos + 'Graphics',
+        type: 'post',
+        data: null,
+        datatype: 'json'
+    })
+    .done((data)=>{
+        var nombres = [];
+        var id= [];
+        console.log(data.dataset[0].id_categoria);
+        console.log(data.dataset[0].nombre_producto);
+        
+        const result = data;
 
+        result.dataset.forEach(renyer =>{
+
+            nombres.push(renyer.nombre_producto);
+            id.push(renye.c)
+
+        });
+        graficoBar("myChart" , id_categoria,nombre_producto , "Numero de productos" , "Categorias")
+    })
+    .fail(function(jqXHR){
+        console.log('Error: ' + jqXHR.status + '' + jqXHR.statusText);
+    })
+}
 //Función para validar el usuario al momento de iniciar sesión
 $('#form-sesion').submit(function()
 {
