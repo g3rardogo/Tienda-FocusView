@@ -111,7 +111,7 @@ class Dashboard
 			}
 		}
 	}
-
+    
 	public static function footerTemplate($controller, $tabla)
 	{
 		print('
@@ -124,11 +124,13 @@ class Dashboard
 		<script src="../../resources/js/jquery.dataTables.min.js"></script>
 		<script src="../../resources/js/dataTables.bootstrap4.min.js"></script>
 		
+		
 		<script src="../../resources/js/sweetalert.min.js"></script>
 
         <script type="text/javascript" src="../../core/helpers/functions.js"></script>
 		<script type="text/javascript" src="../../core/controllers/dashboard/account.js"></script>
 		<script type="text/javascript" src="../../core/controllers/dashboard/'.$controller.'"></script>
+		
 
         <!-- Menu Toggle Script -->
         <script>

@@ -4,17 +4,7 @@
     Dashboard::headerTemplate('Inicio');
 ?>
             <div class="container-fluid" id="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <canvas id="myChart" width="350" height="150"></canvas>
-                        <?php
-                            require "../templates/charts.php";
-                            charts::index();
-                        ?>
-                    </div>
-                </div>
-                <br>
-                <hr>
+                <!-- Subiendo la parte de arriba -->
                 <h1 class="text-center">RESUMEN</h1>
                 <br>
                 <div class="row">
@@ -76,11 +66,24 @@
                         </div>
                     </div>
                 </div>
+                <br><br>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+                <br>
+                <hr>
+                
             </div>
             <!-- Fin contenido -->
         </div>
+        <script src="../../resources/js/chart.bundle.js"></script>
 
 <!-- Llamando el footer y mandando de parametros el controlador y la tabla de datatable -->
         <?php
+
 Dashboard::footerTemplate('inicio.js', '');
+
+
 ?>

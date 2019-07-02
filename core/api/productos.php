@@ -25,6 +25,13 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                     $result['exception'] = 'No hay categorías registradas';
                 }
                 break;
+            case 'Graphics':
+                if ($result['dataset'] = $producto->Graphics()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['exception'] = 'No hay categorías registradas';
+                }
+                break;    
             case 'search':
                 $_POST = $producto->validateForm($_POST);
                 if ($_POST['busqueda'] != '') {
@@ -192,6 +199,7 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                     $result['exception'] = 'Categoría incorrecta';
                 }
                 break;
+                
             case 'detailProducto':
                 if ($producto->setId($_POST['id_producto'])) {
                     if ($result['dataset'] = $producto->getProducto()) {
