@@ -1,11 +1,10 @@
 <?php
 
-require_once('prueba.php');
+require_once('plantilla.php');
 require_once('../helpers/Conexion.php');
 require_once('../helpers/Validator.php');
 require_once('../models/Productos.php');
 
-ini_set('data.timezone', 'America/El_Salvador');
 /* Creamos el objeto pdf (con medidas en milímetros):  */
 $pdf = new PDF('P', 'mm', 'Letter');
 $pdf->SetMargins(2, 2 , 2);
