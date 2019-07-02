@@ -121,5 +121,6 @@ class Categorias extends Validator
 		$params = array($this->id);
 		return Conexion::executeRow($sql, $params);
 	}
+	
 }
 ?>
