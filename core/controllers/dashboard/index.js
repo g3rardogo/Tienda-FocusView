@@ -53,7 +53,7 @@ function grafico()
         result.dataset.forEach(renyer =>{
 
             nombres.push(renyer.nombre_producto);
-            id.push(renye.c)
+            id.push(renyer.c)
 
         });
         graficoBar("myChart" , id_categoria,nombre_producto , "Numero de productos" , "Categorias")
