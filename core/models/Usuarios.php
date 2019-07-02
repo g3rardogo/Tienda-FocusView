@@ -177,5 +177,12 @@ class Usuarios extends Validator
 		$params = array($this->id);
 		return Conexion::executeRow($sql, $params);
 	}
+
+	public function reporteUsuarios()
+	{
+		$sql = 'SELECT Nombre, Apellido, Correo, Nombre_Usuario  FROM usuarios';
+		$params = array(null);
+		return Conexion::getRows($sql, $params);
+	}
 }
 ?>

@@ -1,3 +1,4 @@
+<!-- Llamando el header -->
 <?php
 require_once('../../core/helpers/dashboard.php');
 Dashboard::headerTemplate('Pedidos');
@@ -94,7 +95,7 @@ Dashboard::headerTemplate('Pedidos');
 </div>
 
 
-
+<!-- Llamando el footer y mandando de parametros el controlador y la tabla de datatable -->
 <?php
 Dashboard::footerTemplate('pedidos.js', '#tabla-pedidos');
 ?>

@@ -27,7 +27,6 @@ function fillTable(rows)
     });
     $('#tbody-read').html(content);
     table('#tabla-usuarios');
-    $('.materialboxed').materialbox();
     $('.tooltipped').tooltip();
 }
 

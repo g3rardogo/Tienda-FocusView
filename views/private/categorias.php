@@ -1,3 +1,4 @@
+<!-- Llamando el header -->
 <?php
 require_once('../../core/helpers/dashboard.php');
 Dashboard::headerTemplate('Categorías');
@@ -141,7 +142,7 @@ Dashboard::headerTemplate('Categorías');
         </div>
     </div>
 </div>
-
+<!-- Llamando el footer y mandando de parametros el controlador y la tabla de datatable -->
 <?php
 Dashboard::footerTemplate('categorias.js', '#tabla-categorias');
 ?>

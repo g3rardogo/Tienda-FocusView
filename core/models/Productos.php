@@ -122,6 +122,53 @@ class Productos extends Validator
 		return $this->ruta;
 	}
 
+	public function setCantidad($value)
+	{
+		if ($this->validateId($value)) {
+			$this->cantidad = $value;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function getCantidad($value)
+	{
+		return $this->cantidad;
+	}
+
+	public function setIdProducto($value)
+	{
+		if ($this->validateId($value)) {
+			$this->cantidad = $value;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function getIdProducto($value)
+	{
+		return $this->cantidad;
+	}
+
+	public function setIdCliente($value)
+	{
+		if ($this->validateId($value)) {
+			$this->cantidad = $value;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function getIdCliente($value)
+	{
+		return $this->cantidad;
+	}
+
+
+
 	//Metodos para el manejo del CRUD
 	public function readProductosCategoria()
 	{

@@ -13,28 +13,28 @@
 <body>
     <!-- Llamando la clase y funcion de la herencia del header y nav -->
     <?php
-            require('../../core/models/baseheader.php');
-            baseheader::bhead();
+            require_once('../../core/helpers/public.php');
+            Publico::headerTemplate('Inicio')
         ?>
     <!-- Llamando la clase y funcion de la herencia del header y nav -->
 
     <!-- Card de los accesorio. -->
     <?php
-            require('../../core/models/basecard.php');
-            basecard::bcard();
+            
         ?>
     <!-- Card de los accesorio. -->
 
     <!-- Footer -->
     <!-- Llamado la clase del footer-herencia -->
     <?php
-                require('../../core/models/basefooter.php');
-                basefooter::bfooter();
+        Publico::footerTemplate('Usuarios');
+               
             ?>
     <!-- Footer -->
 
-    <script src="../../resources/js/jquery.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+    <script src="../../resources/js/jquery.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
     <script src="../../resources/js/popper.min.js"></script>
     <script src="../../resources/js/bootstrap.bundle.min.js"></script>
     <script src="../../resources/js/modals.js"></script>

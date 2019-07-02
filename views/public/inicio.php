@@ -3,113 +3,7 @@ require_once('../../core/helpers/public.php');
 Publico::headerTemplate('Inicio');
 ?>
 <!--En esta parte va un pequeño contenedor para las camaras mas vendidas-->
-<br><br><br><br>
-<div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <div id="cd" class="card text-center" style="width: 18rem;">
-                <img src="../../resources/img/camaralogo3.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">FocusView Mercury</h5>
-                    <p class="card-text">Camara mercury especial para los deportes extremos con resistencia a todo
-                        tipo de climas</p>
-                    <form id="form">
-                        <p class="clasificacion">
-                            <input id="radio1" type="radio" name="estrellas" value="5">
-                            <!--
-                        --><label for="radio1">★</label>
-                            <!--
-                        --><input id="radio2" type="radio" name="estrellas" value="4">
-                            <!--
-                        --><label for="radio2">★</label>
-                            <!--
-                        --><input id="radio3" type="radio" name="estrellas" value="3">
-                            <!--
-                        --><label for="radio3">★</label>
-                            <!--
-                        --><input id="radio4" type="radio" name="estrellas" value="2">
-                            <!--
-                        --><label for="radio4">★</label>
-                            <!--
-                        --><input id="radio5" type="radio" name="estrellas" value="1">
-                            <!--
-                        --><label for="radio5">★</label>
-                        </p>
-                    </form>
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm">
-            <div id="cd" class="card text-center" style="width: 18rem;">
-                <img src="../../resources/img/camaralogo2.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">FocusView Pro</h5>
-                    <p class="card-text">Camara de alta calidad que graba a 4k con resistencia al agua y al polvo</p>
-                    <br>
-                    <form id="form">
-                        <p class="clasificacion">
-                            <input id="radio6" type="radio" name="estrellas" value="5">
-                            <!--
-                        --><label for="radio6">★</label>
-                            <!--
-                        --><input id="radio7" type="radio" name="estrellas" value="4">
-                            <!--
-                        --><label for="radio7">★</label>
-                            <!--
-                        --><input id="radio8" type="radio" name="estrellas" value="3">
-                            <!--
-                        --><label for="radio8">★</label>
-                            <!--
-                        --><input id="radio9" type="radio" name="estrellas" value="2">
-                            <!--
-                        --><label for="radio9">★</label>
-                            <!--
-                        --><input id="radio10" type="radio" name="estrellas" value="1">
-                            <!--
-                        --><label for="radio10">★</label>
-                        </p>
-                    </form>
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm">
-            <div id="cd" class="card text-center" style="width: 18rem;">
-                <img src="../../resources/img/camaralogo.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">FocusView XPro</h5>
-                    <p class="card-text">Camara especializada al agua, sumergible hasta 30 metros de profundidad</p>
-                    <form id="form">
-                        <p class="clasificacion">
-                            <input id="radio11" type="radio" name="estrellas" value="5">
-                            <!--
-                        --><label for="radio11">★</label>
-                            <!--
-                        --><input id="radio12" type="radio" name="estrellas" value="4">
-                            <!--
-                        --><label for="radio12">★</label>
-                            <!--
-                        --><input id="radio13" type="radio" name="estrellas" value="3">
-                            <!--
-                        --><label for="radio13">★</label>
-                            <!--
-                        --><input id="radio14" type="radio" name="estrellas" value="2">
-                            <!--
-                        --><label for="radio14">★</label>
-                            <!--
-                        --><input id="radio15" type="radio" name="estrellas" value="1">
-                            <!--
-                        --><label for="radio15">★</label>
-                        </p>
-                    </form>
-                    <a href="#" class="btn btn-primary">Comprar</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<br><br><br>
+
 <!--Esta parte es para otro header-->
 <div id="nosotros" class="jumbotron jumbotron-fluid">
     <div class="container">
@@ -121,39 +15,7 @@ Publico::headerTemplate('Inicio');
 <!-- Parte de las categorias -->
 <br>
 <div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <div class="card" style="width: 18rem;">
-                <img src="../../resources/img/categoria3.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><br>Accesorios</h5>
-                    <p class="card-text"><br>Camara mercury especial para los deportes extremos con resistencia a
-                        todo tipo de climas</p>
-                    <a href="#" class="btn btn-primary">Visualizar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm">
-            <div class="card" style="width: 18rem;">
-                <img src="../../resources/img/categoria2.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><br>Tripodes</h5>
-                    <p class="card-text"><br><br>Camara de alta calidad que graba a 4k con resistencia al agua y al
-                        polvo</p>
-                    <a href="#" class="btn btn-primary">Visualizar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm">
-            <div class="card" style="width: 18rem;">
-                <img src="../../resources/img/categoria5.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Extremo</h5>
-                    <p class="card-text">Camara especializada, sumergible hasta 30 metros de profundidad</p>
-                    <a href="#" class="btn btn-primary">Visualizar</a>
-                </div>
-            </div>
-        </div>
+    <div class="row" id="catalogo">
     </div>
 </div>
 <!-- En esta parte va el quienes somos -->
@@ -209,5 +71,5 @@ Publico::headerTemplate('Inicio');
 <!-- Footer -->
 <!-- Llamado la clase del footer-herencia -->
 <?php
-        Publico::footerTemplate('Usuarios');
+        Publico::footerTemplate('catalogo.js');
     ?>

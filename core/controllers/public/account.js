@@ -43,10 +43,10 @@ function modalProfile()
             const result = JSON.parse(response);
             //Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
             if (result.status) {
-                $('#profile_nombres').val(result.dataset.Nombre);
-                $('#profile_apellidos').val(result.dataset.Apellido);
-                $('#profile_correo').val(result.dataset.Correo);
-                $('#profile_alias').val(result.dataset.Nombre_Usuario);
+                $('#profile_nombres').val(result.dataset.Nombre_cliente);
+                $('#profile_apellidos').val(result.dataset.Apellido_cliente);
+                $('#profile_correo').val(result.dataset.Correo_cliente);
+                $('#profile_alias').val(result.dataset.Usuario_cliente);
                 $('#modal-profile').modal('show');
             } else {
                 sweetAlert(2, result.exception, null);

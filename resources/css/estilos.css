@@ -1,6 +1,10 @@
 body {
-  margin: auto;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
+
+
 
 .navbar {
   margin: auto;
@@ -199,3 +203,4 @@ button[type] {
   letter-spacing: 1px;
   opacity: 0.8;
 }
+

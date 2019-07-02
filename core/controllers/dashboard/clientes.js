@@ -27,7 +27,6 @@ function fillTable(rows)
     });
     $('#tbody-read').html(content);
     table('#tabla-clientes');
-    $('.materialboxed').materialbox();
     $('.tooltipped').tooltip();
 }
 

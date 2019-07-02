@@ -28,7 +28,6 @@ function fillTable(rows)
     });
     $('#tbody-read').html(content);
     table('#tabla-pedidos');
-    $('.materialboxed').materialbox();
     $('.tooltipped').tooltip();
 }
 
@@ -158,7 +157,6 @@ function fillTableDetalle(rows)
     });
     $("#id_pedido2").text(total);
     $('#tbody-read2').html(content);
-    $('.materialboxed').materialbox();
     $('.tooltipped').tooltip();
 }
 

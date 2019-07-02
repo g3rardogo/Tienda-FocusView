@@ -16,18 +16,50 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
 				} else {
 					$result['exception'] = 'No hay clientes registrados';
 				}
-				break;
-			case 'search':
-				$_POST = $cliente->validateForm($_POST);
-				if ($_POST['busqueda'] != '') {
-					if ($result['dataset'] = $cliente->searchClientes($_POST['busqueda'])) {
-						$result['status'] = 1;
-					} else {
-						$result['exception'] = 'No hay coincidencias';
-					}
-				} else {
-					$result['exception'] = 'Ingrese un valor para buscar';
-				}
+                break;
+                case 'readProfile':
+                if ($cliente->setId($_SESSION['idCliente'])) {
+                    if ($result['dataset'] = $cliente->getCliente()) {
+                        $result['status'] = 1;
+                    } else {
+                        $result['exception'] = 'Cliente inexistente';
+                    }
+                } else {
+                    $result['exception'] = 'Cliente incorrecto';
+                }
+                break;
+                case 'editProfile':
+                if ($cliente->setId($_SESSION['idCliente'])) {
+                    if ($cliente->getClientes()) {
+                        $_POST = $cliente->validateForm($_POST);
+                        if ($cliente->setNombres($_POST['profile_nombres'])) {
+                            if ($cliente->setApellidos($_POST['profile_apellidos'])) {
+                                if ($cliente->setCorreo($_POST['profile_correo'])) {
+                                    if ($cliente->setUsuario($_POST['profile_alias'])) {
+                                        if ($cliente->updateCliente()) {
+                                            $_SESSION['aliascliente'] = $_POST['profile_alias'];
+                                            $result['status'] = 1;
+                                        } else {
+                                            $result['exception'] = 'Operación fallida';
+                                        }
+                                    } else {
+                                        $result['exception'] = 'Alias incorrecto';
+                                    }
+                                } else {
+                                    $result['exception'] = 'Correo incorrecto';
+                                }
+                            } else {
+                                $result['exception'] = 'Apellidos incorrectos';
+                            }
+                        } else {
+                            $result['exception'] = 'Nombres incorrectos';
+                        }
+                    } else {
+                        $result['exception'] = 'cliente inexistente';
+                    }
+                } else {
+                    $result['exception'] = 'cliente incorrecto';
+                }
                 break;
                 case 'password':
                 if ($cliente->setId($_SESSION['idCliente'])) {
@@ -58,7 +90,7 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                         $result['exception'] = 'Claves actuales diferentes';
                     }
                 } else {
-                    $result['exception'] = 'Usuario incorrecto';
+                    $result['exception'] = 'cliente incorrecto';
                 }
                 break;
                 case 'create':
@@ -66,7 +98,7 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                 if ($cliente->setNombres($_POST['create_nombres'])) {
                     if ($cliente->setApellidos($_POST['create_apellidos'])) {
                         if ($cliente->setCorreo($_POST['create_correo'])) {
-                            if ($cliente->setUsuario($_POST['create_alias'])) {
+                            if ($cliente->setCliente($_POST['create_alias'])) {
                                 if ($_POST['create_clave1'] == $_POST['create_clave2']) {
                                     if ($cliente->setClave($_POST['create_clave1'])) {
                                         if ($cliente->createClientes()) {
@@ -111,7 +143,7 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                         if ($cliente->setNombres($_POST['update_nombres'])) {
                             if ($cliente->setApellidos($_POST['update_apellidos'])) {
                                 if ($cliente->setCorreo($_POST['update_correo'])) {
-                                    if ($cliente->setUsuario($_POST['update_alias'])) {
+                                    if ($cliente->setCliente($_POST['update_alias'])) {
                                         if ($cliente->updateCliente()) {
                                             $result['status'] = 1;
                                         } else {
@@ -130,11 +162,74 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                             $result['exception'] = 'Nombres incorrectos';
                         }
                     } else {
-                        $result['exception'] = 'Usuario inexistente';
+                        $result['exception'] = 'cliente inexistente';
                     }
                 } else {
-                    $result['exception'] = 'Usuario incorrecto';
+                    $result['exception'] = 'cliente incorrecto';
                 }
+                break;
+                case 'agregarCarrito':
+                    $_POST = $cliente->validateForm($_POST);
+                    if ($cliente->setIdCliente($_SESSION['idCliente'])) {
+                        if ($cliente->setIdProducto($_POST['id_producto'])){
+                            if ($cliente->setCantidad($_POST['cantidad'])){
+                                if ($cliente->agregarCarrito()) {
+                                    $result['status'] = 1;
+                                } else {
+                                        $result['exception'] = 'Operación fallida';
+                                    }
+                            } else {
+                                $result['exception'] = 'Cantidad Incorrecta';
+                            }
+                        } else {
+                            $result['exception'] = 'Producto Incorrecto';
+                        }
+                            
+                    } else {
+                        $result['exception'] = 'Inicie Sesion';
+                    }
+                break;
+                case 'readCarrito':
+                    //$_POST = $cliente->validateForm($_POST);
+                    if ($cliente->setId($_SESSION['idCliente'])) {
+                        if ($result['dataset'] = $cliente->readCarrito()) {
+                            $result['status'] = 1;
+                        } else {
+                            
+                            }
+                    } else {
+                        $result['exception'] = 'Inicie Sesion';
+                    }
+                break;
+                case 'deleteCarrito':
+                    
+                    /*    if ($cliente->setIdPrepedido($_POST['id_prepedido'])){
+                            if ($cliente->getPre()){
+                                if ($cliente->deleteCarrito()) {
+                                $result['status'] = 1;
+                                } else {
+                                    $result['exception'] = 'Operación fallida';
+                                }
+                            }
+                            
+                        } else {
+                            $result['exception'] = 'Pedido inexistente';
+                        }*/
+                if($cliente->setIdPrepedido($_POST['id_prepedido'])){
+                    if ($cliente->getPre()){
+                        if ($cliente->deleteCarrito()){
+                            $result['status'] = 1;
+                        } else {
+
+                        }
+                    } else {
+
+                    }
+                } else {
+
+                }     
+                            
+                    
                 break;
             case 'delete':
                     if ($cliente->setId($_POST['id_cliente'])) {
@@ -145,10 +240,10 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                                 $result['exception'] = 'Operación fallida';
                             }
                         } else {
-                            $result['exception'] = 'Usuario inexistente';
+                            $result['exception'] = 'cliente inexistente';
                         }
                     } else {
-                        $result['exception'] = 'Usuario incorrecto';
+                        $result['exception'] = 'cliente incorrecto';
                     }
                 break;
                 case 'register':
@@ -156,7 +251,7 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                 if ($cliente->setNombres($_POST['nombres'])) {
                     if ($cliente->setApellidos($_POST['apellidos'])) {
                         if ($cliente->setCorreo($_POST['correo'])) {
-                            if ($cliente->setUsuario($_POST['alias'])) {
+                            if ($cliente->setCliente($_POST['alias'])) {
                                 if ($_POST['clave1'] == $_POST['clave2']) {
                                     if ($cliente->setClave($_POST['clave1'])) {
                                         if ($cliente->createClientes()) {
@@ -190,7 +285,7 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                         if ($cliente->setClave($_POST['clave'])) {
                             if ($cliente->checkPassword()) {
                                 $_SESSION['idCliente'] = $cliente->getId();
-                                $_SESSION['aliasCliente'] = $cliente->getUsuario();
+                                $_SESSION['aliasCliente'] = $cliente->getCliente();
                                 $result['status'] = 1;
                             } else {
                                 $result['exception'] = 'Clave inexistente';

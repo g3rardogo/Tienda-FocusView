@@ -8,6 +8,10 @@ class Clientes extends Validator
 	private $correo = null;
 	private $usuario = null;
 	private $clave = null;
+	private $IdCliente = null;
+	private $IdProducto = null;
+	private $cantidad = null;
+	private $IdPrepedido = null;
 
 	//Métodos para sobrecarga de propiedades
 	public function setId($value)
@@ -101,7 +105,67 @@ class Clientes extends Validator
 	{
 		return $this->clave;
 	}
-	//Métodos para manejar la sesión del usuario
+
+	public function setCantidad($value)
+	{
+		if ($this->validateId($value)) {
+			$this->cantidad = $value;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function getCantidad()
+	{
+		return $this->cantidad;
+	}
+
+	public function setIdProducto($value)
+	{
+		if ($this->validateId($value)) {
+			$this->IdProducto = $value;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function getIdProducto()
+	{
+		return $this->IdProducto;
+	}
+
+	public function setIdCliente($value)
+	{
+		if ($this->validateId($value)) {
+			$this->IdCliente = $value;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function getIdCliente()
+	{
+		return $this->IdCliente;
+	}
+
+	public function setIdPrepedido($value)
+	{
+		if ($this->validateId($value)) {
+			$this->IdPrepedido = $value;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function getIdPrepedio()
+	{
+		return $this->IdPrepedido;
+	}
+	//Método para manejar la sesión del usuario
 	public function checkUsuario_Cliente()
 	{
 		$sql = 'SELECT id_cliente FROM clientes WHERE Usuario_cliente = ?';
@@ -115,6 +179,7 @@ class Clientes extends Validator
 		}
 	}
 
+	//Método para verificar la contraseña
 	public function checkPassword()
 	{
 		$sql = 'SELECT Clave_cliente FROM clientes WHERE id_cliente = ?';
@@ -142,13 +207,6 @@ class Clientes extends Validator
 		return Conexion::getRows($sql, $params);
 	}
 
-	public function searchClientes($value)
-	{
-		$sql = 'SELECT id_cliente, Nombre_cliente, Apellido_cliente, Usuario_cliente, Correo_cliente FROM clientes WHERE Apellido_cliente LIKE ? OR usuario_cliente LIKE ? ORDER BY Apellido_cliente';
-		$params = array("%$value%", "%$value%");
-		return Conexion::getRows($sql, $params);
-	}
-
 	public function createClientes()
 	{
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
@@ -157,7 +215,7 @@ class Clientes extends Validator
 		return Conexion::executeRow($sql, $params);
 	}
 
-	public function getClientes()
+	public function getCliente()
 	{
 		$sql = 'SELECT id_cliente, Nombre_cliente, Apellido_cliente, Usuario_cliente, Correo_cliente FROM clientes WHERE id_cliente = ?';
 		$params = array($this->id);
@@ -171,11 +229,44 @@ class Clientes extends Validator
 		return Conexion::executeRow($sql, $params);
 	}
 
+	public function agregarCarrito()
+	{
+		$sql = 'INSERT INTO pre_pedido(id_cliente, id_producto, cantidad) VALUES(?, ?, ?)';
+		$params = array($this->IdCliente, $this->IdProducto, $this->cantidad);
+		return Conexion::executeRow($sql, $params);
+	}
+
+	public function readCarrito()
+	{
+		$sql = 'SELECT id_prepedido, id_cliente, id_producto, cantidad, Imagen_producto, Nombre_producto, Precio_producto FROM pre_pedido INNER JOIN productos USING (id_producto) WHERE id_cliente = ?';
+		$params = array($this->id);
+		return Conexion::getRows($sql, $params);
+	}
+
 	public function deleteCliente()
 	{
 		$sql = 'DELETE FROM clientes WHERE id_cliente = ?';
 		$params = array($this->id);
 		return Conexion::executeRow($sql, $params);
+	}
+
+	public function deleteCarrito()
+	{
+		$sql = 'DELETE FROM pre_pedido WHERE id_prepedido = ?';
+		$params = array($this->IdPrepedido);
+		return Conexion::executeRow($sql, $params);
+	}
+
+	public function getPre(){
+		$sql = 'SELECT id_prepedido FROM pre_pedido WHERE id_prepedido = ?';
+		$params = array($this->IdPrepedido);
+		return Conexion::getRow($sql, $params);
+	}
+
+	public function getPrepedido(){
+		$sql = 'SELECT id_prepedido, id_cliente, id_producto, cantidad FROM pre_pedido WHERE id_cliente = ?';
+		$params = array($this->id);
+		return Conexion::getRows($sql, $params);
 	}
 }
 ?>

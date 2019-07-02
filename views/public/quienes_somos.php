@@ -13,8 +13,10 @@
 <body>
     <!-- En esta parte va lo que es el nav que esta fijo -->
     <?php 
-            require('../../core/models/baseheader.php');
-            baseheader::bhead();
+            
+            require_once('../../core/helpers/public.php');
+            Publico::headerTemplate('Inicio')
+        
 
        ?>
     <!-- Una barra  -->
@@ -300,13 +302,14 @@
     </section>
     <!-- Va el footer que lo manda a llamar -->
     <?php
-                require('../../core/models/basefooter.php');
-                basefooter::bfooter();
+                        Publico::footerTemplate('Usuarios');
+
             ?>
     <!--  -->
     <!-- Esta parte es el footer de la pagina donde se encuentran nuestras redes sociales -->
-    <script src="../../resources/js/jquery.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+    <script src="../../resources/js/jquery.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
     <script src="../../resources/js/popper.min.js"></script>
     <script src="../../resources/js/bootstrap.bundle.min.js"></script>
     <script src="../../resources/js/modals.js"></script>

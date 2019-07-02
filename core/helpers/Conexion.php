@@ -19,8 +19,8 @@ class Conexion
     {
         $server = 'localhost';
         $db = 'FocusView';
-        $username = 'root';
-        $password = '';
+        $username = 'Gerardo';
+        $password = 'ckQjmEr9ngiXjPMe';
         try {
             @self::$connection = new PDO('mysql:host='.$server.'; dbname='.$db, $username, $password);
         } catch(PDOException $error) {
