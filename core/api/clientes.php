@@ -202,19 +202,6 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                     }
                 break;
                 case 'deleteCarrito':
-                    
-                    /*    if ($cliente->setIdPrepedido($_POST['id_prepedido'])){
-                            if ($cliente->getPre()){
-                                if ($cliente->deleteCarrito()) {
-                                $result['status'] = 1;
-                                } else {
-                                    $result['exception'] = 'Operación fallida';
-                                }
-                            }
-                            
-                        } else {
-                            $result['exception'] = 'Pedido inexistente';
-                        }*/
                 if($cliente->setIdPrepedido($_POST['id_prepedido'])){
                     if ($cliente->getPre()){
                         if ($cliente->deleteCarrito()){
@@ -227,9 +214,52 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                     }
                 } else {
 
-                }     
-                            
+                }      
+                break;
+                case 'createPedido':
+                if($cliente->setId($_SESSION['idCliente'])){
+                    if ($cliente->setIdCliente($_SESSION['idCliente'])){
+                            if($cliente->createPedido()){
+                                if($cliente->readUltimoPedido()){
+                                    if ($cliente->readPrepedido()){
+                                        if($data = $cliente->readCarrito()){
+                                            foreach($data as $producto){
+                                                if($cliente->setIdProducto($producto['id_producto'])){
+                                                    if($cliente->setCantidad($producto['cantidad'])){
+                                                        if($cliente->createDetallePedido()){
+                                                            
+                                                        }
+                                                    } else {
+                                                        $result['exception'] = 'Cantidad incorrecta';
+                                                    }
+                                                } else {
+                                                    $result['exception'] = 'Producto incorrecto';
+                                                }
+                                            }
+                                            if($cliente->deletePrepedido()){
+                                                $result['status'] = 1;
+                                            } else {
+                                                $result['exception'] = 'Ocurrió un problema al eliminar el pre pedido';
+                                            }
+                                        } else {
+                                            $result['exception'] = 'Ocurrió un problema al obtener los productos';
+                                        }
+                                    } else {
+                                        $result['exception'] = 'Ocurrió un problema al obtener los datos de pre pedido';
+                                    }
+                                } else {
+                                    $result['exception'] = 'Ocurrió un problema al obtener el ultimo pedido';
+                                }
+                            } else {
+                                $result['exception'] = 'Ocurrió un problema al crear el pedido';
+                            }
+                    } else {
+                        $result['exception'] = 'Cliente incorrecto';
+                    }
                     
+                } else {
+                    $result['exception'] = 'Inicie Sesión';
+                }  
                 break;
             case 'delete':
                     if ($cliente->setId($_POST['id_cliente'])) {
@@ -251,7 +281,7 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                 if ($cliente->setNombres($_POST['nombres'])) {
                     if ($cliente->setApellidos($_POST['apellidos'])) {
                         if ($cliente->setCorreo($_POST['correo'])) {
-                            if ($cliente->setCliente($_POST['alias'])) {
+                            if ($cliente->setUsuario($_POST['alias'])) {
                                 if ($_POST['clave1'] == $_POST['clave2']) {
                                     if ($cliente->setClave($_POST['clave1'])) {
                                         if ($cliente->createClientes()) {

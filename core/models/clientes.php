@@ -12,6 +12,9 @@ class Clientes extends Validator
 	private $IdProducto = null;
 	private $cantidad = null;
 	private $IdPrepedido = null;
+	private $IdPedido = null;
+	private $FechaPedido = null;
+	private $EstadoPedido = null;
 
 	//Métodos para sobrecarga de propiedades
 	public function setId($value)
@@ -161,10 +164,49 @@ class Clientes extends Validator
 		}
 	}
 
-	public function getIdPrepedio()
+	public function getIdPrepedido()
 	{
 		return $this->IdPrepedido;
 	}
+
+	public function setIdPedido($value)
+	{
+		if ($this->validateId($value)) {
+			$this->IdPedido = $value;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function getIdPedido()
+	{
+		return $this->IdPedido;
+	}
+
+	public function setFechaPedido(){
+		$this->FechaPedido;
+	}
+
+	public function getFechaPedido(){
+		return $this->FechaPedido;
+	}
+
+	public function setEstadoPedido($value)
+	{
+		if ($this->validateId($value)) {
+			$this->EstadoPedido = $value;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function getEstadoPedido()
+	{
+		return $this->EstadoPedido;
+	}
+
 	//Método para manejar la sesión del usuario
 	public function checkUsuario_Cliente()
 	{
@@ -268,5 +310,51 @@ class Clientes extends Validator
 		$params = array($this->id);
 		return Conexion::getRows($sql, $params);
 	}
+
+	public function createPedido(){
+		$sql = 'INSERT INTO pedidos(id_cliente, Estado_pedido) VALUES (?, 1)';
+		$params = array($this->IdCliente);
+		return Conexion::executeRow($sql, $params);
+	}
+
+	public function createDetallePedido(){
+		$sql = 'INSERT INTO detalle_pedido(id_pedido, id_producto, cantidad) VALUES (?, ?, ?)';
+		$params = array($this->IdPedido, $this->IdProducto, $this->cantidad);
+		return Conexion::executeRow($sql, $params);
+	}
+
+	public function readUltimoPedido(){
+		$sql = 'SELECT MAX(id_pedido) AS UltimoPedido FROM pedidos';
+		$params = array(null);
+		$data = Conexion::getRow($sql, $params);
+		if($data){
+			$this->IdPedido = $data['UltimoPedido'];
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function readPrepedido(){
+		$sql = 'SELECT id_prepedido, id_cliente, id_producto, cantidad FROM pre_pedido';
+		$params = array(null);
+		$data = Conexion::executeRow($sql, $params);
+		if($data){
+			$this->IdProducto = $data['id_producto'];
+			$this->cantidad = $data['cantidad'];
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function deletePrepedido()
+	{
+		$sql = 'DELETE FROM pre_pedido WHERE id_cliente = ?';
+		$params = array($this->IdCliente);
+		return Conexion::executeRow($sql, $params);
+	}
+
+
 }
 ?>

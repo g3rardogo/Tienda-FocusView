@@ -34,9 +34,9 @@
         </div>
         <div class="pull-right" style="margin: 10px">
           <div class="pull-right" style="margin: 5px">
-            Total a pagar: <b>$55.00</b>
+            Total a pagar: $<b id="total"></b>
           </div>
-          <a href="" class="btn btn-success pull-right">CONTINUAR</a>
+          <a href="" onclick="confirmPago() " class="btn btn-success pull-right">CONTINUAR</a>
         </div>
       </div>
     </div>
