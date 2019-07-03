@@ -81,11 +81,13 @@
             <!-- Fin contenido -->
         </div>
         <script src="../../resources/js/chart.js"></script>
+        <!-- <script src="../../core/controllers/index.js"></script> -->
+        
 
 <!-- Llamando el footer y mandando de parametros el controlador y la tabla de datatable -->
         <?php
 
-Dashboard::footerTemplate('inicio.js', '');
+Dashboard::footerTemplate('index.js', '');
 
 
 ?>

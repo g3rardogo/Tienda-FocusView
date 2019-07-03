@@ -36,6 +36,7 @@ function checkUsuarios()
 }
 function grafico()
 {
+    console.log('entro');
     $.ajax({
         url: apiProductos + 'Graphics',
         type: 'post',
@@ -52,6 +53,7 @@ function grafico()
                     categorias.push(row.Nombre_categoria);
                     cantidad.push(row.cantidad);
                 });
+                console.log('hola');
                 graficoBar('chart', categorias, cantidad, 'Cantidad de productos', 'Cantidad de productos por categoria')
 
             }else{

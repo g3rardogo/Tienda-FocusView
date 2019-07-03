@@ -170,6 +170,13 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                     $result['exception'] = 'Producto incorrecto';
                 }
                 break;
+                case 'Graphics':
+                    if ($result['dataset'] = $producto->Graphics()) {
+                        $result['status'] = 1;
+                    } else {
+                        $result['exception'] = 'No hay categorías registradas';
+                    }
+                break;    
             default:
                 exit('Acción no disponible');
         }
@@ -205,13 +212,7 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                     $result['exception'] = 'Producto incorrecto';
                 }
                 break;
-                case 'Graphics':
-                if ($result['dataset'] = $producto->Graphics()) {
-                    $result['status'] = 1;
-                } else {
-                    $result['exception'] = 'No hay categorías registradas';
-                }
-                break;    
+                
             default:
                 exit('Acción no disponible');
     	}

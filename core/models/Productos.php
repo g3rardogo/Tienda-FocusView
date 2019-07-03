@@ -234,7 +234,7 @@ class Productos extends Validator
 	}
 	public function Graphics()
 	{
-		$sql = 'SELECT Nombre_categoria, Count(id_producto) cantidad FROM productos INNER JOIN categorias USING(id_categoria) GROUP BY id_categoria';
+		$sql = 'SELECT Nombre_categoria as categoria, Count(id_producto) as cantidad FROM productos INNER JOIN categorias USING(id_categoria) GROUP BY id_categoria';
 		$params = array(null);
 		return Conexion::getRows($sql, $params);
 	}

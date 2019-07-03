@@ -63,7 +63,7 @@ function graficoBar(canvas, xAxis, yAxis, legend, title)
         colors.push('#' +(Math.random().toString(16).substring(2,8)));  
     }
     const context = $("#" + canvas);
-    const chart = new chart(context,{
+    const chart= new Chart(context,{
         type: 'bar',
         data:{
             labels: xAxis,
