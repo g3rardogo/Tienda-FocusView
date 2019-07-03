@@ -59,46 +59,38 @@ function sweetAlert(type, text, url)
 function graficoBar(canvas, xAxis, yAxis, legend, title)
 {
     let colors = [];
-    let border = [];
     for(i = 0; i< xAxis.length; i++){
-        r = Math.floor(Math.random()*(225-0)) + 0;
-        g = Math.floor(Math.random()*(225-0)) + 0;  
-        b = Math.floor(Math.random()*(225-0)) + 0;
-        console.log(r)
-        colors.push('rgba(' + r + ',' + g + ',' + b + ')'),
-        border.push('#' +(Math.random().toString(16).substring(2,8)));  
+        colors.push('#' +(Math.random().toString(16).substring(2,8)));  
     }
-    var mostrar = $("#" +canvas);  
-
-            var grafico = new CharacterData(mostrar, {
-                type: 'bar',
-                data: {
-                    labels: xAxis,
-                    datasets: [{
-                        label: legend,
-                        backgroundColor:colors,
-                        bordercolor: border,
-                        data: yAxis,
-                        borderWith: 1,
-                        hoverBackground: colors
-                    }]
-                },
-                option: {
-                    legend: {
-                        display: false
-                    },
-                    title: {
-                        display: true,
-                        text: tittle
-                    },
-                    scales: {
-                        yAxes:[{
-                            ticks:{
-                                beginAtZero: true,
-                                stepSize: 1
-                            }
-                        }]
+    const context = $("#" + canvas);
+    const chart = new chart(context,{
+        type: 'bar',
+        data:{
+            labels: xAxis,
+            datasets: [{
+                label: legend,
+                data: yAxis,
+                backgroundColor: colors,
+                borderColor: '#000000',
+                borderWith : 1
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            title: {
+                display: true,
+                text: title
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 1
                     }
-                }
-            });
+                }]
+            }
+        }
+    });
 }

@@ -123,6 +123,7 @@ class Dashboard
 		<script src="../../resources/js/bootstrap.bundle.min.js"></script>
 		<script src="../../resources/js/jquery.dataTables.min.js"></script>
 		<script src="../../resources/js/dataTables.bootstrap4.min.js"></script>
+		<script src="../../resources/js/chart.js"></script>
 		
 		
 		<script src="../../resources/js/sweetalert.min.js"></script>

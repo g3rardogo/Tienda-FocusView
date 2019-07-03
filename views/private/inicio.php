@@ -68,8 +68,10 @@
                 </div>
                 <br><br>
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <canvas id="myChart"></canvas>
+                <h4>Grafico de categorias
+                    <div class="col s12 m6">
+                        <canvas id="chart"></canvas>
+                        
                     </div>
                 </div>
                 <br>
@@ -78,7 +80,7 @@
             </div>
             <!-- Fin contenido -->
         </div>
-        <script src="../../resources/js/chart.bundle.js"></script>
+        <script src="../../resources/js/chart.js"></script>
 
 <!-- Llamando el footer y mandando de parametros el controlador y la tabla de datatable -->
         <?php

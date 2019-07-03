@@ -42,25 +42,28 @@ function grafico()
         data: null,
         datatype: 'json'
     })
-    .done((data)=>{
-        var nombres = [];
-        var id= [];
-        console.log(data.dataset[0].id_categoria);
-        console.log(data.dataset[0].nombre_producto);
-        
-        const result = data;
+    .done(function(response){
+        if(isJSONString(response)){
+            const result = JSON.parse(response);
+            if(result.status){
+                let categorias = [];
+                let cantidad = [];
+                result.dataset.forEach(function(row){
+                    categorias.push(row.Nombre_categoria);
+                    cantidad.push(row.cantidad);
+                });
+                graficoBar('chart', categorias, cantidad, 'Cantidad de productos', 'Cantidad de productos por categoria')
 
-        result.dataset.forEach(renyer =>{
-
-            nombres.push(renyer.nombre_producto);
-            id.push(renyer.c)
-
-        });
-        graficoBar("myChart" , id_categoria,nombre_producto , "Numero de productos" , "Categorias")
+            }else{
+                $('#chart').remove();
+            }
+        }else{
+            console.log(response);
+        }
     })
     .fail(function(jqXHR){
         console.log('Error: ' + jqXHR.status + '' + jqXHR.statusText);
-    })
+    });
 }
 //Función para validar el usuario al momento de iniciar sesión
 $('#form-sesion').submit(function()
