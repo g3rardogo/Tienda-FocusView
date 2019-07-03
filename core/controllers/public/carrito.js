@@ -128,7 +128,7 @@ function confirmPago()
                     //Se comprueba si el resultado es satisfactorio, sino se muestra la excepción
                     if (result.status) {
                         if (result.status == 1) {
-                            sweetAlert(1, 'Pedido realizado', '../../views/public/inicio.php');
+                            sweetAlert(1, 'Pedido realizado', '../../core/Reportes/factura.php');
                         } else if (result.status == 2) {
                             sweetAlert(3, 'Pedido realizado. ' + result.exception, null);
                         }

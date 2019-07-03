@@ -68,7 +68,7 @@ class Pedidos extends Validator
 
 	public function readPedidosCliente()
 	{
-		$sql = 'SELECT nombre_cliente, id_pedido, Fecha_pedido, Estado_pedido FROM pedidos INNER JOIN clientes USING(id_cliente) WHERE id_cliente = 9 AND Estado_pedido = 1 ORDER BY Fecha_pedido';
+		$sql = 'SELECT nombre_cliente, id_pedido, Fecha_pedido, Estado_pedido FROM pedidos INNER JOIN clientes USING(id_cliente) WHERE id_cliente = ? AND Estado_pedido = 1 ORDER BY Fecha_pedido';
 		$params = array($this->cliente);
 		return Conexion::getRows($sql, $params);
 	}
@@ -82,7 +82,14 @@ class Pedidos extends Validator
 
 	public function readDetalle()
 	{
-		$sql = 'SELECT id_detalle, id_pedido, Nombre_producto, Cantidad, Precio_producto FROM detalle_pedido INNER JOIN productos USING(id_producto) WHERE id_pedido = ?';
+		$sql = 'SELECT id_detalle, id_pedido, id_producto, Nombre_producto, Cantidad, Precio_producto FROM detalle_pedido INNER JOIN productos USING(id_producto) WHERE id_pedido = ?';
+		$params = array($this->id);
+		return Conexion::getRows($sql, $params);
+	}
+
+	public function readDetalleFactura()
+	{
+		$sql = 'SELECT id_detalle, id_pedido, id_producto, Nombre_producto, Cantidad, Precio_producto FROM detalle_pedido INNER JOIN productos USING(id_producto) INNER JOIN pedidos USING(id_pedido) WHERE pedidos.id_pedido = ?';
 		$params = array($this->id);
 		return Conexion::getRows($sql, $params);
 	}
@@ -113,6 +120,18 @@ class Pedidos extends Validator
 		$sql = 'UPDATE pedidos SET Estado_pedido = ? WHERE id_pedido = ?';
 		$params = array($this->estado, $this->id);
 		return Conexion::executeRow($sql, $params);
+	}
+
+	public function readUltimoPedido(){
+		$sql = 'SELECT MAX(id_pedido) AS UltimoPedido FROM pedidos WHERE id_cliente = ?';
+		$params = array($this->cliente);
+		Conexion::getRow($sql, $params);
+		/* if($data){
+			$this->id = $data['UltimoPedido'];
+			return true;
+		} else {
+			return false;
+		} */
 	}
 
 }
