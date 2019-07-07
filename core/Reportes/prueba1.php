@@ -1,6 +1,6 @@
 <?php
 
-require_once('plantilla.php');
+require_once('../reportes/plantilla.php');
 require_once('../helpers/Conexion.php');
 require_once('../helpers/Validator.php');
 require_once('../models/Productos.php');

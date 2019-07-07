@@ -68,7 +68,14 @@ class Pedidos extends Validator
 
 	public function readPedidosCliente()
 	{
-		$sql = 'SELECT nombre_cliente, id_pedido, Fecha_pedido, Estado_pedido FROM pedidos INNER JOIN clientes USING(id_cliente) WHERE id_cliente = ? AND Estado_pedido = 1 ORDER BY Fecha_pedido';
+		$sql = 'SELECT Nombre_cliente, id_pedido, Fecha_pedido, Estado_pedido FROM pedidos INNER JOIN clientes USING(id_cliente) WHERE id_cliente = ? AND Estado_pedido = 1 ORDER BY Fecha_pedido';
+		$params = array($this->cliente);
+		return Conexion::getRows($sql, $params);
+	}
+
+	public function readNumber()
+	{
+		$sql = 'SELECT id_cliente, Nombre_cliente, Usuario_cliente, COUNT(id_pedido) as Pedidos from clientes INNER JOIN pedidos USING(id_cliente) GROUP BY id_cliente';
 		$params = array($this->cliente);
 		return Conexion::getRows($sql, $params);
 	}
@@ -76,6 +83,13 @@ class Pedidos extends Validator
 	public function readPedidos()
 	{
 		$sql = 'SELECT id_pedido, Fecha_pedido, Estado_pedido, nombre_cliente FROM pedidos INNER JOIN clientes USING(id_cliente) ORDER BY Fecha_pedido';
+		$params = array(null);
+		return Conexion::getRows($sql, $params);
+	}
+
+	public function readClientepedido()
+	{
+		$sql = 'SELECT Nombre_cliente, COUNT(id_pedido) as Pedidos from clientes INNER JOIN pedidos USING(id_cliente)';
 		$params = array(null);
 		return Conexion::getRows($sql, $params);
 	}
