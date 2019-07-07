@@ -123,15 +123,9 @@ class Pedidos extends Validator
 	}
 
 	public function readUltimoPedido(){
-		$sql = 'SELECT MAX(id_pedido) AS UltimoPedido FROM pedidos WHERE id_cliente = ?';
+		$sql = 'SELECT MAX(id_pedido) AS UltimoPedido, Nombre_cliente, Apellido_cliente, Fecha_pedido FROM pedidos INNER JOIN clientes USING(id_cliente) WHERE id_cliente = ?';
 		$params = array($this->cliente);
-		Conexion::getRow($sql, $params);
-		/* if($data){
-			$this->id = $data['UltimoPedido'];
-			return true;
-		} else {
-			return false;
-		} */
+		return Conexion::getRow($sql, $params);
 	}
 
 }
