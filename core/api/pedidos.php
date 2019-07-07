@@ -82,6 +82,13 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                     $result['exception'] = 'Pedido incorrecto';
                 }
                 break;
+                case 'Graphics1':
+                if ($result['dataset'] = $producto->Graphics1()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['exception'] = 'No hay categorías registradas';
+                }
+            break; 
             
             default:
                 exit('Acción no disponible');

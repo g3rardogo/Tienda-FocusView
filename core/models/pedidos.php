@@ -127,6 +127,12 @@ class Pedidos extends Validator
 		$params = array($this->cliente);
 		return Conexion::getRow($sql, $params);
 	}
+	public function Graphics1()
+	{
+		$sql = 'SELECT Nombre_categoria as categoria, Count(id_producto) as cantidad FROM productos INNER JOIN categorias USING(id_categoria) GROUP BY id_categoria';
+		$params = array(null);
+		return Conexion::getRows($sql, $params);
+	}
 
 }
 ?>

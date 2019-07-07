@@ -69,10 +69,15 @@
                 <br><br>
                 <div class="row">
                 <h4>Grafico de categorias
-                    <div class="col s12 m6">
+                    <div class="col s10 m2">
                         <canvas id="chart"></canvas>
                         
                     </div>
+                    <h4>Grafico de clientes
+                    <div class="col s10 m2">
+                        <canvas id="chart1"></canvas>
+                        
+                    </div>    
                 </div>
                 <br>
                 <hr>

@@ -2,11 +2,13 @@ $(document).ready(function()
 {
     checkUsuarios();
     grafico();
+    grafico1();
 })
 
 //Constante para establecer la ruta y parámetros de comunicación con la API
 const apiSesion = '../../core/api/usuarios.php?site=private&action=';
 const apiProductos = '../../core/api/productos.php?site=private&action=';
+const apiPedidos = '../../core/api/pedidos.php?site=private&action=';
 
 //Función para verificar si existen usuarios en el sitio privado
 function checkUsuarios()
@@ -34,6 +36,7 @@ function checkUsuarios()
         console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
     });
 }
+//aqui se hace la funcion para mandar a llamar el grafico
 function grafico()
 {
     console.log('entro');
@@ -67,6 +70,41 @@ function grafico()
         console.log('Error: ' + jqXHR.status + '' + jqXHR.statusText);
     });
 }
+//Aqui comienza el grafico 2 de clientes 
+function grafico()
+{
+    console.log('entro');
+    $.ajax({
+        url: apiProductos + 'Graphics',
+        type: 'post',
+        data: null,
+        datatype: 'json'
+    })
+    .done(function(response){
+        if(isJSONString(response)){
+            const result = JSON.parse(response);
+            if(result.status){
+                let categorias = [];
+                let cantidad = [];
+                result.dataset.forEach(function(row){
+                    categorias.push(row.Nombre_categoria);
+                    cantidad.push(row.cantidad);
+                });
+                console.log('hola');
+                graficoBar('chart1', categorias, cantidad, 'Cantidad de productos', 'Cantidad de productos por categoria')
+
+            }else{
+                $('#chart1').remove();
+            }
+        }else{
+            console.log(response);
+        }
+    })
+    .fail(function(jqXHR){
+        console.log('Error: ' + jqXHR.status + '' + jqXHR.statusText);
+    });
+}
+
 //Función para validar el usuario al momento de iniciar sesión
 $('#form-sesion').submit(function()
 {
