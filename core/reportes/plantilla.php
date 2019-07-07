@@ -1,4 +1,6 @@
 <?php
+	ini_set('date.timezone', 'America/El_Salvador');
+
 	require 'fpdf181/fpdf.php';	
 	
 	

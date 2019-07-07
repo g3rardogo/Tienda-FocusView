@@ -1,6 +1,6 @@
 <?php
-	ini_set('date.timezone', 'America/El_Salvador');
 
+	ini_set('date.timezone', 'America/El_Salvador');
 	require 'fpdf181/fpdf.php';	
 	
 	
@@ -15,7 +15,7 @@
             $this->Image('../../resources/img/Logo.jpg', 10, 8, 33 );
 			$this->SetFont('Arial','B',14);
 			$this->Cell(50);
-			$this->Cell(100,10, 'Reporte De Pedidos',1,0,'C', true);
+			$this->Cell(100,10, utf8_decode('Reporte De Productos Más Vendidos'),1,0,'C', true);
 			$this->Ln(10);
 			$this->Cell(190,20,('Fecha: ' .date('d/m/Y')),0,1,'L');
 			$this->Cell(100,10,('Hora: ' .date('H:i:s')),0,1,'L');

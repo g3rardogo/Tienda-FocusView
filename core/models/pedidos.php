@@ -87,10 +87,10 @@ class Pedidos extends Validator
 		return Conexion::getRows($sql, $params);
 	}
 
-	public function readClientepedido()
+	public function readVendidos()
 	{
-		$sql = 'SELECT Nombre_cliente, COUNT(id_pedido) as Pedidos from clientes INNER JOIN pedidos USING(id_cliente)';
-		$params = array(null);
+		$sql = 'SELECT id_producto, SUM(cantidad) as Cantidad ,Nombre_producto from pre_pedido INNER JOIN productos USING(id_producto) GROUP BY id_producto';
+		$params = array($this->id);
 		return Conexion::getRows($sql, $params);
 	}
 
