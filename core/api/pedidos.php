@@ -82,11 +82,11 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                     $result['exception'] = 'Pedido incorrecto';
                 }
                 break;
-                case 'Graphics1':
-                if ($result['dataset'] = $producto->Graphics1()) {
+                case 'Graphics2':
+                if ($result['dataset'] = $pedido->Graphics2()) {
                     $result['status'] = 1;
                 } else {
-                    $result['exception'] = 'No hay categorías registradas';
+                    $result['exception'] = 'No hay pedidos registradas';
                 }
             break; 
             

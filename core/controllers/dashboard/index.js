@@ -2,7 +2,8 @@ $(document).ready(function()
 {
     checkUsuarios();
     grafico();
-    grafico1();
+    grafico2();
+    
 })
 
 //Constante para establecer la ruta y parámetros de comunicación con la API
@@ -39,7 +40,7 @@ function checkUsuarios()
 //aqui se hace la funcion para mandar a llamar el grafico
 function grafico()
 {
-    console.log('entro');
+    
     $.ajax({
         url: apiProductos + 'Graphics',
         type: 'post',
@@ -56,7 +57,7 @@ function grafico()
                     categorias.push(row.Nombre_categoria);
                     cantidad.push(row.cantidad);
                 });
-                console.log('hola');
+                
                 graficoBar('chart', categorias, cantidad, 'Cantidad de productos', 'Cantidad de productos por categoria')
 
             }else{
@@ -70,12 +71,12 @@ function grafico()
         console.log('Error: ' + jqXHR.status + '' + jqXHR.statusText);
     });
 }
-//Aqui comienza el grafico 2 de clientes 
-function grafico()
+//aqui se hace el segundo grafico
+function grafico2()
 {
     console.log('entro');
     $.ajax({
-        url: apiProductos + 'Graphics',
+        url: apiPedidos + 'Graphics2',
         type: 'post',
         data: null,
         datatype: 'json'
@@ -84,27 +85,27 @@ function grafico()
         if(isJSONString(response)){
             const result = JSON.parse(response);
             if(result.status){
-                let categorias = [];
-                let cantidad = [];
+                let clientes = [];
+                let pedido = [];
                 result.dataset.forEach(function(row){
-                    categorias.push(row.Nombre_categoria);
-                    cantidad.push(row.cantidad);
+                    clientes.push(row.id_cliente);
+                    pedido.push(row.cantidad);
                 });
-                console.log('hola');
-                graficoBar('chart1', categorias, cantidad, 'Cantidad de productos', 'Cantidad de productos por categoria')
+                graficoBar2('chart2', pre_pedido, cantidad, 'Cantidad de productos', 'Cantidad de productos por usuario')
 
             }else{
-                $('#chart1').remove();
+                $('#chart2').remove();
             }
         }else{
             console.log(response);
+
+            
         }
     })
     .fail(function(jqXHR){
         console.log('Error: ' + jqXHR.status + '' + jqXHR.statusText);
     });
 }
-
 //Función para validar el usuario al momento de iniciar sesión
 $('#form-sesion').submit(function()
 {

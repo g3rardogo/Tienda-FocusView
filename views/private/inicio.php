@@ -67,21 +67,15 @@
                     </div>
                 </div>
                 <br><br>
-                <div class="row">
-                <h4>Grafico de categorias
-                    <div class="col s10 m2">
+                <div>
+                <h4>Grafico de categorias</h4>
+                    <div class="col-lg-6 col-sm-12">
                         <canvas id="chart"></canvas>
-                        
-                    </div>
-                    <h4>Grafico de clientes
-                    <div class="col s10 m2">
-                        <canvas id="chart1"></canvas>
-                        
-                    </div>    
-                </div>
-                <br>
+                <br><br>
+                <h4>Grafico de pedidos</h4>
+                    <div class="col-lg-6 col-sm-12">
+                        <canvas id="chart2"></canvas>
                 <hr>
-                
             </div>
             <!-- Fin contenido -->
         </div>
