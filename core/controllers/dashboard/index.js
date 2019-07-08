@@ -126,7 +126,7 @@ function grafico3()
                 let productos = [];
                 let cantidad = [];
                 result.dataset.forEach(function(row){
-                    productos.push(row.productos);
+                    productos.push(row.producto);
                     cantidad.push(row.cantidad);
                 });
                 graficoBar3('chart3', productos, cantidad, 'Cantidad de productos', 'Cantidad de productos por usuario')

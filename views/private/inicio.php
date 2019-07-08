@@ -93,7 +93,6 @@
                             <canvas id="chart4"></canvas>
                         </div>
                         </div>
-                    
                     </div>
                 </div>
                 <!-- Fin contenido -->
