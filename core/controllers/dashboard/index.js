@@ -3,6 +3,8 @@ $(document).ready(function()
     checkUsuarios();
     grafico();
     grafico2();
+    grafico3();
+    grafico4();
     
 })
 
@@ -54,7 +56,8 @@ function grafico()
                 let categorias = [];
                 let cantidad = [];
                 result.dataset.forEach(function(row){
-                    categorias.push(row.Nombre_categoria);
+                    categorias.push(row.categoria);
+                    console.log("categoria"+ row.categoria)
                     cantidad.push(row.cantidad);
                 });
                 
@@ -86,12 +89,12 @@ function grafico2()
             const result = JSON.parse(response);
             if(result.status){
                 let clientes = [];
-                let pedido = [];
+                let cantidad = [];
                 result.dataset.forEach(function(row){
-                    clientes.push(row.id_cliente);
-                    pedido.push(row.cantidad);
+                    clientes.push(row.clientes);
+                    cantidad.push(row.cantidad);
                 });
-                graficoBar2('chart2', pre_pedido, cantidad, 'Cantidad de productos', 'Cantidad de productos por usuario')
+                graficoBar2('chart2', clientes, cantidad, 'Cantidad de productos', 'Cantidad de productos por usuario')
 
             }else{
                 $('#chart2').remove();
@@ -100,6 +103,72 @@ function grafico2()
             console.log(response);
 
             
+        }
+    })
+    .fail(function(jqXHR){
+        console.log('Error: ' + jqXHR.status + '' + jqXHR.statusText);
+    });
+}
+//haciendo el grafico tres
+function grafico3()
+{
+    console.log('entro');
+    $.ajax({
+        url: apiProductos + 'Graphics3',
+        type: 'post',
+        data: null,
+        datatype: 'json'
+    })
+    .done(function(response){
+        if(isJSONString(response)){
+            const result = JSON.parse(response);
+            if(result.status){
+                let productos = [];
+                let cantidad = [];
+                result.dataset.forEach(function(row){
+                    productos.push(row.productos);
+                    cantidad.push(row.cantidad);
+                });
+                graficoBar3('chart3', productos, cantidad, 'Cantidad de productos', 'Cantidad de productos por usuario')
+
+            }else{
+                $('#chart3').remove();
+            }
+        }else{
+            console.log(response);
+        }
+    })
+    .fail(function(jqXHR){
+        console.log('Error: ' + jqXHR.status + '' + jqXHR.statusText);
+    });
+}
+//Haciendo grafico 4
+function grafico4()
+{
+    console.log('entro');
+    $.ajax({
+        url: apiProductos + 'Graphics4',
+        type: 'post',
+        data: null,
+        datatype: 'json'
+    })
+    .done(function(response){
+        if(isJSONString(response)){
+            const result = JSON.parse(response);
+            if(result.status){
+                let producto = [];
+                let precio = [];
+                result.dataset.forEach(function(row){
+                    producto.push(row.producto);
+                    precio.push(row.Ganancia);
+                });
+                graficoBar4('chart4', producto, precio, 'Ganancia de productos', 'Ganancias de productos')
+
+            }else{
+                $('#chart4').remove();
+            }
+        }else{
+            console.log(response);
         }
     })
     .fail(function(jqXHR){
