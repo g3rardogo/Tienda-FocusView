@@ -71,38 +71,47 @@
         <div class="container-fluid" id="container">
             <div class="row">
                 <div class="col-lg-5 col-sm-12">
-                <h4>Grafico de categorias</h4>
+                    <h4>Grafico de categorias</h4>
                     <canvas id="chart"></canvas>
                 </div>
                 <br>
                 <hr>
-                    <div class="col-lg-5 col-sm-12">
+                <div class="col-lg-5 col-sm-12">
                     <h4>Grafico de pedidos</h4>
-                        <canvas id="chart2"></canvas>
-                    </div>
-                    <br>
-                        <div class="col-lg-5 col-sm-12">
-                        <br><br>
-                        <h4>Grafico de productos mas vendidos</h4>
-                            <canvas id="chart3"></canvas>
-                        </div> 
-                        <hr>
-                        <div class="col-lg-5 col-sm-12">
-                        <br><br>
-                        <h4>Ganancias de productos</h4>
-                            <canvas id="chart4"></canvas>
-                        </div>
-                        </div>
-                    </div>
+                    <canvas id="chart2"></canvas>
                 </div>
-                <!-- Fin contenido -->
+                <br>
+                <div class="col-lg-5 col-sm-12">
+                    <br><br>
+                    <h4>Grafico de productos mas vendidos</h4>
+                    <canvas id="chart3"></canvas>
+                </div>
+                <hr>
+                <div class="col-lg-5 col-sm-12">
+                    <br><br>
+                    <h4>Ganancias de productos</h4>
+                    <canvas id="chart4"></canvas>
+                </div>
             </div>
-            <script src="../../resources/js/chart.js"></script>
-            <!-- <script src="../../core/controllers/index.js"></script> -->
+        </div>
+        <div class="col-12">
+        <div class="container-fluid" id="container">
+            <div class="row">
+                <div class="col-lg-8 col-sm-12">
+                    <h4>Grafico de categorias</h4>
+                    <canvas id="chart5"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin contenido -->
+</div>
+<script src="../../resources/js/chart.js"></script>
+<!-- <script src="../../core/controllers/index.js"></script> -->
 
 
-            <!-- Llamando el footer y mandando de parametros el controlador y la tabla de datatable -->
-            <?php
+<!-- Llamando el footer y mandando de parametros el controlador y la tabla de datatable -->
+<?php
 
 Dashboard::footerTemplate('index.js', '');
 
