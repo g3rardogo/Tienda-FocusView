@@ -22,22 +22,20 @@ $id = '';
 
 foreach($data as $datos){
     if(utf8_decode($datos['id_cliente']) != $id){
-        $pdf->SetFillColor(150,25,0);
-		$pdf->SetTextColor(0,0,0);
-        $pdf->Cell(45,10, utf8_decode($datos['id_cliente']),1,0,'C',true);
-        $pdf->Ln(10);        
-        $pdf->setX(38);
-        $pdf->Cell(25,10, utf8_decode('Nombre'),1,0,'C');
-        $pdf->Cell(25,10, utf8_decode('Usuario'),1,0,'C');
-        $pdf->Cell(15,10, utf8_decode('Pedidos'),1,0,'C');
+        $pdf->SetFillColor(148,155,255);
+        $pdf->SetTextColor(0,0,0);
+        $pdf->setX(30);
+        $pdf->Cell(50,10, utf8_decode('CLIENTE'),1,0,'C', true);
+        $pdf->Cell(50,10, utf8_decode('USUARIO'),1,0,'C', true);
+        $pdf->Cell(50,10, utf8_decode('NÚMERO DE PEDIDOS'),1,0,'C', true);
         $id = $datos['id_cliente'];
         $pdf->Ln();
     }
-    $pdf->setX(38);
+    $pdf->setX(30);
     
-        $pdf->Cell(25,10, utf8_decode($datos['Nombre_cliente']),1,0,'C');
-        $pdf->Cell(25,10, utf8_decode($datos['Usuario_cliente']),1,0,'C');
-        $pdf->Cell(15,10, utf8_decode($datos['Pedidos']),1,0,'C');
+        $pdf->Cell(50,10, utf8_decode($datos['Nombre_cliente']),1,0,'C');
+        $pdf->Cell(50,10, utf8_decode($datos['Usuario_cliente']),1,0,'C');
+        $pdf->Cell(50,10, utf8_decode($datos['Pedidos']),1,0,'C');
     $pdf->Ln();
 }
 

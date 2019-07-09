@@ -1,8 +1,8 @@
 <?php
-
 	ini_set('date.timezone', 'America/El_Salvador');
 	require 'fpdf181/fpdf.php';	
 	session_start();
+	
 	
 	class PDF extends FPDF
 	{
@@ -15,7 +15,7 @@
 			$this->Cell(100,5,'FOCUS VIEW', 0, 0, 'C');
 			$this->Ln(4);
 			$this->SetX(50);
-			$this->Cell(100,5, utf8_decode('REPORTE DE CANTIDAD DE PRODUCTOS VENDIDOS'), 0, 0, 'C');
+			$this->Cell(100,5, utf8_decode('REPORTE DE GANANCIAS'), 0, 0, 'C');
 			$this->Ln();
 			$this->Image('../../resources/img/Logo.jpg', 28, 27, 33 );
 			$this->Ln(7);
@@ -28,6 +28,7 @@
 			$this->SetX(150);
 			$this->Cell(50,5,('Usuario: '.$_SESSION['nombreUsuario']),0,0,'L');
 			$this->Ln(10);
+
 		}
 		
 		function Footer()
@@ -35,8 +36,7 @@
 			$this->SetY(-15);
 			$this->SetFont('Arial','B', 8);
 			$this->Cell(0,10, 'Pagina '.$this->PageNo().'/{nb}',0,0,'C' );
-		
-		}
-		
+			
+		}		
 	}
 ?>
