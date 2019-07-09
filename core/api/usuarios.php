@@ -19,6 +19,7 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                 }
                 break;
             case 'readProfile':
+                print_r ($_SESSION['idUsuario']);
                 if ($usuario->setId($_SESSION['idUsuario'])) {
                     if ($result['dataset'] = $usuario->getUsuario()) {
                         $result['status'] = 1;
@@ -259,8 +260,11 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                     if ($usuario->checkNombre_Usuario()) {
                         if ($usuario->setClave($_POST['clave'])) {
                             if ($usuario->checkPassword()) {
+                                
+                                $_SESSION['nombreUsuario'] = $usuario->getNombre_usuario();
                                 $_SESSION['idUsuario'] = $usuario->getId();
                                 $_SESSION['aliasUsuario'] = $usuario->getNombre_usuario();
+                            
                                 $result['status'] = 1;
                             } else {
                                 $result['exception'] = 'Clave inexistente';

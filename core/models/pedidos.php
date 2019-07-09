@@ -89,8 +89,8 @@ class Pedidos extends Validator
 
 	public function readVendidos()
 	{
-		$sql = 'SELECT id_producto, SUM(cantidad) as Cantidad ,Nombre_producto from pre_pedido INNER JOIN productos USING(id_producto) GROUP BY id_producto';
-		$params = array($this->id);
+		$sql = 'SELECT Nombre_producto, Sum(cantidad) as Cantidad from detalle_pedido INNER JOIN productos USING(id_producto) GROUP by Nombre_producto';
+		$params = array(null);
 		return Conexion::getRows($sql, $params);
 	}
 
