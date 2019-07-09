@@ -135,12 +135,15 @@
                     <h4>Grafico de categorias</h4>
                     <canvas id="chart"></canvas>
                 </div>
+                
                 <div class="col-lg-6 col-sm-12">
+                <br><br>
                     <h4>Grafico de productos por cliente</h4>
                     <canvas id="chart2"></canvas>
                 </div>
-                <br><br>
+                
                 <div class="col-lg-6 col-sm-12">
+                <br><br>
                     <h4>Grafico de productos mas vendidos</h4>
                     <canvas id="chart3"></canvas>
                 </div>
