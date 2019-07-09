@@ -50,7 +50,7 @@ $total = 0;
             $pdf->Cell(25,10, utf8_decode($total),1,0,'C');
         }
     }
-
+    $pdf->AliasNbPages();
 $pdf->Output();
    
 

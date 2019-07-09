@@ -39,8 +39,8 @@ $pdf->Ln();
 $id = '';
 
  //Comienza a crear las filas de productos según la consulta mysql del modelo
-foreach($data as $datos){
-    if(utf8_decode($datos['id_cliente']) != $id){
+foreach ($data as $datos) {
+    if (utf8_decode($datos['id_cliente']) != $id) {
         $pdf->setX(30);
         $id = $datos['id_cliente'];
         $pdf->Cell(50,10, utf8_decode($datos['Nombre_cliente']),1,0,'C');
@@ -56,4 +56,4 @@ $pdf->AliasNbPages();
 //Mostramos el documento pdf
 $pdf->Output();
 
-
+?>

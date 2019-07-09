@@ -212,7 +212,7 @@ function grafico5()
                     Nombre.push(row.ganancia);
                 });
                 //se manda a llamar la funcion graficoBar5 donde esta especificado el tipo de grafico
-                graficoBar5('chart5', cantidad, Nombre, 'Produco de mayor precio', 'Precio de productos')
+                graficoBar5('chart5', cantidad, Nombre, 'Precio', 'Precio de productos')
 
             }else{
                 $('#chart5').remove();

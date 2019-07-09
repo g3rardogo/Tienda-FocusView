@@ -150,31 +150,31 @@
         <div class="container-fluid" id="container">
             <div class="row">
                 <div class="col-lg-6 col-sm-12">
-                    <h4>Grafico de categorias</h4>
+                    <h4>Grafico de productos por categoria</h4>
                     <canvas id="chart"></canvas>
                 </div>
                 
                 <div class="col-lg-6 col-sm-12">
                 <br><br>
-                    <h4>Grafico de productos por cliente</h4>
+                    <h4>Grafico de pedidos por cliente</h4>
                     <canvas id="chart2"></canvas>
                 </div>
                 
                 <div class="col-lg-6 col-sm-12">
                 <br><br>
-                    <h4>Grafico de productos mas vendidos</h4>
+                    <h4>Grafico de productos mas pedidos</h4>
                     <canvas id="chart3"></canvas>
                 </div>
                 <hr>
                 <div class="col-lg-6 col-sm-12">
                     <br><br>
-                    <h4>Ganancias de productos</h4>
+                    <h4>Grafico de ganancias de productos</h4>
                     <canvas id="chart4"></canvas>
                 </div>
                 <br><br><br><br><br>
                 <div class="col-lg-12 col-sm-12">
                     <br><br>
-                    <h4>Ganancias de intervalo de tiempo</h4>
+                    <h4>Grafico de producto más caro</h4>
                     <canvas id="chart5"></canvas>
                 </div>
             </div>

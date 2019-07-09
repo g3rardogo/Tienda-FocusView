@@ -98,8 +98,8 @@ function graficoBar2(canvas, xAxis, yAxis, legend, title)
 {
     let colors = [];
     for(i = 0; i< xAxis.length; i++){
-        colors.push('#' +(Math.random().toString(16).substring(2,8)));  
-    }
+        colors.push('#' +(Math.random().toString(16).substring(2,8))); 
+    } 
     const context = $("#" + canvas);
     const chart= new Chart(context,{
         type: 'pie',
@@ -240,7 +240,7 @@ function graficoBar5(canvas, xAxis, yAxis, legend, title)
                 yAxes: [{
                     ticks: {
                         beginAtZero: true,
-                        stepSize: 1
+                        stepSize: 50
                     }
                 }]
             }

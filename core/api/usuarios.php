@@ -259,7 +259,6 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                     if ($usuario->checkNombre_Usuario()) {
                         if ($usuario->setClave($_POST['clave'])) {
                             if ($usuario->checkPassword()) {
-                                
                                 $_SESSION['nombreUsuario'] = $usuario->getNombre_usuario();
                                 $_SESSION['idUsuario'] = $usuario->getId();
                                 $_SESSION['aliasUsuario'] = $usuario->getNombre_usuario();

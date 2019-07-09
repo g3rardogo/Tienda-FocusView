@@ -247,7 +247,7 @@ class Productos extends Validator
 
 	public function Graphics3()
 	{
-		$sql = 'SELECT Nombre_producto as producto, Count(Cantidad) as cantidad FROM detalle_pedido INNER JOIN productos USING(id_producto) GROUP BY id_producto';
+		$sql = 'SELECT Nombre_producto as producto, Count(Cantidad) as cantidad FROM detalle_pedido INNER JOIN productos USING(id_producto) GROUP BY id_producto order by Cantidad DESC  ';
 		$params = array(null);
 		return Conexion::getRows($sql, $params);
 	}
@@ -259,7 +259,7 @@ class Productos extends Validator
 	}
 	public function Graphics5()
 	{
-		$sql = 'SELECT Nombre_producto as productos, SUM(Precio_producto) as ganancia FROM productos  GROUP BY Nombre_producto DESC';
+		$sql = 'SELECT Nombre_producto as productos, Precio_producto as ganancia FROM productos  GROUP BY Nombre_producto order by  Precio_producto DESC Limit 5';
 		$params = array(null);
 		return Conexion::getRows($sql, $params);
 	}

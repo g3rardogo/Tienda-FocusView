@@ -143,7 +143,7 @@ class Pedidos extends Validator
 	}
 	public function Graphics2()
 	{
-		$sql = 'SELECT Usuario_cliente as clientes, Count(id_pedido) as cantidad FROM clientes INNER JOIN pedidos USING(id_cliente) GROUP BY id_cliente';
+		$sql = 'SELECT Usuario_cliente as clientes, Count(id_pedido) as cantidad FROM clientes INNER JOIN pedidos USING(id_cliente) GROUP BY id_cliente limit 10';
 		$params = array(null);
 		return Conexion::getRows($sql, $params);
 	}

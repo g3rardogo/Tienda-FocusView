@@ -1,4 +1,5 @@
 <?php
+	ini_set('date.timezone', 'America/El_Salvador');
 	require 'fpdf181/fpdf.php';	
 	
 	
@@ -7,7 +8,6 @@
 		function Header()
 		{
 			  // Colores de los bordes, fondo y texto
-			date_default_timezone_set('GMT');
 			$this->SetFont('Arial','B',10);
 			$this->Ln(10);
 			$this->SetX(50);
