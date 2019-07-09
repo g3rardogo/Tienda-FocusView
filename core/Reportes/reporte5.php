@@ -35,7 +35,7 @@ foreach($data as $datos){
 }
 
 
-
+$pdf->AliasNbPages();
 $pdf->Output();
 
 

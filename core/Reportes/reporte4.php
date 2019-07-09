@@ -43,7 +43,7 @@ foreach($data as $datos){
         $pdf->Ln();
 }
 
-
+$pdf->AliasNbPages();
 //Mostramos el documento pdf
 $pdf->Output();
 
