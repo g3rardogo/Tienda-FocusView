@@ -84,21 +84,25 @@ function grafico2()
 {
     console.log('entro');
     $.ajax({
+        //mandamos a lllamar a al api 
         url: apiPedidos + 'Graphics2',
         type: 'post',
         data: null,
         datatype: 'json'
     })
     .done(function(response){
+        //recive una cadena tipo jason 
         if(isJSONString(response)){
             const result = JSON.parse(response);
             if(result.status){
+                //se declara los parametros que se van a ubicar en el ejeX y ejeY
                 let clientes = [];
                 let cantidad = [];
                 result.dataset.forEach(function(row){
                     clientes.push(row.clientes);
                     cantidad.push(row.cantidad);
                 });
+                //se manda a llamar la funcion de graficoBar2 donde esta especificado el tipo de producto que es
                 graficoBar2('chart2', clientes, cantidad, 'Cantidad de productos', 'Cantidad de productos por usuario')
 
             }else{
@@ -119,6 +123,7 @@ function grafico3()
 {
     console.log('entro');
     $.ajax({
+        //se manda a llamar a la api
         url: apiProductos + 'Graphics3',
         type: 'post',
         data: null,
@@ -130,10 +135,12 @@ function grafico3()
             if(result.status){
                 let productos = [];
                 let cantidad = [];
+                //se hace una funcion de poner los datos en cada row en el ejeX como en el ejeY
                 result.dataset.forEach(function(row){
                     productos.push(row.producto);
                     cantidad.push(row.cantidad);
                 });
+                //se manda a llamar el graficoBar3 donde esta especificado
                 graficoBar3('chart3', productos, cantidad, 'Cantidad de productos', 'Cantidad de productos por usuario')
 
             }else{
@@ -152,6 +159,7 @@ function grafico4()
 {
     console.log('entro');
     $.ajax({
+        //se manda a llamar a la api
         url: apiProductos + 'Graphics4',
         type: 'post',
         data: null,
@@ -161,12 +169,14 @@ function grafico4()
         if(isJSONString(response)){
             const result = JSON.parse(response);
             if(result.status){
+                //se declara los parametros que iran en el EJEX Y EN EL EJEY
                 let producto = [];
                 let precio = [];
                 result.dataset.forEach(function(row){
                     producto.push(row.producto);
                     precio.push(row.Ganancia);
                 });
+                //se trae la funcion de como sera el grafico
                 graficoBar4('chart4', producto, precio, 'Ganancia de productos', 'Ganancias de productos')
 
             }else{
@@ -184,6 +194,7 @@ function grafico5()
 {
     console.log('entro');
     $.ajax({
+        //se manda a llamar la api
         url: apiProductos + 'Graphics5',
         type: 'post',
         data: null,
@@ -193,13 +204,15 @@ function grafico5()
         if(isJSONString(response)){
             const result = JSON.parse(response);
             if(result.status){
-                let productos = [];
-                let Ganancia = [];
+                //de declara los parametros que iran en el ejex y en el ejeY
+                let cantidad = [];
+                let Nombre = [];
                 result.dataset.forEach(function(row){
-                    productos.push(row.producto);
-                    Ganancia.push(row.SUM(cantidad)*Precio_producto);
+                    cantidad.push(row.productos);
+                    Nombre.push(row.ganancia);
                 });
-                graficoBar5('chart5', productos, Ganancia, 'Produco mas vendido', 'Ganancias de productos')
+                //se manda a llamar la funcion graficoBar5 donde esta especificado el tipo de grafico
+                graficoBar5('chart5', cantidad, Nombre, 'Produco de mayor precio', 'Precio de productos')
 
             }else{
                 $('#chart5').remove();

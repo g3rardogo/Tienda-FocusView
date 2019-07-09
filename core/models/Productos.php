@@ -259,7 +259,7 @@ class Productos extends Validator
 	}
 	public function Graphics5()
 	{
-		$sql = 'SELECT Nombre_producto as producto, SUM(cantidad) as Cantidad, SUM(cantSELECT Nombre_producto as producto, SUM(cantidad) as Cantidad, SUM(cantidad)*Precio_producto as Ganancia from detalle_pedido INNER JOIN productos on detalle_pedido.id_producto = productos.id_producto ORDER BY Cantidad*precio_producto DESC';
+		$sql = 'SELECT Nombre_producto as productos, SUM(Precio_producto) as ganancia FROM productos  GROUP BY Nombre_producto DESC';
 		$params = array(null);
 		return Conexion::getRows($sql, $params);
 	}

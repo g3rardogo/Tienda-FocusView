@@ -217,7 +217,7 @@ function graficoBar5(canvas, xAxis, yAxis, legend, title)
     }
     const context = $("#" + canvas);
     const charts= new Chart(context,{
-        type: 'doughnut',
+        type: 'bar',
         data:{
             labels: xAxis,
             datasets: [{
