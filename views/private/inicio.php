@@ -159,7 +159,6 @@
     </div>
 </div>
 </div>
-<script src="../../resources/js/chart.js"></script>
 <!-- Fin contenido -->
 
 <script src="../../resources/js/chart.js"></script>
