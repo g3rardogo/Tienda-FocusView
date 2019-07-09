@@ -102,7 +102,84 @@ function graficoBar2(canvas, xAxis, yAxis, legend, title)
     }
     const context = $("#" + canvas);
     const chart= new Chart(context,{
-        type: 'bar',
+        type: 'pie',
+        data:{
+            labels: xAxis,
+            datasets: [{
+                label: legend,
+                data: yAxis,
+                backgroundColor: colors,
+                borderColor: '#000000',
+                borderWith : 1
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            title: {
+                display: true,
+                text: title
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 1
+                    }
+                }]
+            }
+        }
+    });
+}
+function graficoBar3(canvas, xAxis, yAxis, legend, title)
+{
+    let colors = [];
+    for(i = 0; i< xAxis.length; i++){
+        colors.push('#' +(Math.random().toString(16).substring(2,8)));  
+    }
+    const context = $("#" + canvas);
+    const MyPieChart= new Chart(context,{
+        type: 'line',
+        data:{
+            labels: xAxis,
+            datasets: [{
+                label: legend,
+                data: yAxis,
+                backgroundColor: colors,
+                borderColor: '#000000',
+                borderWith : 1
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            title: {
+                display: true,
+                text: title
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 1
+                    }
+                }]
+            }
+        }
+    });
+}
+
+function graficoBar4(canvas, xAxis, yAxis, legend, title)
+{
+    let colors = [];
+    for(i = 0; i< xAxis.length; i++){
+        colors.push('#' +(Math.random().toString(16).substring(2,8)));  
+    }
+    const context = $("#" + canvas);
+    const charts= new Chart(context,{
+        type: 'doughnut',
         data:{
             labels: xAxis,
             datasets: [{
