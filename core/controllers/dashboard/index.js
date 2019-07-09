@@ -5,6 +5,7 @@ $(document).ready(function()
     grafico2();
     grafico3();
     grafico4();
+    grafico5();
     
 })
 
@@ -42,7 +43,7 @@ function checkUsuarios()
 //aqui se hace la funcion para mandar a llamar el grafico
 function grafico()
 {
-    
+    //enviamos la url de la api productos
     $.ajax({
         url: apiProductos + 'Graphics',
         type: 'post',
@@ -52,15 +53,19 @@ function grafico()
     .done(function(response){
         if(isJSONString(response)){
             const result = JSON.parse(response);
+            //se envia dos parametros para el grafico el primero en el eje x y el otro en el eje y
             if(result.status){
                 let categorias = [];
                 let cantidad = [];
                 result.dataset.forEach(function(row){
+                    //se manda a llamar el query 
                     categorias.push(row.categoria);
                     console.log("categoria"+ row.categoria)
                     cantidad.push(row.cantidad);
                 });
-                
+                //graficoBar es la funcion que le da forma al grafico que esta en function.js
+                //luego mandamos el nombre del grafico declarado en la vista, y luego los dos parametros y lo
+                //lo que queremos que diga el graico segun como esta en la funcion
                 graficoBar('chart', categorias, cantidad, 'Cantidad de productos', 'Cantidad de productos por categoria')
 
             }else{
@@ -166,6 +171,38 @@ function grafico4()
 
             }else{
                 $('#chart4').remove();
+            }
+        }else{
+            console.log(response);
+        }
+    })
+    .fail(function(jqXHR){
+        console.log('Error: ' + jqXHR.status + '' + jqXHR.statusText);
+    });
+}
+function grafico5()
+{
+    console.log('entro');
+    $.ajax({
+        url: apiProductos + 'Graphics5',
+        type: 'post',
+        data: null,
+        datatype: 'json'
+    })
+    .done(function(response){
+        if(isJSONString(response)){
+            const result = JSON.parse(response);
+            if(result.status){
+                let productos = [];
+                let Ganancia = [];
+                result.dataset.forEach(function(row){
+                    productos.push(row.producto);
+                    Ganancia.push(row.SUM(cantidad)*Precio_producto);
+                });
+                graficoBar5('chart5', productos, Ganancia, 'Produco mas vendido', 'Ganancias de productos')
+
+            }else{
+                $('#chart5').remove();
             }
         }else{
             console.log(response);

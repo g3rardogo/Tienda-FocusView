@@ -190,7 +190,14 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                     } else {
                         $result['exception'] = 'No hay categorías registradas';
                     }
-                break;        
+                break;
+                case 'Graphics5':
+                    if ($result['dataset'] = $producto->Graphics5()) {
+                        $result['status'] = 1;
+                    } else {
+                        $result['exception'] = 'No hay categorías registradas';
+                    }
+                break;          
             default:
                 exit('Acción no disponible');
         }

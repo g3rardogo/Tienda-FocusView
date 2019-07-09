@@ -153,6 +153,12 @@
                     <h4>Ganancias de productos</h4>
                     <canvas id="chart4"></canvas>
                 </div>
+                <br><br><br><br><br>
+                <div class="col-lg-12 col-sm-12">
+                    <br><br>
+                    <h4>Ganancias de intervalo de tiempo</h4>
+                    <canvas id="chart5"></canvas>
+                </div>
             </div>
         </div>
 
