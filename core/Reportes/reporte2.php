@@ -8,7 +8,7 @@ require_once('../models/pedidos.php');
 /* Creamos el objeto pdf (con medidas en milímetros):  */
 $pdf = new PDF('P', 'mm', 'Letter');
 //Se establecen los margenes (izquierdo, superior, derecho)
-$pdf->SetMargins(2, 2 , 2);
+$pdf->SetMargins(10, 10, 10);
 //Se establece el auto salto de pagina, el segundo parámetro el que establece la activación por defecto son 2 cm
 $pdf->SetAutoPageBreak(true,20);  
 
