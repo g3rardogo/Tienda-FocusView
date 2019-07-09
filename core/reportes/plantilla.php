@@ -1,4 +1,5 @@
 <?php
+
 	ini_set('date.timezone', 'America/El_Salvador');
 	require 'fpdf181/fpdf.php';	
 	session_start();
@@ -8,18 +9,12 @@
 	{
 		function Header()
 		{
-			date_default_timezone_set('GMT');
             // seteamos el tipo de letra Arial Negrita 10 
 			$this->SetFont('Arial','B',10);
 			$this->Ln(10);
-			$this->SetX(50);
-	        // Cell(ancho, Alto, texto, borde, salto de linea, alineación de texto, color)
+			$this->SetX(60);
 			$this->Cell(100,5,'FOCUS VIEW', 0, 0, 'C');
 			$this->Ln(4);
-			$this->SetX(50);
-			//convertimos el texto a utf8, definimos la celda el titulo			
-			$this->Cell(100,5, utf8_decode('REPORTE DE PRODUCTOS POR CATEGORÍA'), 0, 0, 'C');
-			$this->Ln();
 			$this->Image('../../resources/img/Logo.jpg', 28, 27, 33 );
             // Salto de línea salta 7 lineas
 			$this->Ln(7);
@@ -35,7 +30,6 @@
 			$this->Cell(50,5,('Usuario: '.$_SESSION['nombreUsuario']),0,0,'L');
             // Salto de línea salta 10 lineas
 			$this->Ln(10);
-
 		}
 		
 		function Footer()
@@ -46,7 +40,8 @@
 			$this->SetFont('Arial','B', 8);
 			 // Número de página, el numero de de pagina se establece mediante la funcion pageno
 			$this->Cell(0,10, 'Pagina '.$this->PageNo().'/{nb}',0,0,'C' );
-			
-		}		
+		
+		}
+		
 	}
 ?>

@@ -263,5 +263,12 @@ class Productos extends Validator
 		$params = array(null);
 		return Conexion::getRows($sql, $params);
 	}
+
+	public function Bitacora()
+	{
+		$sql = 'SELECT Producto, Fecha, Accion FROM bitacora';
+		$params = array(null);
+		return Conexion::getRows($sql, $params);
+	}
 }
 ?>

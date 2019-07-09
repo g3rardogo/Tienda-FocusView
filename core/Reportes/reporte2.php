@@ -3,7 +3,7 @@
 require_once('../reportes/plantilla.php');
 require_once('../helpers/Conexion.php');
 require_once('../helpers/Validator.php');
-require_once('../models/Productos.php');
+require_once('../models/pedidos.php');
 
 /* Creamos el objeto pdf (con medidas en milímetros):  */
 $pdf = new PDF('P', 'mm', 'Letter');
@@ -14,51 +14,46 @@ $pdf->SetAutoPageBreak(true,20);
 
 //Agregamos la primera pagina al documento pdf  
 $pdf->addPage();
-$productos = new Productos();
+$Pedidos = new Pedidos();
 $pdf->SetFont('Arial','B',10);
-$data = $productos->readProductos1();
-// Cell(ancho, Alto, texto, borde, salto de linea, alineacion de texto)
+$data = $Pedidos->readNumber();
+// Cell(ancho, Alto, texto, borde, salto de linea, alineación de texto)
 $pdf->Ln();
+$pdf->setX(60);
+$pdf->Cell(100,5, utf8_decode('REPORTE DE PEDIDOS POR USUARIO'), 0, 0, 'C');  
+$pdf->Ln(10);
 // Seteamos la posición de la proxima celda en forma fija a 3.8 cm hacia la derecha de la pagina
 $pdf->setX(38);
 
 $pdf->Ln();
-$categoria = '';
+$id = '';
 
-//Comienza a crear las filas de productos según la consulta mysql del modelo
+ //Comienza a crear las filas de productos según la consulta mysql del modelo
 foreach($data as $datos){
-    if(utf8_decode($datos['Nombre_categoria']) != $categoria){
+    if(utf8_decode($datos['id_cliente']) != $id){
         //Se coloca el color del fondo de las celdas en formato rgb
         $pdf->SetFillColor(148,155,255);
         //Se coloca el color del texto en formato rgb
-
         $pdf->SetTextColor(0,0,0);
-        $pdf->Ln();
         $pdf->setX(30);
         // Cell(ancho, Alto, texto, borde, salto de linea, alineación de texto, color)
         //convertimos el texto a utf8
-        $pdf->Cell(150,10, utf8_decode($datos['Nombre_categoria']),1,0,'C',true);
-        $pdf->Ln();        
-        $pdf->setX(30);
-        $pdf->Cell(10,10, utf8_decode('#'),1,0,'C');
-        $pdf->Cell(120,10, utf8_decode('Producto'),1,0,'C');
-        $pdf->Cell(20,10, utf8_decode('Precio'),1,0,'C');
-        $categoria = $datos['Nombre_categoria'];
+        $pdf->Cell(50,10, utf8_decode('CLIENTE'),1,0,'C', true);
+        $pdf->Cell(50,10, utf8_decode('USUARIO'),1,0,'C', true);
+        $pdf->Cell(50,10, utf8_decode('NÚMERO DE PEDIDOS'),1,0,'C', true);
+        $id = $datos['id_cliente'];
         //saldo de linea
         $pdf->Ln();
     }
-        
-        $pdf->setX(30);
-          // Cell(ancho, Alto, texto, borde, salto de linea, alineación de texto, color)
-        //convertimos el texto a utf8
-        $pdf->Cell(10,10, utf8_decode($datos['id_producto']),1,0,'C');
-        $pdf->Cell(120,10, utf8_decode($datos['Nombre_producto']),1,0,'C');
-        $pdf->Cell(20,10, utf8_decode($datos['precio_producto']),1,0,'C');
-        $pdf->Ln();
+    $pdf->setX(30);
+    
+        $pdf->Cell(50,10, utf8_decode($datos['Nombre_cliente']),1,0,'C');
+        $pdf->Cell(50,10, utf8_decode($datos['Usuario_cliente']),1,0,'C');
+        $pdf->Cell(50,10, utf8_decode($datos['Pedidos']),1,0,'C');
+    $pdf->Ln();
 }
 
-
-
+//Mostramos el documento pdf
 $pdf->Output();
 
 

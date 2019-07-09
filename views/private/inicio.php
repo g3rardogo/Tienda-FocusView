@@ -71,55 +71,73 @@
     <br>
     <h1 class="text-center">REPORTES</h1>
     <div class="row">
-        <div class="col-lg-3 col-sm-12">
+        <div class="col-lg-4 col-sm-12">
             <div class="circle-tile ">
-                <a href="../../core/reportes/prueba1.php">
+                <a href="../../core/reportes/reporte1.php">
                     <div class="circle-tile-heading dark-blue"><i class="fa fa-list-alt fa-fw fa-3x"></i></div>
                 </a>
                 <div class="circle-tile-content dark-blue">
                     <div class="circle-tile-description text-faded"> Productos por categoria </div>
-                    <a class="circle-tile-footer" href="../../core/reportes/prueba1.php">Más información<i
+                    <a class="circle-tile-footer" href="../../core/reportes/reporte1.php">Más información<i
                             class="fa fa-chevron-circle-right"></i></a>
                 </div>
             </div>
         </div>
 
-        <div class="col-lg-3 col-sm-12">
+        <div class="col-lg-4 col-sm-12">
             <div class="circle-tile ">
-                <a href="../../core/reportes/prueba2.php">
+                <a href="../../core/reportes/reporte2.php">
                     <div class="circle-tile-heading red"><i class="fa fa-shopping-bag fa-fw fa-3x"></i></div>
                 </a>
                 <div class="circle-tile-content red">
                     <div class="circle-tile-description text-faded"> Pedidos por usuario </div>
-                    <a class="circle-tile-footer" href="../../core/reportes/prueba2.php">Más información<i
+                    <a class="circle-tile-footer" href="../../core/reportes/reporte2.php">Más información<i
                             class="fa fa-chevron-circle-right"></i></a>
                 </div>
             </div>
         </div>
 
-        <div class="col-lg-3 col-sm-12">
+        <div class="col-lg-4 col-sm-12">
             <div class="circle-tile ">
-                <a href="../../core/reportes/prueba4.php">
+                <a href="../../core/reportes/reporte3.php">
                     <div class="circle-tile-heading green"><i class="fa fa-dollar-sign fa-fw fa-3x"></i></div>
                 </a>
                 <div class="circle-tile-content green">
                     <div class="circle-tile-description text-faded"> Ganancias </div>
-                    <a class="circle-tile-footer" href="../../core/reportes/prueba4.php">Más información<i
+                    <a class="circle-tile-footer" href="../../core/reportes/reporte3.php">Más información<i
                             class="fa fa-chevron-circle-right"></i></a>
                 </div>
             </div>
         </div>
 
-        <div class="col-lg-3 col-sm-12">
+        <div class="col-lg-4 col-sm-12">
             <div class="circle-tile ">
-                <a href="../../core/reportes/prueba3.php">
+                <a href="../../core/reportes/reporte4.php">
                     <div class="circle-tile-heading orange"><i class="fa fa-search-dollar fa-fw fa-3x"></i>
                     </div>
                 </a>
 
                 <div class="circle-tile-content orange">
                     <div class="circle-tile-description text-faded"> Productos más vendidos </div>
-                    <a class="circle-tile-footer" href="../../core/reportes/prueba3.php">Más información<i
+                    <a class="circle-tile-footer" href="../../core/reportes/reporte4.php">Más información<i
+                            class="fa fa-chevron-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-12">
+            
+        </div>
+
+        <div class="col-lg-4 col-sm-12">
+            <div class="circle-tile ">
+                <a href="../../core/reportes/reporte5.php">
+                    <div class="circle-tile-heading gray"><i class="fa fa-clipboard fa-fw fa-3x"></i>
+                    </div>
+                </a>
+
+                <div class="circle-tile-content gray">
+                    <div class="circle-tile-description text-faded"> Bitácora </div>
+                    <a class="circle-tile-footer" href="../../core/reportes/reporte5.php">Más información<i
                             class="fa fa-chevron-circle-right"></i></a>
                 </div>
             </div>

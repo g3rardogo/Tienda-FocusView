@@ -1,6 +1,6 @@
 <?php
 
-require_once('../reportes/plantilla3.php');
+require_once('../reportes/plantilla.php');
 require_once('../helpers/Conexion.php');
 require_once('../helpers/Validator.php');
 require_once('../models/pedidos.php');
@@ -19,6 +19,9 @@ $usuario = new Usuarios();
 $pdf->SetFont('Arial','B',10);
 $data = $ventas->readVendidos();
 $pdf->Ln();
+$pdf->setX(60);
+$pdf->Cell(100,5, utf8_decode('REPORTE DE CANTIDAD DE PRODUCTOS VENDIDOS'), 0, 0, 'C');  
+$pdf->Ln(10);
 // Seteamos la posición de la proxima celda en forma fija a 3.8 cm hacia la derecha de la pagina
 $pdf->setX(30);      
 //Se coloca el color del fondo de las celdas en formato rgb
