@@ -19,7 +19,6 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                 }
                 break;
             case 'readProfile':
-                print_r ($_SESSION['idUsuario']);
                 if ($usuario->setId($_SESSION['idUsuario'])) {
                     if ($result['dataset'] = $usuario->getUsuario()) {
                         $result['status'] = 1;
