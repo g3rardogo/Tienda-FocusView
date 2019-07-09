@@ -4,7 +4,7 @@ $(document).ready(function()
 })
 
 //Constante para establecer la ruta y parámetros de comunicación con la API
-const apiRegister = '../../core/api/clientes.php?site=public&action=';
+const apiRegister = '../../core/api/usuarios.php?site=private&action=';
 
 //Función para verificar si existen usuarios en el sitio privado
 function checkUsuarios()
