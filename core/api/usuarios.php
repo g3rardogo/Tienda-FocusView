@@ -261,17 +261,22 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                 break;
             case 'login':
                 $_POST = $usuario->validateForm($_POST);
+                $captcha = $_POST['g-recaptcha-response'];
                 if ($usuario->setNombre_usuario($_POST['usuario'])) {
                     if ($usuario->checkNombre_Usuario()) {
                         if ($usuario->setClave($_POST['clave'])) {
-                            if ($usuario->checkPassword()) {
-                                $_SESSION['nombreUsuario'] = $usuario->getNombre_usuario();
-                                $_SESSION['idUsuario'] = $usuario->getId();
-                                $_SESSION['aliasUsuario'] = $usuario->getNombre_usuario();
-                            
-                                $result['status'] = 1;
+                            if(!$captcha){
+                                $result['exception'] = 'Verifica el captcha';
                             } else {
-                                $result['exception'] = 'Clave inexistente';
+                                if ($usuario->checkPassword()) {
+                                    $_SESSION['nombreUsuario'] = $usuario->getNombre_usuario();
+                                    $_SESSION['idUsuario'] = $usuario->getId();
+                                    $_SESSION['aliasUsuario'] = $usuario->getNombre_usuario();
+                                
+                                    $result['status'] = 1;
+                                } else {
+                                    $result['exception'] = 'Clave inexistente';
+                                }
                             }
                         } else {
                             $result['exception'] = 'Clave menor a 6 caracteres';

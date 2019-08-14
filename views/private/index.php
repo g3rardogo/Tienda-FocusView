@@ -29,6 +29,7 @@
             <input type="password" id="clave" name="clave" class="validate form-control" placeholder="Contraseña" required autofocus>
             <br>
             <div class="g-recaptcha" data-sitekey="6LfZ47IUAAAAAK5jOW7tdS61gVKpABlzqA104uCu"></div>
+            <br>
             <button class="btn btn-lg btn-primary btn-block btn-signin tooltipped" data-tooltip="Ingresar"
                 type="submit">Iniciar Sesión</button>
         </form>
