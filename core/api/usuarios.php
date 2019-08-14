@@ -69,15 +69,19 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                         if ($usuario->setClave($_POST['clave_actual_1'])) {
                             if ($usuario->checkPassword()) {
                                 if ($_POST['clave_nueva_1'] == $_POST['clave_nueva_2']) {
-                                    if ($usuario->setClave($_POST['clave_nueva_1'])) {
-                                        if ($usuario->changePassword()) {
-                                            $result['status'] = 1;
+                                    if ($_POST['clave_actual_1'] != $_POST['clave_nueva_1']) {
+                                        if ($usuario->setClave($_POST['clave_nueva_1'])) {
+                                            if ($usuario->changePassword()) {
+                                                $result['status'] = 1;
+                                            } else {
+                                                $result['exception'] = 'Operación fallida';
+                                            }
                                         } else {
-                                            $result['exception'] = 'Operación fallida';
+                                            $result['exception'] = 'Clave nueva menor a 6 caracteres';
                                         }
                                     } else {
-                                        $result['exception'] = 'Clave nueva menor a 6 caracteres';
-                                    }
+                                        $result['exception'] = 'La clave nueva es igual a la clave actual';
+                                    }   
                                 } else {
                                     $result['exception'] = 'Claves nuevas diferentes';
                                 }
@@ -211,6 +215,8 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                 exit('Acción no disponible');
         }
     } else if ($_GET['site'] == 'private') {
+        $siteKey = '6LfZ47IUAAAAAK5jOW7tdS61gVKpABlzqA104uCu';
+        $secretKey = '6Ldv4rIUAAAAAE0uIMyKYFWbxuYsoY-h3JObztC-';
         switch ($_GET['action']) {
             case 'read':
                 if ($usuario->readUsuarios()) {

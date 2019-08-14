@@ -8,6 +8,14 @@
     <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../resources/css/login.css">
+    <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+    <script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('reCAPTCHA_site_key', {action: 'homepage'}).then(function(token) {
+            ...
+        });
+    });
+    </script>
 </head>
 
 <body>
@@ -20,6 +28,7 @@
                 <br>
             <input type="password" id="clave" name="clave" class="validate form-control" placeholder="Contraseña" required autofocus>
             <br>
+            <div class="g-recaptcha" data-sitekey="6LfZ47IUAAAAAK5jOW7tdS61gVKpABlzqA104uCu"></div>
             <button class="btn btn-lg btn-primary btn-block btn-signin tooltipped" data-tooltip="Ingresar"
                 type="submit">Iniciar Sesión</button>
         </form>
