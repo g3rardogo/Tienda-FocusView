@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-05-2019 a las 05:27:07
+-- Tiempo de generación: 14-08-2019 a las 05:50:00
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.3.1
 
@@ -25,6 +25,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `bitacora`
+--
+
+CREATE TABLE `bitacora` (
+  `id_bitacora` int(10) UNSIGNED NOT NULL,
+  `Producto` varchar(50) NOT NULL,
+  `Fecha` datetime NOT NULL,
+  `Accion` varchar(50) CHARACTER SET latin1 COLLATE latin1_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `bitacora`
+--
+
+INSERT INTO `bitacora` (`id_bitacora`, `Producto`, `Fecha`, `Accion`) VALUES
+(5, 'FocusView Pro', '2019-07-09 09:08:34', 'Se agrego un nuevo producto'),
+(6, 'FocusView ProX', '2019-07-09 09:08:59', 'Se agrego un nuevo producto'),
+(7, 'Repuesto 1', '2019-07-09 09:09:16', 'Se agrego un nuevo producto'),
+(8, 'Accesorio 1', '2019-07-09 09:09:33', 'Se agrego un nuevo producto'),
+(9, 'Case', '2019-07-09 10:52:09', 'Se agrego un nuevo producto'),
+(10, 'Accesorio 2', '2019-07-09 10:52:53', 'Se agrego un nuevo producto'),
+(11, 'Accesorio 3', '2019-07-09 10:53:32', 'Se agrego un nuevo producto'),
+(12, 'FocusView HOTH', '2019-07-09 10:54:08', 'Se agrego un nuevo producto'),
+(13, 'Repuesto 2', '2019-07-09 10:54:39', 'Se agrego un nuevo producto');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `categorias`
 --
 
@@ -40,9 +68,10 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id_categoria`, `Nombre_categoria`, `Imagen_categoria`, `Descripcion_categoria`) VALUES
-(36, 'Categoria 2', '5cce17b2c1f60.jpg', 'test'),
-(37, 'Categoria 1', '5cce22a7b539b.jpg', 'test2'),
-(38, 'test', '5cd0aabed3e36.jpg', 'test');
+(4, 'Accesorios', '5d24ae6babb48.jpg', 'TEST'),
+(5, 'Camaras', '5d24ae940f3b7.jpg', 'TEST'),
+(6, 'Repuestos', '5d24aeb97bd35.jpg', 'TEST'),
+(7, 'Extras', '5d24c61e81939.jpg', 'TEST');
 
 -- --------------------------------------------------------
 
@@ -64,11 +93,8 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id_cliente`, `Nombre_cliente`, `Apellido_cliente`, `Usuario_cliente`, `Correo_cliente`, `Clave_cliente`) VALUES
-(1, 'Gerardo', 'Ramirez', 'Gerardo', 'gerardo@gmail.com', '123456'),
-(11, 'Gerardo', 'Ramirez', 'Gerardo2', 'gerardo2@gmail.com', '$2y$10$.FiWQPLSz4LXvX6eTz6HUOz9.BvO2VieE4RKBmY9AWaeknaadlcl.'),
-(12, 'Josue', 'Ezequiel', 'Josue', 'ezejosue@gmail.es', '$2y$10$C0kfkXkB94sqZidoqCc12eSA7VFz3RRmeJZUSnlZ4TzUIfrp95lty'),
-(14, 'Carlos', 'Quijano', 'Carlete', 'carlos@gmail.com', '$2y$10$Xe9P7t7AUxOutwvFlBFT7.qPYPq18o9tM3pV3.URCqPHrxN7w2GbG'),
-(22, 'Gerardo', 'Ramirez', 'Ezejosue', 'gerardo4@gmail.com', '$2y$10$vOLa/Y2D1WSQ9q28DqPY9es9lNg8Le.nkgQ72sY0zvtZ5GqqV0kLu');
+(30, 'Josue', 'Avalos', 'Ezejosue', 'josue@gmail.com', '$2y$10$vBEpHEmMYVP2HKLU3bNQFOBUURyXE8fv9Xs3jL3cwLbmvoOivPCt6'),
+(31, 'Gerardo', 'Javier', 'Gerardo503', 'gerardo@gmail.com', '$2y$10$3uqCdQPQhHn40vBTiKlceOxZPpUeMV6CbJl.lfy5ZMz.MjetrS8Wi');
 
 -- --------------------------------------------------------
 
@@ -77,23 +103,25 @@ INSERT INTO `clientes` (`id_cliente`, `Nombre_cliente`, `Apellido_cliente`, `Usu
 --
 
 CREATE TABLE `detalle_pedido` (
-  `id_detalle` int(11) NOT NULL,
+  `id_detalle` int(11) UNSIGNED NOT NULL,
   `id_pedido` int(10) UNSIGNED NOT NULL,
   `id_producto` int(10) UNSIGNED NOT NULL,
-  `Cantidad` int(11) NOT NULL
+  `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `detalle_pedido`
 --
 
-INSERT INTO `detalle_pedido` (`id_detalle`, `id_pedido`, `id_producto`, `Cantidad`) VALUES
-(1, 1, 11, 2),
-(2, 1, 13, 4),
-(3, 3, 13, 5),
-(4, 4, 13, 1),
-(5, 4, 12, 5),
-(6, 4, 14, 8);
+INSERT INTO `detalle_pedido` (`id_detalle`, `id_pedido`, `id_producto`, `cantidad`) VALUES
+(5, 5, 8, 1),
+(6, 5, 6, 1),
+(7, 6, 5, 1),
+(8, 7, 6, 1),
+(9, 8, 6, 1),
+(10, 9, 8, 2),
+(11, 9, 13, 5),
+(12, 10, 9, 2);
 
 -- --------------------------------------------------------
 
@@ -103,7 +131,7 @@ INSERT INTO `detalle_pedido` (`id_detalle`, `id_pedido`, `id_producto`, `Cantida
 
 CREATE TABLE `pedidos` (
   `id_pedido` int(10) UNSIGNED NOT NULL,
-  `Fecha_pedido` date NOT NULL,
+  `Fecha_pedido` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_cliente` int(10) UNSIGNED NOT NULL,
   `Estado_pedido` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -113,9 +141,12 @@ CREATE TABLE `pedidos` (
 --
 
 INSERT INTO `pedidos` (`id_pedido`, `Fecha_pedido`, `id_cliente`, `Estado_pedido`) VALUES
-(1, '2019-05-09', 1, 0),
-(3, '2019-05-01', 1, 1),
-(4, '2019-05-25', 1, 1);
+(5, '2019-07-09 09:14:58', 31, 1),
+(6, '2019-07-09 09:16:56', 31, 1),
+(7, '2019-07-09 09:17:42', 31, 1),
+(8, '2019-07-09 09:22:38', 30, 1),
+(9, '2019-07-09 10:55:34', 31, 1),
+(10, '2019-07-22 13:40:03', 30, 1);
 
 -- --------------------------------------------------------
 
@@ -151,10 +182,23 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_producto`, `Nombre_producto`, `Descripcion_producto`, `Precio_producto`, `Imagen_producto`, `Estado_producto`, `id_categoria`) VALUES
-(11, 'Producto 1', 'test', '2.01', '5cd2363411080.jpg', 0, 37),
-(12, 'Producto 2', 'test', '4.01', '5cd2364b99130.jpg', 1, 37),
-(13, 'Producto 3', 'test', '2.01', '5cd2365f46385.jpg', 1, 37),
-(14, 'test', 'gggyj', '2.20', '', 1, 36);
+(5, 'FocusView Pro', 'TEST', '5.25', '5d24adf2af9f3.jpg', 1, 5),
+(6, 'FocusView ProX', 'TEST', '25.15', '5d24ae0bbc611.jpg', 1, 5),
+(7, 'Repuesto 1', 'TEST', '4.75', '5d24ae1c558f3.jpg', 1, 6),
+(8, 'Accesorio 1', 'TEST', '6.35', '5d24ae2dc68b4.jpg', 1, 4),
+(9, 'Case', 'TEST', '3.01', '5d24c6399c282.jpg', 1, 7),
+(10, 'Accesorio 2', 'TEST', '0.05', '5d24c665e6ad5.jpg', 1, 4),
+(11, 'Accesorio 3', 'TEST', '12.35', '5d24c68c6cee3.jpg', 1, 4),
+(12, 'FocusView HOTH', 'TEST', '75.99', '5d24c6b0674cc.jpg', 1, 5),
+(13, 'Repuesto 2', 'TEST', '2.00', '5d24c6cfdb362.jpg', 1, 6);
+
+--
+-- Disparadores `productos`
+--
+DELIMITER $$
+CREATE TRIGGER `Llenar_bitacora` AFTER INSERT ON `productos` FOR EACH ROW INSERT INTO Bitacora(Producto, Fecha, Accion) Values (New.Nombre_producto, now(), 'Se agrego un nuevo producto')
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -176,11 +220,17 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `Nombre`, `Apellido`, `Nombre_Usuario`, `Correo`, `Clave`) VALUES
-(15, 'Gerardo', 'Ramirez', 'Gerardo', 'gerardo2@gmail.com', '$2y$10$zXaQslHYoVJQgaMhZxJxhOTr.jevBWET2k2cYXN3lHDIH/2tfTCIq');
+(18, 'Gerardo', 'Ramirez', 'Gerardo', 'gerardo@gmail.com', '$2y$10$lGj7vkBOrD0dSLa0CRnhjOE05400DMZBw3GrdAfPvwk5ncwjniV6m');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `bitacora`
+--
+ALTER TABLE `bitacora`
+  ADD PRIMARY KEY (`id_bitacora`);
 
 --
 -- Indices de la tabla `categorias`
@@ -202,8 +252,7 @@ ALTER TABLE `clientes`
 --
 ALTER TABLE `detalle_pedido`
   ADD PRIMARY KEY (`id_detalle`),
-  ADD KEY `id_pedido` (`id_pedido`),
-  ADD KEY `id_producto` (`id_producto`);
+  ADD KEY `id_pedido` (`id_pedido`);
 
 --
 -- Indices de la tabla `pedidos`
@@ -242,28 +291,52 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `bitacora`
+--
+ALTER TABLE `bitacora`
+  MODIFY `id_bitacora` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_categoria` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_cliente` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT de la tabla `detalle_pedido`
+--
+ALTER TABLE `detalle_pedido`
+  MODIFY `id_detalle` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT de la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  MODIFY `id_pedido` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `pre_pedido`
+--
+ALTER TABLE `pre_pedido`
+  MODIFY `id_prepedido` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_producto` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_usuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Restricciones para tablas volcadas
@@ -273,8 +346,7 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `detalle_pedido`
 --
 ALTER TABLE `detalle_pedido`
-  ADD CONSTRAINT `detalle_pedido_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedidos` (`id_pedido`),
-  ADD CONSTRAINT `detalle_pedido_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`);
+  ADD CONSTRAINT `detalle_pedido_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedidos` (`id_pedido`);
 
 --
 -- Filtros para la tabla `pedidos`
