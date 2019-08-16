@@ -45,11 +45,10 @@ class Publico
                                     <a class="nav-link" href="quienes_somos.php">Sobre Nosotros</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="ayuda.php">Ayuda</a>
-                                </li>
-                                <li class="nav-item">
                                     <a class="nav-link modal-trigger" href="#" data-toggle="modal" onclick="modalProfile()">Perfil</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" onclick="signOff()"><i class="fa fa-power-off"></i></a>
                                 </li>
                             </ul>
             
@@ -88,14 +87,10 @@ class Publico
                                     <a class="nav-link" href="quienes_somos.php">Sobre Nosotros</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="ayuda.php">Ayuda</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="index.php" class="nav-link" data-toggle="modal">Iniciar Sesión</a>
+                                    <a href="index.php" class="nav-link">Iniciar Sesión</a>
                                 </li>
                             </ul>
-            
-                        </div><a class="nav-link" href="carrito.php"> <img src="../../resources/img/shopping-cart.png"> </a>
+                        </div><a class="nav-link modal-trigger" href="#modal-password2" data-toggle="modal"> <img src="../../resources/img/shopping-cart.png"> </a>
                     </div>
                 </nav>
             <br>
@@ -236,122 +231,210 @@ class Publico
 	{
 		print('
         <div id="modal-profile" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">EDITAR PERFIL</h5>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">EDITAR PERFIL</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                </div>
-                <form method="post" id="form-profile">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <i class="fa fa-user"></i>
-                            </div>
-                            <div class="col-sm-11">
-                                <input id="profile_nombres" type="text" name="profile_nombres" class="form-control validate" required>
+                    </div>
+                    <form method="post" id="form-profile">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="col-sm-11">
+                                    <input id="profile_nombres" type="text" name="profile_nombres" class="form-control validate"
+                                        required>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <i class="fa fa-user"></i>
-                            </div>
-                            <div class="col-sm-11">
-                                <input id="profile_apellidos" type="text" name="profile_apellidos" class="form-control validate" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <i class="fa fa-envelope"></i>
-                            </div>
-                            <div class="col-sm-11">
-                                <input id="profile_correo" type="email" name="profile_correo" class="form-control validate" required>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="col-sm-11">
+                                    <input id="profile_apellidos" type="text" name="profile_apellidos"
+                                        class="form-control validate" required>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <i class="fa fa-user-shield"></i>
-                            </div>
-                            <div class="col-sm-11">
-                                <input id="profile_alias" type="text" name="profile_alias" class="form-control validate" required>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <div class="col-sm-11">
+                                    <input id="profile_correo" type="email" name="profile_correo" class="form-control validate"
+                                        required>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-user-shield"></i>
+                                </div>
+                                <div class="col-sm-11">
+                                    <input id="profile_alias" type="text" name="profile_alias" class="form-control validate"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
                         <div class="modal-body text-center">
-                            <button type="button" class="btn btn-secondary tooltipped" data-tooltip="Cancelar" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-secondary tooltipped" data-tooltip="Cancelar"
+                                data-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-primary tooltipped" data-tooltip="Guardar">Guardar</button>
                         </div>
-                    </div>
+                </div>
                 </form>
             </div>
-    </div>
+        </div>
 
-    <div id="modal-password" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">CAMBIAR CONTRASEÑA</h5>
+        <div id="modal-password" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">CAMBIAR CONTRASEÑA</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                </div>
-                <form method="post" id="form-password">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <i class="fa fa-user"></i>
-                            </div>
-                            <div class="col-sm-11">
-                                <input id="clave_actual_1" type="password" name="clave_actual_1" class="form-control validate" required placeholder="Clave Actual">
+                    </div>
+                    <form method="post" id="form-password">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="col-sm-11">
+                                    <input id="clave_actual_1" type="password" name="clave_actual_1"
+                                        class="form-control validate" required placeholder="Clave Actual">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <i class="fa fa-user"></i>
-                            </div>
-                            <div class="col-sm-11">
-                                <input id="clave_actual_2" type="password" name="clave_actual_2" class="form-control validate" required placeholder="Confirmar Clave">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <i class="fa fa-user"></i>
-                            </div>
-                            <div class="col-sm-11">
-                                <input id="clave_nueva_1" type="password" name="clave_nueva_1" class="form-control validate" required placeholder="Nueva Clave">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="col-sm-11">
+                                    <input id="clave_actual_2" type="password" name="clave_actual_2"
+                                        class="form-control validate" required placeholder="Confirmar Clave">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <i class="fa fa-user"></i>
-                            </div>
-                            <div class="col-sm-11">
-                                <input id="clave_nueva_2" type="password" name="clave_nueva_2" class="form-control validate" required placeholder="Confirmar Clave">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="col-sm-11">
+                                    <input id="clave_nueva_1" type="password" name="clave_nueva_1" class="form-control validate"
+                                        required placeholder="Nueva Clave">
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="col-sm-11">
+                                    <input id="clave_nueva_2" type="password" name="clave_nueva_2" class="form-control validate"
+                                        required placeholder="Confirmar Clave">
+                                </div>
+                            </div>
+                        </div>
                         <div class="modal-body text-center">
-                            <button type="button" class="btn btn-secondary tooltipped" data-tooltip="Cancelar" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-secondary tooltipped" data-tooltip="Cancelar"
+                                data-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-primary tooltipped" data-tooltip="Cambiar">Guardar</button>
                         </div>
-                    </div>
+                </div>
                 </form>
             </div>
-    </div>
+        </div>
+        <div id="modal-password2" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">CAMBIAR CONTRASEÑA</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="post" id="form-password">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="col-sm-11">
+                                    <input id="clave_actual_1" type="password" name="clave_actual_1"
+                                        class="form-control validate" required placeholder="Clave Actual">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="col-sm-11">
+                                    <input id="clave_actual_2" type="password" name="clave_actual_2"
+                                        class="form-control validate" required placeholder="Confirmar Clave">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="col-sm-11">
+                                    <input id="clave_nueva_1" type="password" name="clave_nueva_1" class="form-control validate"
+                                        required placeholder="Nueva Clave">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="col-sm-11">
+                                    <input id="clave_nueva_2" type="password" name="clave_nueva_2" class="form-control validate"
+                                        required placeholder="Confirmar Clave">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-body text-center">
+                            <button type="button" class="btn btn-secondary tooltipped" data-tooltip="Cancelar"
+                                data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary tooltipped" data-tooltip="Cambiar">Guardar</button>
+                        </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div id="modal-iniciar-sesion" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">AVISO</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    <p>Debe iniciar sesión</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 		');
 	}
 }

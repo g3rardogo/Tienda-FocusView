@@ -10,6 +10,13 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
 	$result = array('status' => 0, 'exception' => '');
 	//Se verifica si existe una sesión iniciada como administrador para realizar las operaciones correspondientes
 		switch ($_GET['action']) {
+            case 'logout':
+                if (session_destroy()) {
+                    header('location: ../../views/public/inicio.php');
+                } else {
+                    header('location: ../../views/public/inicio.php');
+                }
+            break;
 			case 'read':
 				if ($result['dataset'] = $cliente->readClientes()) {
 					$result['status'] = 1;
