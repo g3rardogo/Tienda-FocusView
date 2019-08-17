@@ -17,11 +17,17 @@
             <span id="reauth-email" class="reauth-email"></span>
             <input type="text" id="usuario" name="usuario" class="validate form-control" placeholder="Usuario" required
                 autofocus>
-                <br>
-            <input type="password" id="clave" name="clave" class="validate form-control" placeholder="Contraseña" required autofocus>
+            <br>
+            <input type="password" id="clave" name="clave" class="validate form-control" placeholder="Contraseña"
+                required autofocus>
             <br>
             <button class="btn btn-lg btn-primary btn-block btn-signin tooltipped" data-tooltip="Ingresar"
                 type="submit">Iniciar Sesión</button>
+            <br>
+            <a href="recuperar_contrasena.php" class="forgot-password">
+                ¿Olvidaste tu cotraseña?
+            </a>
+            <br>
             <a href="register.php" class="forgot-password">
                 ¿Eres nuevo?, Registrate aquí
             </a>

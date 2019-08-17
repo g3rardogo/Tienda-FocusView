@@ -337,6 +337,18 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                     $result['exception'] = 'Alias incorrecto';
                 }
                 break;
+                case 'recuperarContrasena':
+                $_POST = $cliente->validateForm($_POST);
+                if ($cliente->setCorreo($_POST['correo'])) {
+                    if($cliente->checkCorreo()){
+                        $result['status'] = 1;
+                    } else{
+                        $result['exception'] = 'El correo no está registrado en el sistema';
+                    }
+                } else {
+                    $result['exception'] = 'Correo incorrecto';
+                }
+                break;
 			default:
 				exit('Acción no disponible');
 		}

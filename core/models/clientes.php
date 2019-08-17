@@ -234,6 +234,13 @@ class Clientes extends Validator
 		}
 	}
 
+	public function checkCorreo()
+	{
+		$sql = 'SELECT correo_cliente FROM clientes WHERE correo_cliente = ?';
+		$params = array($this->correo);
+		return Conexion::getRow($sql, $params);
+	}
+
 	public function changePassword()
 	{
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);

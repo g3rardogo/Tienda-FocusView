@@ -40,7 +40,7 @@
                         <br>
                         <button class="btn btn-secondary btn-signin" data-tooltip="Registrar"
                             type="button" href="index.php">Cancelar</button>
-                            <button class="btn btn-primary btn-signin tooltipped" data-tooltip="Registrar"
+                        <button class="btn btn-primary btn-signin tooltipped" data-tooltip="Registrar"
                             type="submit">Registrarse</button>
                     </form>
                 </div>
