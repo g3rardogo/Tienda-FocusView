@@ -215,8 +215,6 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                 exit('Acción no disponible');
         }
     } else if ($_GET['site'] == 'private') {
-        $siteKey = '6LfZ47IUAAAAAK5jOW7tdS61gVKpABlzqA104uCu';
-        $secretKey = '6Ldv4rIUAAAAAE0uIMyKYFWbxuYsoY-h3JObztC-';
         switch ($_GET['action']) {
             case 'read':
                 if ($usuario->readUsuarios()) {
@@ -261,22 +259,17 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                 break;
             case 'login':
                 $_POST = $usuario->validateForm($_POST);
-                $captcha = $_POST['g-recaptcha-response'];
                 if ($usuario->setNombre_usuario($_POST['usuario'])) {
                     if ($usuario->checkNombre_Usuario()) {
                         if ($usuario->setClave($_POST['clave'])) {
-                            if(!$captcha){
-                                $result['exception'] = 'Verifica el captcha';
+                            if ($usuario->checkPassword()) {
+                                $_SESSION['nombreUsuario'] = $usuario->getNombre_usuario();
+                                $_SESSION['idUsuario'] = $usuario->getId();
+                                $_SESSION['aliasUsuario'] = $usuario->getNombre_usuario();
+                            
+                                $result['status'] = 1;
                             } else {
-                                if ($usuario->checkPassword()) {
-                                    $_SESSION['nombreUsuario'] = $usuario->getNombre_usuario();
-                                    $_SESSION['idUsuario'] = $usuario->getId();
-                                    $_SESSION['aliasUsuario'] = $usuario->getNombre_usuario();
-                                
-                                    $result['status'] = 1;
-                                } else {
-                                    $result['exception'] = 'Clave inexistente';
-                                }
+                                $result['exception'] = 'Clave inexistente';
                             }
                         } else {
                             $result['exception'] = 'Clave menor a 6 caracteres';

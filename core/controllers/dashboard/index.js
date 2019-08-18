@@ -6,7 +6,6 @@ $(document).ready(function()
     grafico3();
     grafico4();
     grafico5();
-    
 })
 
 //Constante para establecer la ruta y parámetros de comunicación con la API
@@ -60,7 +59,6 @@ function grafico()
                 result.dataset.forEach(function(row){
                     //se manda a llamar el query 
                     categorias.push(row.categoria);
-                    console.log("categoria"+ row.categoria)
                     cantidad.push(row.cantidad);
                 });
                 //graficoBar es la funcion que le da forma al grafico que esta en function.js
@@ -82,7 +80,6 @@ function grafico()
 //aqui se hace el segundo grafico
 function grafico2()
 {
-    console.log('entro');
     $.ajax({
         //mandamos a lllamar a al api 
         url: apiPedidos + 'Graphics2',
@@ -121,7 +118,6 @@ function grafico2()
 //haciendo el grafico tres
 function grafico3()
 {
-    console.log('entro');
     $.ajax({
         //se manda a llamar a la api
         url: apiProductos + 'Graphics3',
@@ -157,7 +153,6 @@ function grafico3()
 //Haciendo grafico 4
 function grafico4()
 {
-    console.log('entro');
     $.ajax({
         //se manda a llamar a la api
         url: apiProductos + 'Graphics4',
@@ -192,7 +187,6 @@ function grafico4()
 }
 function grafico5()
 {
-    console.log('entro');
     $.ajax({
         //se manda a llamar la api
         url: apiProductos + 'Graphics5',
