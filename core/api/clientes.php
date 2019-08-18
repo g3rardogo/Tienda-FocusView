@@ -2,7 +2,14 @@
 require_once('../../core/helpers/Conexion.php');
 require_once('../../core/helpers/validator.php');
 require_once('../../core/models/clientes.php');
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
+require '../../core/libraries/PHPMailer/src/Exception.php';
+require '../../core/libraries/PHPMailer/src/PHPMailer.php';
+require '../../core/libraries/PHPMailer/src/SMTP.php';
+$mail = new PHPMailer();
+$mail->CharSet = "UTF-8";
 //Se comprueba si existe una petición del sitio web y la acción a realizar, de lo contrario se muestra una página de error
 if (isset($_GET['site']) && isset($_GET['action'])) {
 	session_start();
@@ -341,14 +348,61 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                 $_POST = $cliente->validateForm($_POST);
                 if ($cliente->setCorreo($_POST['correo'])) {
                     if($cliente->checkCorreo()){
-                        $result['status'] = 1;
+                        $correo = $cliente->getCorreo();
+                        $token = uniqid();
+                        $cliente->setToken($token);
+                        $cliente->updateToken();
+                        try {                                     
+                            $mail->isSMTP();                                            // Set mailer to use SMTP
+                            $mail->Host       = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
+                            $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+                            $mail->Username   = 'test503sv@gmail.com';                             // SMTP username
+                            $mail->Password   = '71096669';                               // SMTP password
+                            $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
+                            $mail->Port       = 587;                                    // TCP port to connect to
+                        
+                            //Recipients
+                            $mail->setFrom('test503sv@gmail.com', 'FocusView - Recuperar contraseña');
+                            $mail->addAddress($correo);
+                            // Content
+                            $mail->isHTML(true);                                  // Set email format to HTML
+                            $mail->Subject = 'Recuperar contraseña';
+                            $mail->Body    = 'Haga click <a href="http://localhost/Tienda-FocusView/views/public/nueva_contrasena.php?token='.$token.'">aqui</a> para recuperar su contraseña';
+                        
+                            $mail->send();
+                            $result['status'] = 1;
+                        } catch (Exception $e) {
+                            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                        }
                     } else{
-                        $result['exception'] = 'El correo no está registrado en el sistema';
+                        $result['exception'] = 'El correo no coincide con ningún usuario';
                     }
                 } else {
                     $result['exception'] = 'Correo incorrecto';
                 }
                 break;
+                case 'nuevaPassword':
+                $_POST = $cliente->validateForm($_POST);
+                if($cliente->getDatosToken()){
+                    if ($_POST['nueva_contrasena'] == $_POST['nueva_contrasena2']) {
+                        if ($cliente->setClave($_POST['nueva_contrasena'])) {
+                            if ($cliente->changePassword()) {
+                                $result['status'] = 1;
+                            } else {
+                                $result['exception'] = 'Operación fallida';
+                            }
+                        } else {
+                            $result['exception'] = 'Clave menor a 6 caracteres';
+                        }
+                    } else {
+                        $result['exception'] = 'Claves diferentes';
+                        
+                    } 
+                } else {
+                    $result['exception'] = 'Error al obtener los datos del usuario';
+                }
+                break;
+
 			default:
 				exit('Acción no disponible');
 		}

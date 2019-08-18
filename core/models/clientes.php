@@ -8,6 +8,7 @@ class Clientes extends Validator
 	private $correo = null;
 	private $usuario = null;
 	private $clave = null;
+	private $token = null;
 	private $IdCliente = null;
 	private $IdProducto = null;
 	private $cantidad = null;
@@ -107,6 +108,16 @@ class Clientes extends Validator
 	public function getClave()
 	{
 		return $this->clave;
+	}
+
+	public function setToken($value)
+	{
+		 $this->token = $value;
+	}
+
+	public function getToken()
+	{
+		return $this->token;
 	}
 
 	public function setCantidad($value)
@@ -244,10 +255,31 @@ class Clientes extends Validator
 	public function changePassword()
 	{
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
-		$sql = 'UPDATE clientes SET clave = ? WHERE id_cliente = ?';
+		$sql = 'UPDATE clientes SET clave_cliente = ? WHERE id_cliente = ?';
 		$params = array($hash, $this->id);
 		return Conexion::executeRow($sql, $params);
 	}
+
+	public function updateToken()
+	{
+		$sql = 'UPDATE clientes SET Token_cliente = ? WHERE Correo_cliente = ?';
+		$params = array($this->token, $this->correo);
+		return Conexion::executeRow($sql, $params);
+	}
+
+	public function getDatosToken()
+	{
+		$sql = 'SELECT id_cliente, Nombre_cliente, Apellido_cliente, Usuario_cliente, Correo_cliente FROM clientes WHERE Token_cliente = ?';
+		$params = array($this->token);
+		$data = Conexion::getRow($sql, $params);
+		if ($data) {
+			$this->id = $data['id_cliente'];
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	//Metodos para manejar el CRUD
 	public function readClientes()
 	{
