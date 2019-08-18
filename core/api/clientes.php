@@ -292,16 +292,21 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                 break;
                 case 'register':
                 $_POST = $cliente->validateForm($_POST);
+                $captcha = $_POST['g-recaptcha-response'];
                 if ($cliente->setNombres($_POST['nombres'])) {
                     if ($cliente->setApellidos($_POST['apellidos'])) {
                         if ($cliente->setCorreo($_POST['correo'])) {
                             if ($cliente->setUsuario($_POST['alias'])) {
                                 if ($_POST['clave1'] == $_POST['clave2']) {
                                     if ($cliente->setClave($_POST['clave1'])) {
-                                        if ($cliente->createClientes()) {
-                                            $result['status'] = 1;
+                                        if(!$captcha){
+                                            $result['exception'] = 'Verifica el captcha';
                                         } else {
-                                            $result['exception'] = 'Operación fallida';
+                                            if ($cliente->createClientes()) {
+                                                $result['status'] = 1;
+                                            } else {
+                                                $result['exception'] = 'Operación fallida';
+                                            }  
                                         }
                                     } else {
                                         $result['exception'] = 'Clave menor a 6 caracteres';

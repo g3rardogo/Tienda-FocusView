@@ -5,10 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard - '.$title.' </title>
+    <title>Registrarse</title>
 
     <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../resources/css/login.css">
+    <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+    <script>
+        grecaptcha.ready(function () {
+            grecaptcha.execute('reCAPTCHA_site_key', {
+                action: 'homepage'
+            }).then(function (token) {
+                ...
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -16,7 +26,7 @@
         <div class="row">
             <div class="col-md-3 col-lg-3"></div>
             <div class="col-sm-12 col-md-6 col-lg-6">
-                <div class="card ">
+                <div class="card">
                     <h1 class="text-center">CREAR CUENTA NUEVA</h1>
                     <br>
                     <form method="post" id="form-register">
@@ -38,8 +48,16 @@
                         <input type="password" id="clave2" name="clave2" class="form-control"
                             placeholder="Confirmar Clave" required autofocus>
                         <br>
-                        <button class="btn btn-secondary btn-signin" data-tooltip="Registrar"
-                            type="button" href="index.php">Cancelar</button>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+                                <div class="g-recaptcha" data-sitekey="6LfZ47IUAAAAAK5jOW7tdS61gVKpABlzqA104uCu"></div>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                        <br>
+                        <button class="btn btn-secondary btn-signin" data-tooltip="Registrar" type="button"
+                            href="index.php">Cancelar</button>
                         <button class="btn btn-primary btn-signin tooltipped" data-tooltip="Registrar"
                             type="submit">Registrarse</button>
                     </form>
