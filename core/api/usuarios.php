@@ -10,6 +10,23 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
     $result = array('status' => 0, 'exception' => '');
     //Se verifica si existe una sesión iniciada como administrador para realizar las operaciones correspondientes
     if (isset($_SESSION['idUsuario']) && $_GET['site'] == 'private') {
+        if(isset($_SESSION['tiempo']) ) {
+            $inactivo = 5;
+            $vida_session = time() - $_SESSION['tiempo'];
+
+            if($vida_session > $inactivo)
+                {
+                    session_unset();
+                    session_destroy();   
+                    $result['sesion'] = 0;
+                    exit();
+                } else { 
+                    $_SESSION['tiempo'] = time();
+                }
+        } else {
+            $_SESSION['tiempo'] = time();
+        }
+
         switch ($_GET['action']) {
             case 'logout':
                 if (session_destroy()) {

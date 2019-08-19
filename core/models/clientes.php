@@ -269,6 +269,7 @@ class Clientes extends Validator
 
 	public function getDatosToken()
 	{
+		echo($this->token);
 		$sql = 'SELECT id_cliente, Nombre_cliente, Apellido_cliente, Usuario_cliente, Correo_cliente FROM clientes WHERE Token_cliente = ?';
 		$params = array($this->token);
 		$data = Conexion::getRow($sql, $params);
