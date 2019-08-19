@@ -355,7 +355,6 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                     if($cliente->checkCorreo()){
                         $correo = $cliente->getCorreo();
                         $token = uniqid();
-                        echo($token);
                         $cliente->setToken($token);
                         $cliente->updateToken();
                         try {                                     
