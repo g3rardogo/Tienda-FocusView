@@ -52,8 +52,8 @@ Dashboard::headerTemplate('Productos');
                             <i class="fa fa-list"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="create_nombre" type="text" name="create_nombre" class="form-control validate"
-                                placeholder="Nombre" required>
+                            <input id="create_nombre" type="text" name="create_nombre" autocomplete="off"
+                                class="form-control validate" placeholder="Nombre" required>
                         </div>
                     </div>
                 </div>
@@ -63,8 +63,9 @@ Dashboard::headerTemplate('Productos');
                             <i class="fa fa-dollar-sign"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="create_precio" type="number" name="create_precio" class="form-control validate"
-                                max="999.99" min="0.01" step="any" placeholder="Precio" required>
+                            <input id="create_precio" type="number" name="create_precio" autocomplete="off"
+                                class="form-control validate" max="999.99" min="0.01" step="any" placeholder="Precio"
+                                required>
                         </div>
                     </div>
                 </div>
@@ -74,7 +75,7 @@ Dashboard::headerTemplate('Productos');
                             <i class="fa fa-file-alt"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="create_descripcion" type="text" name="create_descripcion"
+                            <input id="create_descripcion" type="text" name="create_descripcion" autocomplete="off"
                                 class="form-control validate" placeholder="Descripción" required />
                         </div>
                     </div>
@@ -97,7 +98,8 @@ Dashboard::headerTemplate('Productos');
                         </div>
                         <div class="col-sm-11">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="create_archivo" name="create_archivo">
+                                <input type="file" class="custom-file-input" id="create_archivo" autocomplete="off"
+                                    name="create_archivo">
                                 <label class="custom-file-label" for="create_archivo">Choose file</label>
                             </div>
                         </div>
@@ -111,7 +113,7 @@ Dashboard::headerTemplate('Productos');
                         <div class="col-sm-11">
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" class="custom-control-input" id="create_estado"
-                                    name="create_estado">
+                                    autocomplete="off" name="create_estado">
 
                                 <label class="custom-control-label" for="create_estado"><i
                                         class="fa fa-eye"></i></label>
@@ -147,8 +149,8 @@ Dashboard::headerTemplate('Productos');
                             <input type="hidden" id="imagen_producto" name="imagen_producto" />
                             <input id="id_producto" type="hidden" name="id_producto" class="form-control validate"
                                 placeholder="Nombre" required>
-                            <input id="update_nombre" type="text" name="update_nombre" class="form-control validate"
-                                required>
+                            <input id="update_nombre" type="text" autocomplete="off" name="update_nombre"
+                                class="form-control validate" required>
                         </div>
                     </div>
                 </div>
@@ -158,8 +160,8 @@ Dashboard::headerTemplate('Productos');
                             <i class="fa fa-dollar-sign"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="update_precio" type="number" name="update_precio" class="form-control validate"
-                                max="999.99" min="0.01" step="any" required>
+                            <input id="update_precio" type="number" autocomplete="off" name="update_precio"
+                                class="form-control validate" max="999.99" min="0.01" step="any" required>
                         </div>
                     </div>
                 </div>
@@ -169,7 +171,7 @@ Dashboard::headerTemplate('Productos');
                             <i class="fa fa-file-alt"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="update_descripcion" type="text" name="update_descripcion"
+                            <input id="update_descripcion" type="text" autocomplete="off" name="update_descripcion"
                                 class="form-control validate" required />
                         </div>
                     </div>
@@ -180,7 +182,8 @@ Dashboard::headerTemplate('Productos');
                             <i class="fa fa-box-open"></i>
                         </div>
                         <div class="col-sm-11">
-                            <select id="update_categoria" name="update_categoria" class="form-control">
+                            <select id="update_categoria" autocomplete="off" name="update_categoria"
+                                class="form-control">
                             </select>
                         </div>
                     </div>

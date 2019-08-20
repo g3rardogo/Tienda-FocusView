@@ -15,10 +15,10 @@
         <img src="../../resources/img/FocusViewPng.png" class="img-fluid">
         <form method="post" id="form-sesion">
             <span id="reauth-email" class="reauth-email"></span>
-            <input type="text" id="usuario" name="usuario" class="validate form-control" placeholder="Usuario" required
+            <input type="text" id="usuario" name="usuario" class="validate form-control" placeholder="Usuario" autocomplete="off" required
                 autofocus>
             <br>
-            <input type="password" id="clave" name="clave" class="validate form-control" placeholder="Contraseña"
+            <input type="password" id="clave" name="clave" class="validate form-control" autocomplete="off" placeholder="Contraseña"
                 required autofocus>
             <br>
             <button class="btn btn-lg btn-primary btn-block btn-signin tooltipped" data-tooltip="Ingresar"

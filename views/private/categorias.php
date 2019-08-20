@@ -65,7 +65,7 @@ Dashboard::headerTemplate('Categorías');
                         </div>
                         <div class="col-sm-11">
                             <input id="create_descripcion" type="text" name="create_descripcion"
-                                class="form-control validate" placeholder="Descripción" required />
+                                class="form-control validate" autocomplete="off" placeholder="Descripción" required />
                         </div>
                     </div>
                 </div>
@@ -75,13 +75,15 @@ Dashboard::headerTemplate('Categorías');
                             <i class="fa fa-image"></i>
                         </div>
                         <div class="custom-file col s11 m6">
-                            <input type="file" class="custom-file-input" id="create_archivo" name="create_archivo">
+                            <input type="file" class="custom-file-input" autocomplete="off" id="create_archivo"
+                                name="create_archivo">
                             <label class="custom-file-label" for="create_archivo">Choose file</label>
                         </div>
                     </div>
                 </div>
                 <div class="modal-body text-center">
-                    <button type="button" class="btn btn-secondary tooltipped" data-tooltip="Cancelar" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-secondary tooltipped" data-tooltip="Cancelar"
+                        data-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary tooltipped" data-tooltip="Crear">Aceptar</button>
                 </div>
             </form>
@@ -99,7 +101,7 @@ Dashboard::headerTemplate('Categorías');
                 </button>
             </div>
             <form method="post" id="form-update" enctype="multipart/form-data">
-                <input type="hidden" id="id_categoria" name="id_categoria" />
+                <input type="hidden" id="id_categoria" name="id_categoria" autocomplete="off" />
                 <input type="hidden" id="imagen_categoria" name="imagen_categoria" />
                 <div class="modal-body">
                     <div class="row">
@@ -107,8 +109,8 @@ Dashboard::headerTemplate('Categorías');
                             <i class="fa fa-hashtag"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="update_nombre" type="text" name="update_nombre" class="form-control validate"
-                                required>
+                            <input id="update_nombre" type="text" name="update_nombre" autocomplete="off"
+                                class="form-control validate" required>
                         </div>
                     </div>
                 </div>
@@ -119,7 +121,7 @@ Dashboard::headerTemplate('Categorías');
                         </div>
                         <div class="col-sm-11">
                             <input id="update_descripcion" type="text" name="update_descripcion"
-                                class="form-control validate">
+                                class="form-control validate" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -129,13 +131,15 @@ Dashboard::headerTemplate('Categorías');
                             <i class="fa fa-image"></i>
                         </div>
                         <div class="custom-file col s11 m6">
-                            <input type="file" class="custom-file-input" id="update_archivo" name="update_archivo">
+                            <input type="file" class="custom-file-input" autocomplete="off" id="update_archivo"
+                                name="update_archivo">
                             <label class="custom-file-label" for="create_archivo">Choose file</label>
                         </div>
                     </div>
                 </div>
                 <div class="modal-body text-center">
-                    <button type="button" class="btn btn-secondary tooltipped" data-tooltip="Cancelar" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-secondary tooltipped" data-tooltip="Cancelar"
+                        data-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary tooltipped" data-tooltip="Modificar">Aceptar</button>
                 </div>
             </form>

@@ -14,7 +14,7 @@
     <div class="card card-container text-center">
         <img src="../../resources/img/FocusViewPng.png" class="img-fluid">
         <form method="post" id="form-recuperar-contrasena">
-            <input type="email" id="correo" name="correo" class="form-control" placeholder="Ingrese su correo" required
+            <input type="email" id="correo" name="correo" class="form-control" placeholder="Ingrese su correo" autocomplete="off" required
                 autofocus>
             <br>
             <button class="btn btn-primary btn-signin btn-block" type="submit">Recuperar contraseña</button>

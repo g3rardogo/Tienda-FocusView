@@ -31,21 +31,21 @@
                     <br>
                     <form method="post" id="form-register">
                         <input type="text" id="nombres" name="nombres" class="form-control" placeholder="Nombre"
-                            required autofocus>
+                            autocomplete="off" required autofocus>
                         <br>
                         <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Apellidos"
-                            required autofocus>
+                            autocomplete="off" required autofocus>
                         <br>
-                        <input type="text" id="correo" name="correo" class="form-control" placeholder="Correo" required
-                            autofocus>
+                        <input type="text" id="correo" name="correo" class="form-control" placeholder="Correo"
+                            autocomplete="off" required autofocus>
                         <br>
-                        <input type="text" id="alias" name="alias" class="form-control" placeholder="Usuario" required
-                            autofocus>
+                        <input type="text" id="alias" name="alias" class="form-control" placeholder="Usuario"
+                            autocomplete="off" required autofocus>
                         <br>
-                        <input type="password" id="clave1" name="clave1" class="form-control" placeholder="Clave"
-                            required autofocus>
+                        <input type="password" id="clave1" name="clave1" class="form-control" autocomplete="off"
+                            placeholder="Clave" required autofocus>
                         <br>
-                        <input type="password" id="clave2" name="clave2" class="form-control"
+                        <input type="password" id="clave2" name="clave2" autocomplete="off" class="form-control"
                             placeholder="Confirmar Clave" required autofocus>
                         <br>
                         <div class="row">

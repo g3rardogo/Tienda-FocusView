@@ -53,7 +53,7 @@ Dashboard::headerTemplate('Clientes');
                             <i class="fa fa-user"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="create_nombres" name="create_nombres" type="text" placeholder="Nombres" class="form-control validate" required>
+                            <input id="create_nombres" name="create_nombres" type="text" autocomplete="off" placeholder="Nombres" class="form-control validate" required>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@ Dashboard::headerTemplate('Clientes');
                             <i class="fa fa-user"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="create_apellidos" name="create_apellidos" type="text" placeholder="Apellidos" class="form-control validate" required>
+                            <input id="create_apellidos" name="create_apellidos" type="text" autocomplete="off" placeholder="Apellidos" class="form-control validate" required>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@ Dashboard::headerTemplate('Clientes');
                             <i class="fa fa-user-shield"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="create_alias" name="create_alias" type="text" placeholder="Nombre De Usuario" class="form-control validate" required>
+                            <input id="create_alias" name="create_alias" type="text" autocomplete="off" placeholder="Nombre De Usuario" class="form-control validate" required>
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ Dashboard::headerTemplate('Clientes');
                             <i class="fa fa-envelope"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="create_correo" name="create_correo" class="form-control" type="email" placeholder="Correo" required>
+                            <input id="create_correo" name="create_correo" autocomplete="off" class="form-control" type="email" placeholder="Correo" required>
                         </div>
                     </div>
                 </div>
@@ -93,7 +93,7 @@ Dashboard::headerTemplate('Clientes');
                             <i class="fa fa-lock"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="create_clave1" name="create_clave1" type="password" class="form-control validate" required
+                            <input id="create_clave1" name="create_clave1" autocomplete="off" type="password" class="form-control validate" required
                                 placeholder="Contraseña">
                         </div>
                     </div>
@@ -104,7 +104,7 @@ Dashboard::headerTemplate('Clientes');
                             <i class="fa fa-lock"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="create_clave2" name="create_clave2" type="password" class="form-control validate" required
+                            <input id="create_clave2" name="create_clave2" type="password" autocomplete="off" class="form-control validate" required
                                 placeholder="Repetir contraseña">
                         </div>
                     </div>
@@ -135,7 +135,7 @@ Dashboard::headerTemplate('Clientes');
                         </div>
                         <div class="col-sm-11">
                             <input type="hidden" id="id_cliente" name="id_cliente"/>
-                            <input id="update_nombres" name="update_nombres" type="text" class="form-control validate" required>
+                            <input id="update_nombres" name="update_nombres" type="text" autocomplete="off" class="form-control validate" required>
                         </div>
                     </div>
                 </div>
@@ -145,7 +145,7 @@ Dashboard::headerTemplate('Clientes');
                             <i class="fa fa-user"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="update_apellidos" name="update_apellidos" type="text" class="form-control validate" required>
+                            <input id="update_apellidos" name="update_apellidos" type="text" autocomplete="off" class="form-control validate" required>
                         </div>
                     </div>
                 </div>
@@ -155,7 +155,7 @@ Dashboard::headerTemplate('Clientes');
                             <i class="fa fa-user-shield"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="update_alias" name="update_alias" type="text" class="form-control validate" required>
+                            <input id="update_alias" name="update_alias" type="text" autocomplete="off" class="form-control validate" required>
                         </div>
                     </div>
                 </div>
@@ -165,7 +165,7 @@ Dashboard::headerTemplate('Clientes');
                             <i class="fa fa-envelope"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="update_correo" name="update_correo" class="form-control" type="email" required>
+                            <input id="update_correo" name="update_correo" class="form-control" autocomplete="off" type="email" required>
                         </div>
                     </div>
                 </div>

@@ -20,26 +20,26 @@
                     <h1 class="text-center">REGISTRAR PRIMER USUARIO</h1>
                     <br>
                     <form method="post" id="form-register">
-                        <input type="text" id="nombres" name="nombres" class="form-control" placeholder="Nombre"
-                            required autofocus>
+                        <input type="text" id="nombres" name="nombres" class="form-control" autocomplete="off"
+                            placeholder="Nombre" required autofocus>
                         <br>
-                        <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Apellidos"
-                            required autofocus>
+                        <input type="text" id="apellidos" name="apellidos" class="form-control" autocomplete="off"
+                            placeholder="Apellidos" required autofocus>
                         <br>
-                        <input type="text" id="correo" name="correo" class="form-control" placeholder="Correo"
-                            required autofocus>
+                        <input type="text" id="correo" name="correo" class="form-control" autocomplete="off"
+                            placeholder="Correo" required autofocus>
                         <br>
-                        <input type="text" id="alias" name="alias" class="form-control" placeholder="Usuario"
-                            required autofocus>
+                        <input type="text" id="alias" name="alias" class="form-control" autocomplete="off"
+                            placeholder="Usuario" required autofocus>
                         <br>
-                        <input type="password" id="clave1" name="clave1" class="form-control" placeholder="Clave" required
-                            autofocus>
+                        <input type="password" id="clave1" name="clave1" class="form-control" autocomplete="off"
+                            placeholder="Clave" required autofocus>
                         <br>
-                        <input type="password" id="clave2" name="clave2" class="form-control"
+                        <input type="password" id="clave2" name="clave2" class="form-control" autocomplete="off"
                             placeholder="Confirmar Clave" required autofocus>
                         <br>
                         <button class="btn btn-lg btn-primary btn-signin" type="submit"
-                        data-tooltip="Registrar">Registrarse</button>
+                            data-tooltip="Registrar">Registrarse</button>
                     </form>
                 </div>
             </div>

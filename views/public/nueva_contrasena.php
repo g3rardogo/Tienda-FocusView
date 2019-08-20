@@ -14,10 +14,10 @@
     <div class="card card-container text-center">
         <img src="../../resources/img/FocusViewPng.png" class="img-fluid">
         <form method="post" id="form-nueva-contrasena">
-            <input type="password" id="nueva_contrasena" name="nueva_contrasena" class="form-control" placeholder="Contraseña nueva" required
+            <input type="password" id="nueva_contrasena" name="nueva_contrasena" autocomplete="off" class="form-control" placeholder="Contraseña nueva" required
                 autofocus>
             <br>
-            <input type="password" id="nueva_contrasena2" name="nueva_contrasena2" class="form-control" placeholder="Repetir contraseña" required
+            <input type="password" id="nueva_contrasena2" name="nueva_contrasena2" autocomplete="off" class="form-control" placeholder="Repetir contraseña" required
                 autofocus>
             <br>
             <button class="btn btn-primary btn-signin btn-block" type="submit">CONTINUAR</button>
