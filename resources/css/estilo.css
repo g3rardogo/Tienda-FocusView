@@ -63,6 +63,7 @@ body {
   position: relative;
   transition: all 0.3s ease-in-out 0s;
   width: 80px;
+  
 }
 .circle-tile-heading .fa {
   line-height: 80px;
