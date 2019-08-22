@@ -1,7 +1,12 @@
 //Constante para establecer la ruta y parámetros de comunicación con la API
 const apiSesion = '../../core/api/clientes.php?site=private&action=';
 
-
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
 //Función para validar el usuario al momento de iniciar sesión
 $('#form-sesion').submit(function()
 {
@@ -62,12 +67,18 @@ $('#form-recuperar-contrasena').submit(function()
 })
 
 $('#form-nueva-contrasena').submit(function()
-{
-    event.preventDefault();
+{   event.preventDefault();
+    var token = getParameterByName('token');
+    console.log(token);
+    var password1 = $('#nueva_contrasena').val(), password2 = $('#nueva_contrasena2').val();
     $.ajax({
         url: apiSesion + 'nuevaPassword',
         type: 'post',
-        data: $('#form-nueva-contrasena').serialize(),
+        data: {
+            token: token,
+            nueva_contrasena: password1,
+            nueva_contrasena2: password2
+        },
         datatype: 'json'
     })
     .done(function(response){

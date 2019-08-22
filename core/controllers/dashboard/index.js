@@ -238,6 +238,46 @@ $('#form-sesion').submit(function()
                 sweetAlert(1, 'Autenticación correcta', 'inicio.php');
             } else {
                 sweetAlert(2, dataset.exception, null);
+                /* if(cuenta < 3){
+                    cuenta = cuenta + 1;
+                    sweetAlert(2, 'Contraseña incorrecta, Intento ' + cuenta, null);
+                } else {
+                    if (cuenta >= 3){
+                       bloquear(); 
+                       if(cuenta2 = 3){
+                        cuenta = 3;
+                       }
+                    }
+                    
+                } */
+            }
+        }
+    })
+    .fail(function(jqXHR){
+        //Se muestran en consola los posibles errores de la solicitud AJAX
+        console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
+    });
+})
+
+function bloquear()
+{
+    event.preventDefault();
+    $.ajax({
+        url: apiSesion + 'bloquear',
+        type: 'post',
+        data: null,
+        datatype: 'json'
+    })
+    .done(function(response){
+        //Se verifica si la respuesta de la API es una cadena JSON, sino se muestra el resultado en consola
+        if (isJSONString(response)) {
+            const dataset = JSON.parse(response);
+            //Se comprueba si la respuesta es satisfactoria, sino se muestra la excepción
+            if (dataset.status) {
+                cuenta = 3;
+                sweetAlert(2, 'Su usuario ha sido bloqueado por 24 horas', null);
+            } else {
+                sweetAlert(2, dataset.exception, null);
             }
         } else {
             console.log(response);
@@ -247,4 +287,4 @@ $('#form-sesion').submit(function()
         //Se muestran en consola los posibles errores de la solicitud AJAX
         console.log('Error: ' + jqXHR.status + ' ' + jqXHR.statusText);
     });
-})
+}

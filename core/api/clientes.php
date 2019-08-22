@@ -355,30 +355,37 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                     if($cliente->checkCorreo()){
                         $correo = $cliente->getCorreo();
                         $token = uniqid();
-                        $cliente->setToken($token);
-                        $cliente->updateToken();
-                        try {                                     
-                            $mail->isSMTP();                                            // Set mailer to use SMTP
-                            $mail->Host       = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
-                            $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-                            $mail->Username   = 'test503sv@gmail.com';                             // SMTP username
-                            $mail->Password   = '71096669';                               // SMTP password
-                            $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
-                            $mail->Port       = 587;                                    // TCP port to connect to
-                        
-                            //Recipients
-                            $mail->setFrom('test503sv@gmail.com', 'FocusView - Recuperar contraseña');
-                            $mail->addAddress($correo);
-                            // Content
-                            $mail->isHTML(true);                                  // Set email format to HTML
-                            $mail->Subject = 'Recuperar contraseña';
-                            $mail->Body    = 'Haga click <a href="http://localhost/Tienda-FocusView/views/public/nueva_contrasena.php?token='.$token.'">aqui</a> para recuperar su contraseña';
-                        
-                            $mail->send();
-                            $result['status'] = 1;
-                        } catch (Exception $e) {
-                            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                        if($cliente->setToken($token)){
+                            if($cliente->updateToken()){
+                                try {
+                                $mail->isSMTP();                                            // Set mailer to use SMTP
+                                $mail->Host       = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
+                                $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+                                $mail->Username   = 'test503sv@gmail.com';                             // SMTP username
+                                $mail->Password   = '71096669';                             // SMTP password
+                                $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
+                                $mail->Port       = 587;
+                                //Recipients
+                                $mail->setFrom('test503sv@gmail.com', 'FocusView - Recuperar contraseña');
+                                $mail->addAddress($correo);
+                                // Content
+                                $mail->isHTML(true);                                  // Set email format to HTML
+                                $mail->Subject = 'Recuperar contraseña';
+                                $mail->Body    = 'Haga click <a href="http://localhost/Tienda-FocusView/views/public/nueva_contrasena.php?token='.$token.'">aqui</a> para recuperar su contraseña';
+                            
+                                $mail->send();
+                                $result['status'] = 1;
+                                } catch (Exception $e) {
+                                    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                                }
+                            } else{
+                                $result['exception'] = 'Error al actualizar el token';
+                            }
+                            
+                        } else {
+                            $result['exception'] = 'Error al setear el token';
                         }
+                        
                     } else{
                         $result['exception'] = 'El correo no coincide con ningún usuario';
                     }
@@ -388,24 +395,29 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                 break;
                 case 'nuevaPassword':
                 $_POST = $cliente->validateForm($_POST);
-                if($cliente->getDatosToken()){
-                    if ($_POST['nueva_contrasena'] == $_POST['nueva_contrasena2']) {
-                        if ($cliente->setClave($_POST['nueva_contrasena'])) {
-                            if ($cliente->changePassword()) {
-                                $result['status'] = 1;
+                if($cliente->setToken($_POST['token'])){
+                    if($cliente->getDatosToken()){
+                        if ($_POST['nueva_contrasena'] == $_POST['nueva_contrasena2']) {
+                            if ($cliente->setClave($_POST['nueva_contrasena'])) {
+                                if ($cliente->changePassword()) {
+                                    $result['status'] = 1;
+                                } else {
+                                    $result['exception'] = 'Operación fallida';
+                                }
                             } else {
-                                $result['exception'] = 'Operación fallida';
+                                $result['exception'] = 'Clave menor a 6 caracteres';
                             }
                         } else {
-                            $result['exception'] = 'Clave menor a 6 caracteres';
-                        }
+                            $result['exception'] = 'Claves diferentes';
+                            
+                        } 
                     } else {
-                        $result['exception'] = 'Claves diferentes';
-                        
-                    } 
+                        $result['exception'] = 'Error al obtener los datos del usuario';
+                    }
                 } else {
-                    $result['exception'] = 'Error al obtener los datos del usuario';
+                    $result['exception'] = 'Error al setear el token';
                 }
+                
                 break;
 
 			default:

@@ -114,6 +114,36 @@ class Usuarios extends Validator
 		}
 	}
 
+	public function checkEstado()
+	{
+		$sql = 'SELECT id_usuario FROM usuarios WHERE Estado_usuario = 1 AND Nombre_Usuario = ? AND Bloqueo < 3';
+		$params = array($this->nombre_usuario);
+		return Conexion::getRow($sql, $params);
+	}
+
+	public function sumarBloqueo()
+	{
+		$sql = 'UPDATE usuarios SET Bloqueo = Bloqueo + 1 WHERE Nombre_Usuario = ?';
+		$params = array($this->nombre_usuario);
+		return Conexion::executeRow($sql, $params);
+	}
+
+	public function checkBloqueo()
+	{
+		$sql = 'SELECT id_usuario FROM usuarios WHERE Nombre_Usuario = ? AND Bloqueo < 3';
+		$params = array($this->nombre_usuario);
+		return Conexion::getRow($sql, $params);
+	}
+
+	public function bloquearUsuario()
+	{
+		$sql = 'UPDATE usuarios SET Estado_usuario = 0 WHERE Nombre_Usuario = ?';
+		$params = array($this->nombre_usuario);
+		return Conexion::executeRow($sql, $params);
+		$hora = date("h:i:s");
+		echo($hora);
+	}
+
 	public function checkPassword()
 	{
 		$sql = 'SELECT Clave FROM usuarios WHERE id_usuario = ?';
@@ -131,6 +161,13 @@ class Usuarios extends Validator
 		$hash = password_hash($this->clave, PASSWORD_DEFAULT);
 		$sql = 'UPDATE usuarios SET clave = ? WHERE id_usuario = ?';
 		$params = array($hash, $this->id);
+		return Conexion::executeRow($sql, $params);
+	}
+
+	public function bloquearAccount()
+	{
+		$sql = 'UPDATE usuarios SET Estado_usuario = 0';
+		$params = array(null);
 		return Conexion::executeRow($sql, $params);
 	}
 

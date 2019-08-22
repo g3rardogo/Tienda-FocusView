@@ -113,6 +113,7 @@ class Clientes extends Validator
 	public function setToken($value)
 	{
 		 $this->token = $value;
+		 return true;
 	}
 
 	public function getToken()
@@ -279,7 +280,6 @@ class Clientes extends Validator
 			return false;
 		}
 	}
-
 	//Metodos para manejar el CRUD
 	public function readClientes()
 	{

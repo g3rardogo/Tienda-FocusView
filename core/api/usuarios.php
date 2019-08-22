@@ -263,13 +263,25 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                     if ($usuario->checkNombre_Usuario()) {
                         if ($usuario->setClave($_POST['clave'])) {
                             if ($usuario->checkPassword()) {
-                                $_SESSION['nombreUsuario'] = $usuario->getNombre_usuario();
-                                $_SESSION['idUsuario'] = $usuario->getId();
-                                $_SESSION['aliasUsuario'] = $usuario->getNombre_usuario();
-                            
-                                $result['status'] = 1;
+                                if ($usuario->checkEstado()){
+                                    $_SESSION['nombreUsuario'] = $usuario->getNombre_usuario();
+                                    $_SESSION['idUsuario'] = $usuario->getId();
+                                    $_SESSION['aliasUsuario'] = $usuario->getNombre_usuario();
+                                    $result['status'] = 1;
+                                } else {
+                                    $result['exception'] = 'Usuario Bloqueado';
+                                }
                             } else {
-                                $result['exception'] = 'Clave inexistente';
+                                if($usuario->checkBloqueo()){
+                                    $usuario->sumarBloqueo();
+                                    $result['exception'] = 'Clave inexistente';
+                                } else {
+                                    $usuario->bloquearUsuario();
+                                    $result['exception'] = 'Usuario Bloqueado Por 24 horas';
+                                    $hora = time();
+                                    echo($hora);
+                                }
+                                
                             }
                         } else {
                             $result['exception'] = 'Clave menor a 6 caracteres';
@@ -280,6 +292,13 @@ if (isset($_GET['site']) && isset($_GET['action'])) {
                 } else {
                     $result['exception'] = 'Alias incorrecto';
                 }
+                break;
+                case 'bloquear':
+                    if ($usuario->bloquearAccount()) {
+                        $result['status'] = 1;
+                    } else {
+                        $result['exception'] = 'Error al bloquear el usuario';
+                    }
                 break;
             default:
                 exit('Acción no disponible');
