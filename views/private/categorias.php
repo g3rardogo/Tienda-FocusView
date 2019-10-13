@@ -4,7 +4,7 @@ require_once('../../core/helpers/dashboard.php');
 Dashboard::headerTemplate('Categorías');
 ?>
 <div class="container-fluid" id="container">
-    <h1 class="text-center">CATEGORÍAS</h1>
+    <h1 class="text-center">CATEGORIES</h1>
     <div class="row">
         <div class="col-sm-1 col-3">
             <a href="#modal-create" class="btn btn-success tooltipped modal-trigger" data-toggle="modal"
@@ -21,10 +21,10 @@ Dashboard::headerTemplate('Categorías');
             <table class="display" id="tabla-categorias">
                 <thead>
                     <tr>
-                        <th>IMAGEN</th>
-                        <th>NOMBRE</th>
-                        <th>DESCRIPCIÓN</th>
-                        <th>ACCIÓN</th>
+                        <th>IMAGE</th>
+                        <th>NAME</th>
+                        <th>DESCRIPTION</th>
+                        <th>ACTION</th>
                     </tr>
                 </thead>
                 <tbody id="tbody-read">
@@ -41,7 +41,7 @@ Dashboard::headerTemplate('Categorías');
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">AGREGAR CATEGORÍA</h5>
+                <h5 class="modal-title">ADD CATEGORY</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -54,7 +54,7 @@ Dashboard::headerTemplate('Categorías');
                         </div>
                         <div class="col-sm-11">
                             <input id="create_nombre" type="text" name="create_nombre" class=" form-control validate"
-                                placeholder="Nombre" required>
+                                placeholder="Name" required>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ Dashboard::headerTemplate('Categorías');
                         </div>
                         <div class="col-sm-11">
                             <input id="create_descripcion" type="text" name="create_descripcion"
-                                class="form-control validate" placeholder="Descripción" required />
+                                class="form-control validate" placeholder="Description" required />
                         </div>
                     </div>
                 </div>
@@ -81,8 +81,8 @@ Dashboard::headerTemplate('Categorías');
                     </div>
                 </div>
                 <div class="modal-body text-center">
-                    <button type="button" class="btn btn-secondary tooltipped" data-tooltip="Cancelar" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary tooltipped" data-tooltip="Crear">Aceptar</button>
+                    <button type="button" class="btn btn-secondary tooltipped" data-tooltip="Cancelar" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary tooltipped" data-tooltip="Crear">Accept</button>
                 </div>
             </form>
         </div>
@@ -93,7 +93,7 @@ Dashboard::headerTemplate('Categorías');
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">MODIFICAR CATEGORÍA</h5>
+                <h5 class="modal-title">MODIFY CATEGORY</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -135,8 +135,8 @@ Dashboard::headerTemplate('Categorías');
                     </div>
                 </div>
                 <div class="modal-body text-center">
-                    <button type="button" class="btn btn-secondary tooltipped" data-tooltip="Cancelar" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary tooltipped" data-tooltip="Modificar">Aceptar</button>
+                    <button type="button" class="btn btn-secondary tooltipped" data-tooltip="Cancelar" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary tooltipped" data-tooltip="Modificar">Accept</button>
                 </div>
             </form>
         </div>
