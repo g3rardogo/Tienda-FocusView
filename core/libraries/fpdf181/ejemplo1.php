@@ -1,5 +1,5 @@
 <?php
-	include('plantilla.php)';
+	include('plantilla.php');
 	require('../../helpers/Conexion.php');
 	
 	$query = "SELECT Nombre, Apellido, Usuario FROM usuarios";
