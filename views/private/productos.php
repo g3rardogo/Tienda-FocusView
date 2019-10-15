@@ -4,7 +4,7 @@ require_once('../../core/helpers/dashboard.php');
 Dashboard::headerTemplate('Productos');
 ?>
 <div class="container-fluid" id="container">
-    <h1 class="text-center">PRODUCTOS</h1>
+    <h1 class="text-center">PRODUCTS</h1>
     <div class="search-box">
         <div class="row">
             <div class="col-sm-1 col-3">
@@ -19,12 +19,12 @@ Dashboard::headerTemplate('Productos');
                 <table class="display" id="tabla-productos">
                     <thead>
                         <tr>
-                            <th>IMAGEN</th>
-                            <th>NOMBRE</th>
-                            <th>PRECIO (US$)</th>
-                            <th>CATEGORÍA</th>
-                            <th>ESTADO</th>
-                            <th>ACCIÓN</th>
+                            <th>IMAGE</th>
+                            <th>NAME</th>
+                            <th>PRICE (US$)</th>
+                            <th>CATEGORY</th>
+                            <th>STATE</th>
+                            <th>ACTION</th>
                         </tr>
                     </thead>
                     <tbody id="tbody-read">
@@ -40,7 +40,7 @@ Dashboard::headerTemplate('Productos');
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">AGREGAR PRODUCTO</h5>
+                <h5 class="modal-title">ADD PRODUCT</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -53,7 +53,7 @@ Dashboard::headerTemplate('Productos');
                         </div>
                         <div class="col-sm-11">
                             <input id="create_nombre" type="text" name="create_nombre" class="form-control validate"
-                                placeholder="Nombre" required>
+                                placeholder="Name" required>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@ Dashboard::headerTemplate('Productos');
                         </div>
                         <div class="col-sm-11">
                             <input id="create_precio" type="number" name="create_precio" class="form-control validate"
-                                max="999.99" min="0.01" step="any" placeholder="Precio" required>
+                                max="999.99" min="0.01" step="any" placeholder="Price" required>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@ Dashboard::headerTemplate('Productos');
                         </div>
                         <div class="col-sm-11">
                             <input id="create_descripcion" type="text" name="create_descripcion"
-                                class="form-control validate" placeholder="Descripción" required />
+                                class="form-control validate" placeholder="Description" required />
                         </div>
                     </div>
                 </div>
@@ -120,8 +120,8 @@ Dashboard::headerTemplate('Productos');
                     </div>
                 </div>
                 <div class="modal-body text-center">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary tooltipped" data-tooltip="Crear">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary tooltipped" data-tooltip="Crear">Accept</button>
                 </div>
             </form>
         </div>
@@ -132,7 +132,7 @@ Dashboard::headerTemplate('Productos');
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">MODIFICAR PRODUCTO</h5>
+                <h5 class="modal-title">MODIFY PRODUCT</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -146,7 +146,7 @@ Dashboard::headerTemplate('Productos');
                         <div class="col-sm-11">
                             <input type="hidden" id="imagen_producto" name="imagen_producto" />
                             <input id="id_producto" type="hidden" name="id_producto" class="form-control validate"
-                                placeholder="Nombre" required>
+                                placeholder="Name" required>
                             <input id="update_nombre" type="text" name="update_nombre" class="form-control validate"
                                 required>
                         </div>
@@ -214,8 +214,8 @@ Dashboard::headerTemplate('Productos');
                     </div>
                 </div>
                 <div class="modal-body text-center">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary tooltipped" data-tooltip="Modificar">Aceptar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary tooltipped" data-tooltip="Modificar">Accept</button>
                 </div>
             </form>
         </div>

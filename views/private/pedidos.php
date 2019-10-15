@@ -4,17 +4,17 @@ require_once('../../core/helpers/dashboard.php');
 Dashboard::headerTemplate('Pedidos');
 ?>
 <div class="container-fluid" id="container">
-    <h1 class="text-center">PEDIDOS</h1>
+    <h1 class="text-center">ORDERS</h1>
     <br>
     <div class="row">
         <div class="container">
             <table class="display" id="tabla-pedidos">
                 <thead>
                     <tr>
-                        <th>FECHA</th>
-                        <th>CLIENTE</th>
-                        <th>ESTADO</th>
-                        <th>ACCIÓN</th>
+                        <th>DATE</th>
+                        <th>CLIENT</th>
+                        <th>STATE</th>
+                        <th>ACTION</th>
                     </tr>
                 </thead>
                 <tbody id="tbody-read">
@@ -28,7 +28,7 @@ Dashboard::headerTemplate('Pedidos');
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">CAMBIAR ESTADO</h5>
+                <h5 class="modal-title">CHANGE STATUS</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -50,9 +50,9 @@ Dashboard::headerTemplate('Pedidos');
                         </div>
                     </div>
                     <div class="modal-body text-center">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary tooltipped"
-                            data-tooltip="Modificar">Aceptar</button>
+                            data-tooltip="Modificar">Accept</button>
                     </div>
                 </div>
             </form>
@@ -64,7 +64,7 @@ Dashboard::headerTemplate('Pedidos');
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">DETALLE DEL PEDIDO</h5>
+                <h5 class="modal-title">DETAIL OF THE ORDER</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -75,9 +75,9 @@ Dashboard::headerTemplate('Pedidos');
                     <table class="table" id="tabla-detalle">
                         <thead>
                             <tr>
-                                <th>PRODUCTO</th>
-                                <th>CANTIDAD</th>
-                                <th>PRECIO UNITARIO</th>
+                                <th>PRODUCT</th>
+                                <th>QUANTITY</th>
+                                <th>UNIT PRICE</th>
                                 <th>SUBTOTAL</th>
                             </tr>
                         </thead>
@@ -85,7 +85,7 @@ Dashboard::headerTemplate('Pedidos');
                         </tbody>
                     </table>
                     <div class="row text-center">
-                        <h6 class="">TOTAL A PAGAR: $</h6>
+                        <h6 class="">TOTAL TO PAY: $</h6>
                         <h6 id="id_pedido2"> </h6>
                     </div>
                 </div>

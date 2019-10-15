@@ -4,7 +4,7 @@ require_once('../../core/helpers/dashboard.php');
 Dashboard::headerTemplate('Clientes');
 ?>
 <div class="container-fluid" id="container">
-    <h1 class="text-center">CLIENTES</h1>
+    <h1 class="text-center">CLIENTS</h1>
 
     <div class="row">
         <div class="col-sm-1 col-3">
@@ -21,11 +21,11 @@ Dashboard::headerTemplate('Clientes');
             <table class="display" id="tabla-clientes">
                 <thead>
                     <tr>
-                        <th>NOMBRE</th>
-                        <th>APELLIDO</th>
-                        <th>USUARIO</th>
-                        <th>CORREO</th>
-                        <th>ACCIÓN</th>
+                        <th>NAME</th>
+                        <th>LAST NAME</th>
+                        <th>USER</th>
+                        <th>MAIL</th>
+                        <th>ACTION</th>
                     </tr>
                 </thead>
                 <tbody id="tbody-read">
@@ -41,7 +41,7 @@ Dashboard::headerTemplate('Clientes');
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">AGREGAR CLIENTE</h5>
+                <h5 class="modal-title">ADD CLIENT</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -53,7 +53,7 @@ Dashboard::headerTemplate('Clientes');
                             <i class="fa fa-user"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="create_nombres" name="create_nombres" type="text" placeholder="Nombres" class="form-control validate" required>
+                            <input id="create_nombres" name="create_nombres" type="text" placeholder="Name" class="form-control validate" required>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@ Dashboard::headerTemplate('Clientes');
                             <i class="fa fa-user"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="create_apellidos" name="create_apellidos" type="text" placeholder="Apellidos" class="form-control validate" required>
+                            <input id="create_apellidos" name="create_apellidos" type="text" placeholder="Last name" class="form-control validate" required>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@ Dashboard::headerTemplate('Clientes');
                             <i class="fa fa-user-shield"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="create_alias" name="create_alias" type="text" placeholder="Nombre De Usuario" class="form-control validate" required>
+                            <input id="create_alias" name="create_alias" type="text" placeholder="Username" class="form-control validate" required>
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ Dashboard::headerTemplate('Clientes');
                             <i class="fa fa-envelope"></i>
                         </div>
                         <div class="col-sm-11">
-                            <input id="create_correo" name="create_correo" class="form-control" type="email" placeholder="Correo" required>
+                            <input id="create_correo" name="create_correo" class="form-control" type="email" placeholder="Mail" required>
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@ Dashboard::headerTemplate('Clientes');
                         </div>
                         <div class="col-sm-11">
                             <input id="create_clave1" name="create_clave1" type="password" class="form-control validate" required
-                                placeholder="Contraseña">
+                                placeholder="Password">
                         </div>
                     </div>
                 </div>
@@ -105,13 +105,13 @@ Dashboard::headerTemplate('Clientes');
                         </div>
                         <div class="col-sm-11">
                             <input id="create_clave2" name="create_clave2" type="password" class="form-control validate" required
-                                placeholder="Repetir contraseña">
+                                placeholder="Repeat Password">
                         </div>
                     </div>
                 </div>
                 <div class="modal-body text-center">
-                    <button type="button" class="btn btn-secondary tooltipped"  data-tooltip="Cancelar" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary tooltipped" data-tooltip="Crear">Aceptar</button>
+                    <button type="button" class="btn btn-secondary tooltipped"  data-tooltip="Cancelar" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary tooltipped" data-tooltip="Crear">Accept</button>
                 </div>
             </form>
         </div>
@@ -122,7 +122,7 @@ Dashboard::headerTemplate('Clientes');
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">AGREGAR CLIENTE</h5>
+                <h5 class="modal-title">ADD CLIENT</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -170,8 +170,8 @@ Dashboard::headerTemplate('Clientes');
                     </div>
                 </div>
                 <div class="modal-body text-center">
-                    <button type="button" class="btn btn-secondary tooltipped"  data-tooltip="Cancelar" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary tooltipped" data-tooltip="Modificar">Aceptar</button>
+                    <button type="button" class="btn btn-secondary tooltipped"  data-tooltip="Cancelar" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary tooltipped" data-tooltip="Modificar">Accept</button>
                 </div>
             </form>
         </div>

@@ -5,7 +5,7 @@
 ?>
 <div class="container-fluid" id="container">
     <!-- Subiendo la parte de arriba -->
-    <h1 class="text-center">RESUMEN</h1>
+    <h1 class="text-center">Summary</h1>
     <br>
     <div class="row">
         <div class="col-lg-3 col-sm-12">
@@ -14,9 +14,9 @@
                     <div class="circle-tile-heading dark-blue"><i class="fa fa-users fa-fw fa-3x"></i></div>
                 </a>
                 <div class="circle-tile-content dark-blue">
-                    <div class="circle-tile-description text-faded"> Clientes </div>
+                    <div class="circle-tile-description text-faded"> customers </div>
                     <div class="circle-tile-number text-faded ">265</div>
-                    <a class="circle-tile-footer" href="clientes.php">Más información<i
+                    <a class="circle-tile-footer" href="clientes.php">More information<i
                             class="fa fa-chevron-circle-right"></i></a>
                 </div>
             </div>
@@ -28,9 +28,9 @@
                     <div class="circle-tile-heading red"><i class="fa fa-camera fa-fw fa-3x"></i></div>
                 </a>
                 <div class="circle-tile-content red">
-                    <div class="circle-tile-description text-faded"> Productos </div>
+                    <div class="circle-tile-description text-faded"> Products </div>
                     <div class="circle-tile-number text-faded ">10</div>
-                    <a class="circle-tile-footer" href="productos.php">Más información<i
+                    <a class="circle-tile-footer" href="productos.php">More information<i
                             class="fa fa-chevron-circle-right"></i></a>
                 </div>
             </div>
@@ -42,9 +42,9 @@
                     <div class="circle-tile-heading green"><i class="fa fa-list fa-fw fa-3x"></i></div>
                 </a>
                 <div class="circle-tile-content green">
-                    <div class="circle-tile-description text-faded"> Categorías </div>
+                    <div class="circle-tile-description text-faded"> Category </div>
                     <div class="circle-tile-number text-faded ">10</div>
-                    <a class="circle-tile-footer" href="categorias.php">Más información<i
+                    <a class="circle-tile-footer" href="categorias.php">More information<i
                             class="fa fa-chevron-circle-right"></i></a>
                 </div>
             </div>
@@ -58,9 +58,9 @@
                 </a>
 
                 <div class="circle-tile-content orange">
-                    <div class="circle-tile-description text-faded"> Pedidos </div>
+                    <div class="circle-tile-description text-faded"> Orders </div>
                     <div class="circle-tile-number text-faded ">10</div>
-                    <a class="circle-tile-footer" href="pedidos.php">Más información<i
+                    <a class="circle-tile-footer" href="pedidos.php">More information<i
                             class="fa fa-chevron-circle-right"></i></a>
                 </div>
             </div>
@@ -69,7 +69,7 @@
     </div>
     <hr>
     <br>
-    <h1 class="text-center">REPORTES</h1>
+    <h1 class="text-center">Reports</h1>
     <div class="row">
         <div class="col-lg-4 col-sm-12">
             <div class="circle-tile ">
@@ -77,8 +77,8 @@
                     <div class="circle-tile-heading dark-blue"><i class="fa fa-list-alt fa-fw fa-3x"></i></div>
                 </a>
                 <div class="circle-tile-content dark-blue">
-                    <div class="circle-tile-description text-faded"> Productos por categoria </div>
-                    <a class="circle-tile-footer" href="../../core/reportes/reporte1.php">Más información<i
+                    <div class="circle-tile-description text-faded"> Products by category </div>
+                    <a class="circle-tile-footer" href="../../core/reportes/reporte1.php">More information<i
                             class="fa fa-chevron-circle-right"></i></a>
                 </div>
             </div>
@@ -90,8 +90,8 @@
                     <div class="circle-tile-heading red"><i class="fa fa-shopping-bag fa-fw fa-3x"></i></div>
                 </a>
                 <div class="circle-tile-content red">
-                    <div class="circle-tile-description text-faded"> Pedidos por usuario </div>
-                    <a class="circle-tile-footer" href="../../core/reportes/reporte2.php">Más información<i
+                    <div class="circle-tile-description text-faded"> Orders by user </div>
+                    <a class="circle-tile-footer" href="../../core/reportes/reporte2.php">More information<i
                             class="fa fa-chevron-circle-right"></i></a>
                 </div>
             </div>
@@ -103,8 +103,8 @@
                     <div class="circle-tile-heading green"><i class="fa fa-dollar-sign fa-fw fa-3x"></i></div>
                 </a>
                 <div class="circle-tile-content green">
-                    <div class="circle-tile-description text-faded"> Ganancias </div>
-                    <a class="circle-tile-footer" href="../../core/reportes/reporte3.php">Más información<i
+                    <div class="circle-tile-description text-faded"> Earnings </div>
+                    <a class="circle-tile-footer" href="../../core/reportes/reporte3.php">More information<i
                             class="fa fa-chevron-circle-right"></i></a>
                 </div>
             </div>
@@ -118,8 +118,8 @@
                 </a>
 
                 <div class="circle-tile-content orange">
-                    <div class="circle-tile-description text-faded"> Productos más vendidos </div>
-                    <a class="circle-tile-footer" href="../../core/reportes/reporte4.php">Más información<i
+                    <div class="circle-tile-description text-faded"> most selled products </div>
+                    <a class="circle-tile-footer" href="../../core/reportes/reporte4.php">More information<i
                             class="fa fa-chevron-circle-right"></i></a>
                 </div>
             </div>
@@ -136,8 +136,8 @@
                 </a>
 
                 <div class="circle-tile-content gray">
-                    <div class="circle-tile-description text-faded"> Bitácora </div>
-                    <a class="circle-tile-footer" href="../../core/reportes/reporte5.php">Más información<i
+                    <div class="circle-tile-description text-faded"> Binnacle </div>
+                    <a class="circle-tile-footer" href="../../core/reportes/reporte5.php">More information<i
                             class="fa fa-chevron-circle-right"></i></a>
                 </div>
             </div>
@@ -150,31 +150,31 @@
         <div class="container-fluid" id="container">
             <div class="row">
                 <div class="col-lg-6 col-sm-12">
-                    <h4>Grafico de productos por categoria</h4>
+                    <h4>Product chart by category</h4>
                     <canvas id="chart"></canvas>
                 </div>
                 
                 <div class="col-lg-6 col-sm-12">
                 <br><br>
-                    <h4>Grafico de pedidos por cliente</h4>
+                    <h4>Order chart by customer</h4>
                     <canvas id="chart2"></canvas>
                 </div>
                 
                 <div class="col-lg-6 col-sm-12">
                 <br><br>
-                    <h4>Grafico de productos mas pedidos</h4>
+                    <h4>Most requested products chart</h4>
                     <canvas id="chart3"></canvas>
                 </div>
                 <hr>
                 <div class="col-lg-6 col-sm-12">
                     <br><br>
-                    <h4>Grafico de ganancias de productos</h4>
+                    <h4>Product earnings chart</h4>
                     <canvas id="chart4"></canvas>
                 </div>
                 <br><br><br><br><br>
                 <div class="col-lg-12 col-sm-12">
                     <br><br>
-                    <h4>Grafico de producto más caro</h4>
+                    <h4>Most expensive product chart</h4>
                     <canvas id="chart5"></canvas>
                 </div>
             </div>

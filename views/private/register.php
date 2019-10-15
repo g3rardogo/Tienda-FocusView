@@ -17,29 +17,29 @@
             <div class="col-md-3 col-lg-3"></div>
             <div class="col-sm-12 col-md-6 col-lg-6">
                 <div class="card ">
-                    <h1 class="text-center">REGISTRAR PRIMER USUARIO</h1>
+                    <h1 class="text-center">REGISTER FIRST USER</h1>
                     <br>
                     <form method="post" id="form-register">
-                        <input type="text" id="nombres" name="nombres" class="form-control" placeholder="Nombre"
+                        <input type="text" id="nombres" name="nombres" class="form-control" placeholder="Name"
                             required autofocus>
                         <br>
-                        <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Apellidos"
+                        <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Surnames"
                             required autofocus>
                         <br>
-                        <input type="text" id="correo" name="correo" class="form-control" placeholder="Correo"
+                        <input type="text" id="correo" name="correo" class="form-control" placeholder="Mail"
                             required autofocus>
                         <br>
-                        <input type="text" id="alias" name="alias" class="form-control" placeholder="Usuario"
+                        <input type="text" id="alias" name="alias" class="form-control" placeholder="User"
                             required autofocus>
                         <br>
-                        <input type="password" id="clave1" name="clave1" class="form-control" placeholder="Clave" required
+                        <input type="password" id="clave1" name="clave1" class="form-control" placeholder="Password" required
                             autofocus>
                         <br>
                         <input type="password" id="clave2" name="clave2" class="form-control"
-                            placeholder="Confirmar Clave" required autofocus>
+                            placeholder="Confirm Password" required autofocus>
                         <br>
                         <button class="btn btn-lg btn-primary btn-signin" type="submit"
-                        data-tooltip="Registrar">Registrarse</button>
+                        data-tooltip="Registrar">Check in</button>
                     </form>
                 </div>
             </div>

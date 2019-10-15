@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Iniciar Sesión</title>
+    <title>Log in</title>
     <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../resources/css/login.css">
 </head>
@@ -15,13 +15,13 @@
         <img src="../../resources/img/FocusViewPng.png" class="img-fluid">
         <form method="post" id="form-sesion">
             <span id="reauth-email" class="reauth-email"></span>
-            <input type="text" id="usuario" name="usuario" class="validate form-control" placeholder="Usuario" required
+            <input type="text" id="usuario" name="usuario" class="validate form-control" placeholder="User" required
                 autofocus>
                 <br>
-            <input type="password" id="clave" name="clave" class="validate form-control" placeholder="Contraseña" required autofocus>
+            <input type="password" id="clave" name="clave" class="validate form-control" placeholder="Password" required autofocus>
             <br>
-            <button class="btn btn-lg btn-primary btn-block btn-signin tooltipped" data-tooltip="Ingresar"
-                type="submit">Iniciar Sesión</button>
+            <button class="btn btn-lg btn-primary btn-block btn-signin tooltipped" data-tooltip="Log in"
+                type="submit">Log in</button>
         </form>
     </div>
 </body>
