@@ -51,9 +51,19 @@ class Publico
                                     <a class="nav-link" href="#" onclick="signOff()"><i class="fa fa-power-off"></i></a>
                                 </li>
                             </ul>
-            
+            <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown button
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
                         </div><a class="nav-link" href="carrito.php"> <img src="../../resources/img/shopping-cart.png"></a>
                     </div>
+                    
                 </nav>
             </div>
         </div>
@@ -91,6 +101,15 @@ class Publico
                                 </li>
                             </ul>
                         </div><a class="nav-link modal-trigger" href="#modal-password2" data-toggle="modal"> <img src="../../resources/img/shopping-cart.png"> </a>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-dark dropdown-toggle" type="button" id="traslate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Idioma
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="englishOnclick" href="#" onclick="showEn()">EN</a>
+                        <a class="españolOnclick" href="#" onclick="showEs()">ES</a>
+                        </div>
                     </div>
                 </nav>
             <br>
@@ -220,6 +239,7 @@ class Publico
     <script src="../../resources/js/sweetalert.min.js"></script>
     
     <script type="text/javascript" src="../../core/helpers/functions.js"></script>
+    <script type="text/javascript" src="../../core/helpers/traductor.js"></script>
     <script type="text/javascript" src="../../core/controllers/public/account.js"></script>
     <script type="text/javascript" src="../../core/controllers/public/'.$controller.'"></script>
     </body>

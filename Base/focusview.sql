@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-08-2019 a las 05:50:00
+-- Tiempo de generación: 15-10-2019 a las 14:43:13
 -- Versión del servidor: 10.1.37-MariaDB
 -- Versión de PHP: 7.3.1
 
@@ -85,16 +85,19 @@ CREATE TABLE `clientes` (
   `Apellido_cliente` varchar(50) NOT NULL,
   `Usuario_cliente` varchar(20) NOT NULL,
   `Correo_cliente` varchar(100) NOT NULL,
-  `Clave_cliente` varchar(100) NOT NULL
+  `Clave_cliente` varchar(100) NOT NULL,
+  `Token_cliente` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id_cliente`, `Nombre_cliente`, `Apellido_cliente`, `Usuario_cliente`, `Correo_cliente`, `Clave_cliente`) VALUES
-(30, 'Josue', 'Avalos', 'Ezejosue', 'josue@gmail.com', '$2y$10$vBEpHEmMYVP2HKLU3bNQFOBUURyXE8fv9Xs3jL3cwLbmvoOivPCt6'),
-(31, 'Gerardo', 'Javier', 'Gerardo503', 'gerardo@gmail.com', '$2y$10$3uqCdQPQhHn40vBTiKlceOxZPpUeMV6CbJl.lfy5ZMz.MjetrS8Wi');
+INSERT INTO `clientes` (`id_cliente`, `Nombre_cliente`, `Apellido_cliente`, `Usuario_cliente`, `Correo_cliente`, `Clave_cliente`, `Token_cliente`) VALUES
+(30, 'Josue', 'Avalos', 'Ezejosue', 'josue@gmail.com', '$2y$10$vBEpHEmMYVP2HKLU3bNQFOBUURyXE8fv9Xs3jL3cwLbmvoOivPCt6', NULL),
+(31, 'Gerardo', 'Javier', 'Gerardo503', 'gerardogo145@gmail.com', '$2y$10$V9AxT7sNLqCBY6o7CC2Dhe6W/1q5ZnNZHhgQImPIGJpQomMqrS3Ri', '5d63ec851c0ae'),
+(32, 'Gerardo', 'Ramirez', 'Gerardo2', 'gerardo@gmail.com', '$2y$10$2wfeWknIe0Hshyl.wU.aPujJqC0N3XF6JyfM1/BZIYuBe.UesRzo.', '5d5abbfa9c563'),
+(33, 'Josue', 'Ezequiel', 'test', 'dda@hotmail.com', '$2y$10$Q4Sq3e3elwvY/JauWGhiDedxrc6vQPo7KAeLTeE5NlIbI2eXDIpr6', NULL);
 
 -- --------------------------------------------------------
 
@@ -212,15 +215,18 @@ CREATE TABLE `usuarios` (
   `Apellido` varchar(20) DEFAULT NULL,
   `Nombre_Usuario` varchar(20) NOT NULL,
   `Correo` varchar(100) NOT NULL,
-  `Clave` varchar(60) NOT NULL
+  `Clave` varchar(60) NOT NULL,
+  `Estado_usuario` tinyint(4) NOT NULL DEFAULT '1',
+  `Bloqueo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `Nombre`, `Apellido`, `Nombre_Usuario`, `Correo`, `Clave`) VALUES
-(18, 'Gerardo', 'Ramirez', 'Gerardo', 'gerardo@gmail.com', '$2y$10$lGj7vkBOrD0dSLa0CRnhjOE05400DMZBw3GrdAfPvwk5ncwjniV6m');
+INSERT INTO `usuarios` (`id_usuario`, `Nombre`, `Apellido`, `Nombre_Usuario`, `Correo`, `Clave`, `Estado_usuario`, `Bloqueo`) VALUES
+(21, 'Gerardo', 'Ramirez', 'Gerardo', 'gerardogo145@gmail.com', '$2y$10$4Gcn6L7rH7sg.SpzF/Z0LOFFj.Yp13Gv9olcrDbgv9pjCnFMaaiyW', 1, 1),
+(22, 'Josue', 'Ezequiel', 'test', 'dda@hotmail.com', '$2y$10$u2rzlGOnH.aHWP455Hte3.mEYJaFFawmO7HJnYqav0u0cANUMBSzm', 0, 3);
 
 --
 -- Índices para tablas volcadas
@@ -306,7 +312,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_cliente` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_pedido`
@@ -336,7 +342,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_usuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Restricciones para tablas volcadas

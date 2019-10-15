@@ -7,7 +7,7 @@ Publico::headerTemplate('Inicio');
 <!--Esta parte es para otro header-->
 <div id="nosotros" class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Categorías</h1>
+        <h1 class="display-4 lang" key="titulo-categoria">Categorías</h1>
         <p class="lead">Encuentra lo que necesitas organizado por categorías</p>
     </div>
 </div>
