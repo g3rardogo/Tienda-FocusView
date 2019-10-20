@@ -8,7 +8,7 @@ Publico::headerTemplate('Inicio');
 <div id="nosotros" class="jumbotron jumbotron-fluid">
     <div class="container">
         <h1 class="display-4 lang" key="titulo-categoria">Categorías</h1>
-        <p class="lead">Encuentra lo que necesitas organizado por categorías</p>
+        <p class="lead lang" key="Organizar-categoria">Encuentra lo que necesitas organizado por categorías</p>
     </div>
 </div>
 <br><br>
@@ -22,8 +22,8 @@ Publico::headerTemplate('Inicio');
 <br><br><br>
 <div id="nosotros" class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Quienes Somos</h1>
-        <p class="lead">Nuestro equipo de FocusView es completamente increible, hace que todo lo que compres sea de
+        <h1 class="display-4 lang" key="Quienes-somos">Quienes Somos</h1>
+        <p class="lead lang" key="Equipo-inicio">Nuestro equipo de FocusView es completamente increible, hace que todo lo que compres sea de
             una manera unica.</p>
     </div>
 </div>
@@ -37,7 +37,7 @@ Publico::headerTemplate('Inicio');
                 <figcaption>
                     <img src="../../resources/img/eze.jpg" alt="profile-sample4" class="profile" />
                     <h2>Ezequiel Avalos<span>PHP Expert</span></h2>
-                    <p>"La mayoria de personas piensan que no pueden lograr las cosas por si mismos, yo les digo el
+                    <p class="lang" key="Frase-josue">"La mayoria de personas piensan que no pueden lograr las cosas por si mismos, yo les digo el
                         que no arriesga no gana"</p>
 
                 </figcaption>
@@ -48,7 +48,7 @@ Publico::headerTemplate('Inicio');
                 <figcaption>
                     <img src="../../resources/img/gerardo.jpg" alt="profile-sample2" class="profile" />
                     <h2>Gerardo Ramírez<span>PYTHON Expert</span></h2>
-                    <p>"Siempre creí que el exito se alcanza logrando todo lo que te propongas"</p>
+                    <p class="lang" key="Frase-gerardo">"Siempre creí que el exito se alcanza logrando todo lo que te propongas"</p>
 
                 </figcaption>
             </figure>
@@ -58,7 +58,7 @@ Publico::headerTemplate('Inicio');
                 <figcaption>
                     <img src="../../resources/img/carlos.jpg" alt="profile-sample5" class="profile" />
                     <h2>Carlos Quijano<span>JAVASCRIPT Expert</span></h2>
-                    <p>“Las oportunidades no pasan, las creas, He fallado una y otra vez y es por ello que he
+                    <p class="lang" key="Frase-carlos">“Las oportunidades no pasan, las creas, He fallado una y otra vez y es por ello que he
                         tenido éxito”</p>
 
                 </figcaption>

@@ -37,15 +37,15 @@ class Publico
                         <div class="collapse navbar-collapse" id="navbarResponsive">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="inicio.php">Inicio
+                                    <a class="nav-link lang" key="nav-inicio" href="inicio.php">Inicio
                                         <span class="sr-only">(current)</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="quienes_somos.php">Sobre Nosotros</a>
+                                    <a class="nav-link lang" key="nav-sobre" href="quienes_somos.php">Sobre Nosotros</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link modal-trigger" href="#" data-toggle="modal" onclick="modalProfile()">Perfil</a>
+                                    <a class="nav-link modal-trigger lang" key="nav-perfil" href="#" data-toggle="modal" onclick="modalProfile()">Perfil</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#" onclick="signOff()"><i class="fa fa-power-off"></i></a>
@@ -89,15 +89,15 @@ class Publico
                         <div class="collapse navbar-collapse" id="navbarResponsive">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.php">Inicio
+                                    <a class="nav-link lang" key="nav-inicio" href="index.php">Inicio
                                         <span class="sr-only">(current)</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="quienes_somos.php">Sobre Nosotros</a>
+                                    <a class="nav-link lang" key="nav-sobre" href="quienes_somos.php">Sobre Nosotros</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="index.php" class="nav-link">Iniciar Sesión</a>
+                                    <a href="index.php" class="nav-link lang" key="nav-sesion">Iniciar Sesión</a>
                                 </li>
                             </ul>
                         </div><a class="nav-link modal-trigger" href="#modal-password2" data-toggle="modal"> <img src="../../resources/img/shopping-cart.png"> </a>
@@ -129,13 +129,13 @@ class Publico
                 <div class="row text-center text-md-left mt-3 pb-3">
                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4  font-weight-bold">FocusView</h6>
-                        <p>Si realmente eres amante de los deporte entonces compra algo que te dejara recuerdos
+                        <p class="lang" key="footer-desc">Si realmente eres amante de los deporte entonces compra algo que te dejara recuerdos
                             en todo momento y que siempre seras un gran deportista...
                         </p>
                     </div>
                     <hr class="w-100 clearfix d-md-none">
                     <div id="link" class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Productos</h6>
+                        <h6 class="text-uppercase mb-4 font-weight-bold lang" key="footer-productos">Productos</h6>
                         <p>
                             <a href="#!">FocusView Mercury</a>
                         </p>
@@ -150,7 +150,7 @@ class Publico
                     <hr class="w-100 clearfix d-md-none">
                     <!-- Grid column -->
                     <div id="link" class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Links mas usados</h6>
+                        <h6 class="text-uppercase mb-4 font-weight-bold lang" key="footer-links">Links mas usados</h6>
                         <p>
                             <a href="https://www.facebook.com/">Facebook</a>
                         </p>
@@ -168,7 +168,7 @@ class Publico
                     <hr class="w-100 clearfix d-md-none">
                     <!-- Grid column -->
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Contáctenos</h6>
+                        <h6 class="text-uppercase mb-4 font-weight-bold lang" key="footer-contactenos">Contáctenos</h6>
                         <p>
                             <i class="fas fa-home mr-3"></i> San Salvador, SV 10012, ES</p>
                         <p>
