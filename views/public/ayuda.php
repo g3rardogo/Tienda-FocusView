@@ -21,23 +21,24 @@
     <!-- Aqui va la historia de la empresa -->
     <div id="nosotros" class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Ayuda</h1>
-            <p class="lead">En esta seccion vemos las preguntas mas frecuentes que se presentan cuando entras a la
+            <h1 class="display-4 lang" key="help-help">Ayuda</h1>
+            <p class="lead lang" key="help-seccion">En esta seccion vemos las preguntas mas frecuentes que se presentan cuando entras a la
                 pagina.
                 <br><br>
-                <b>¿Como hago para comprar una camara?</b>
+                <b class="lang" key="help-pregunta">¿Como hago para comprar una camara?</b>
                 <br>
                 Respuesta: Nuestra pagina esta hecha para que de una manera simple y sencilla puedas
                 adquirir nuestros productos eficazmente.
                 <br><br>
-                <b>¿Mis productos me llegan a casa?</b>
+                <b class="lang" key="help-pregunta1">¿Mis productos me llegan a casa?</b>
                 <br>
                 Respuesta: Los productos adquiridos te llegan completamente seguros a tu casa en el timepo estimado de
                 compra.
                 <br>
                 <br>
-                <b>¿Que productos cubren la garantia?</b>
+                <b class="lang" key="help-pregunta2">¿Que productos cubren la garantia?</b>
                 <br>
+                <p class="lang" key="help-parrafo">                
                 Respuesta: Todos nuestros productos tienen garantia de un plazo de un mes, si el producto te llega
                 defectuoso, la empresa se hace cargo de hacerte de inmediato un cambio de producto.
                 De acuerdo con el nuestras normas y politicas de la empresa tiene que pasa un procedimiento de revision
@@ -49,16 +50,20 @@
                 Ejemplos de infracción de nuestras políticas:<br><br>
 
                 Un comprador no paga un artículo.<br><br>
+                </p>
+                <p class="lang" key="help-parrafo1">                
                 Se realiza una oferta para completar la transacción fuera de eBay.<br><br>
                 Un usuario envía correo no solicitado (spam) a otro.<br><br>
                 Infracciones de los derechos de propiedad intelectual y marcas registradas.<br><br>
                 Un comprador amenaza con darte una valoración negativa si no cumples determinadas peticiones.
+                </p>
                 <br><br>
-                <b>¿Como hago para comprar una camara?</b>
+                <b class="lang" key="help-pregunta3">¿Como hago para comprar una camara?</b>
                 <br>
+                <p class="lang" key="help-parrafo2">
                 Respuesta: Nuestra pagina esta hecha para que de una manera simple y sencilla puedas
                 adquirir nuestros productos eficazmente.
-
+                </p>
             </p>
         </div>
     </div>
