@@ -27,7 +27,16 @@
             <div class="col-md-3 col-lg-3"></div>
             <div class="col-sm-12 col-md-6 col-lg-6">
                 <div class="card">
-                    <h1 class="text-center">CREAR CUENTA NUEVA</h1>
+                <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="traslate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Idioma
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="englishOnclick" href="#" onclick="showEn()">EN</a>
+                        <a class="españolOnclick" href="#" onclick="showEs()">ES</a>
+                        </div>
+                    </div>
+                    <h1 class="text-center lang" key="register-cuenta">CREAR CUENTA NUEVA</h1>
                     <br>
                     <form method="post" id="form-register">
                         <input type="text" id="nombres" name="nombres" class="form-control" placeholder="Nombre"
@@ -56,9 +65,9 @@
                             <div class="col-md-2"></div>
                         </div>
                         <br>
-                        <button class="btn btn-secondary btn-signin" data-tooltip="Registrar" type="button"
+                        <button class="btn btn-secondary btn-signin lang" data-tooltip="Registrar" type="button" key="register-cancelar"
                             href="index.php">Cancelar</button>
-                        <button class="btn btn-primary btn-signin tooltipped" data-tooltip="Registrar"
+                        <button class="btn btn-primary btn-signin tooltipped lang" data-tooltip="Registrar" key="register-register"
                             type="submit">Registrarse</button>
                     </form>
                 </div>
@@ -71,6 +80,8 @@
     <script src="../../resources/js/jquery.min.js"></script>
     <script src="../../resources/js/sweetalert.min.js"></script>
     <script src="../../resources/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../../core/helpers/traductor.js"></script>
+
 
     <script type="text/javascript" src="../../core/helpers/functions.js"></script>
     <script type="text/javascript" src="../../core/controllers/public/account.js"></script>
