@@ -20,7 +20,7 @@ class Conexion
         $server = 'localhost';
         $db = 'focusview';
         $username = 'root';
-        $password = 'admin';
+        $password = '';
       /*   $username = 'Gerardo';
         $password = 'ckQjmEr9ngiXjPMe'; */
         try {

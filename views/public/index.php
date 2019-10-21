@@ -12,15 +12,16 @@
 
 <body>
     <div class="card card-container">
-    <div class="dropdown">
-                        <button class="btn btn-light dropdown-toggle" type="button" id="traslate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Idioma
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="englishOnclick" href="#" onclick="showEn()">EN</a>
-                        <a class="españolOnclick" href="#" onclick="showEs()">ES</a>
-                        </div>
-                    </div>
+        <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" id="traslate" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Idioma
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="englishOnclick" href="#" onclick="showEn()">EN</a>
+                <a class="españolOnclick" href="#" onclick="showEs()">ES</a>
+            </div>
+        </div>
         <img src="../../resources/img/FocusViewPng.png" class="img-fluid">
         <form method="post" id="form-sesion">
             <span id="reauth-email" class="reauth-email"></span>
