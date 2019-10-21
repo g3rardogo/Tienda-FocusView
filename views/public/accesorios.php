@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../resources/css/estilos.css">
-    <title>Accesorios</title>
+    <title>accessories</title>
 </head>
 
 <body>

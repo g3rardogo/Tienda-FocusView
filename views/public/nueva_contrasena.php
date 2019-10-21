@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Recuperar contraseña</title>
+    <title>Recover password</title>
     <link rel="stylesheet" href="../../resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../resources/css/login.css">
 </head>
@@ -20,7 +20,7 @@
             <input type="password" id="nueva_contrasena2" name="nueva_contrasena2" class="form-control" placeholder="Repetir contraseña" required
                 autofocus>
             <br>
-            <button class="btn btn-primary btn-signin btn-block" type="submit">CONTINUAR</button>
+            <button class="btn btn-primary btn-signin btn-block" type="submit">CONTINUE</button>
         </form>
     </div>
 </body>

@@ -8,19 +8,20 @@
   <div class="container">
     <div class="card shopping-cart">
       <div class="card-header bg-dark text-light">
-        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-        Carrito
+        <i class="fa fa-shopping-cart lang" aria-hidden="true" key="carrito">
+          Carrito
+        </i>
         <div class="clearfix"></div>
       </div>
       <table class="table" id="tabla-detalle">
         <thead>
           <tr>
             <th></th>
-            <th>PRODUCTO</th>
-            <th>CANTIDAD</th>
-            <th>PRECIO UNITARIO</th>
+            <th>PRODUCT</th>
+            <th>QUANTITY</th>
+            <th>UNIT PRICE</th>
             <th>SUBTOTAL</th>
-            <th>ACCIÓN</th>
+            <th>ACTION</th>
           </tr>
         </thead>
         <tbody id="tbody-read">
@@ -34,9 +35,9 @@
         </div>
         <div class="pull-right" style="margin: 10px">
           <div class="pull-right" style="margin: 5px">
-            Total a pagar: $<b id="total"></b>
+          Total to pay: $<b id="total"></b>
           </div>
-          <a href="" onclick="confirmPago() " class="btn btn-success pull-right">CONTINUAR</a>
+          <a href="" onclick="confirmPago() " class="btn btn-success pull-right">Continue</a>
         </div>
       </div>
     </div>

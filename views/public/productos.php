@@ -6,7 +6,7 @@ Publico::headerTemplate('Inicio');
 <!-- Contenido principal: categorías, productos por categoría y detalles del producto -->
 <div class="container">
     <br>
-    <h3>PRODUCTOS</h3>
+    <h3>PRODUCT</h3>
     <div class="row" id="catalogo">
     </div>
 </div>
