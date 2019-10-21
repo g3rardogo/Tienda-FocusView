@@ -38,20 +38,19 @@ class Dashboard
                 <div class="bg-light border-right" id="sidebar-wrapper">
                 <div class="sidebar-heading">FocusView </div>
                 <div class="list-group list-group-flush">
-                    <a href="pedidos.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-envelope"></i>
+                    <a href="pedidos.php" class="list-group-item list-group-item-action bg-light lang" key="menu1"><i class="fa fa-envelope"></i>
                         Pedidos</a>
-                    <a href="productos.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-shopping-cart"></i>
+                    <a href="productos.php" class="list-group-item list-group-item-action bg-light lang"  key="menu2"><i class="fa fa-shopping-cart"></i>
                         Productos</a>
-                    <a href="categorias.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-list"></i>
+                    <a href="categorias.php" class="list-group-item list-group-item-action bg-light lang"  key="menu3"><i class="fa fa-list"></i>
                         Categorías</a>
-                    <a href="clientes.php" class="list-group-item list-group-item-action bg-light"><i class="fa fa-users"></i>
+                    <a href="clientes.php" class="list-group-item list-group-item-action bg-light lang"  key="menu4"><i class="fa fa-users"></i>
                         Clientes</a>
-                    <a class="list-group-item list-group-item-action bg-light nav-link dropdown-toggle" href="usuarios.php"
+                    <a class="list-group-item list-group-item-action bg-light nav-link dropdown-toggle lang"  key="menu5" href="usuarios.php"
                         id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-users-cog"></i> Usuarios </a>
                     <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="usuarios.php">Gestionar usuarios</a>
-                        <a class="dropdown-item" href="tipo-usuarios.php">Tipos de usuario</a>
+                        <a class="dropdown-item lang"  key="menu6" href="usuarios.php">Gestionar usuarios</a>
                     </div>
                 </div>
             </div>
@@ -76,11 +75,22 @@ class Dashboard
                     <i class="fa fa-user"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item tooltipped modal-trigger" href="#" onclick="modalProfile()">Editar perfil</a>
+                    <a class="dropdown-item tooltipped modal-trigger" href="#" onclick="modalProfile()">Edit Profile</a>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item tooltipped modal-trigger" href="#modal-password" data-toggle="modal">Cambiar contraseña</a>
+					<a class="dropdown-item tooltipped modal-trigger" href="#modal-password" data-toggle="modal">Change password</a>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#" onclick="signOff()">Cerrar sesión</a>
+					<a class="dropdown-item" href="#" onclick="signOff()">Log Out</a>
+				</div>
+			</li>
+			<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-globe"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown2">
+                    <a class="dropdown-item tooltipped modal-trigger" href="#" onclick="showEn()">EN</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item tooltipped modal-trigger" href="#" onclick="showEs()">ES</a>
 				</div>
             </li>
         </ul>
@@ -122,13 +132,9 @@ class Dashboard
         <script src="../../resources/js/font-awesome.js"></script>
 		<script src="../../resources/js/bootstrap.bundle.min.js"></script>
 		<script src="../../resources/js/jquery.dataTables.min.js"></script>
-		<script src="../../resources/js/dataTables.bootstrap4.min.js"></script>s
-		
-		
-		
-		
+		<script src="../../resources/js/dataTables.bootstrap4.min.js"></script>
+		<script type="text/javascript" src="../../core/helpers/traductor-dashboard.js"></script>
 		<script src="../../resources/js/sweetalert.min.js"></script>
-
         <script type="text/javascript" src="../../core/helpers/functions.js"></script>
 		<script type="text/javascript" src="../../core/controllers/dashboard/account.js"></script>
 		<script type="text/javascript" src="../../core/controllers/dashboard/'.$controller.'"></script>
@@ -206,8 +212,8 @@ class Dashboard
 								</div>
 							</div>
 								<div class="modal-body text-center">
-                    				<button type="button" class="btn btn-secondary tooltipped" data-tooltip="Cancelar" data-dismiss="modal">Cancelar</button>
-                    				<button type="submit" class="btn btn-primary tooltipped" data-tooltip="Guardar">Guardar</button>
+                    				<button type="button" class="btn btn-secondary tooltipped" data-tooltip="Cancel" data-dismiss="modal">Cancelar</button>
+                    				<button type="submit" class="btn btn-primary tooltipped" data-tooltip="Save">Guardar</button>
                 				</div>
 							</div>
 						</form>
@@ -265,8 +271,8 @@ class Dashboard
 								</div>
 							</div>
 								<div class="modal-body text-center">
-                    				<button type="button" class="btn btn-secondary tooltipped" data-tooltip="Cancelar" data-dismiss="modal">Cancelar</button>
-                    				<button type="submit" class="btn btn-primary tooltipped" data-tooltip="Cambiar">Guardar</button>
+                    				<button type="button" class="btn btn-secondary tooltipped" data-tooltip="Cancel" data-dismiss="modal">Cancelar</button>
+                    				<button type="submit" class="btn btn-primary tooltipped" data-tooltip="Save">Guardar</button>
                 				</div>
 							</div>
 						</form>
